@@ -1,0 +1,696 @@
+{
+    "version": "2024-03",
+    "categories": [
+        "Аналитика продаж",
+        "Маркетинг",
+        "Финансы",
+        "Титульные"
+    ],
+    "slides": [
+        {
+            "id": "AP-01",
+            "name": "Аналитика продаж — обложка",
+            "category": "Титульные",
+            "tags": [
+                "обложка",
+                "титул",
+                "аналитика продаж",
+                "2024"
+            ],
+            "preview": "assets/previews/ap-slide-01.png",
+            "file": "assets/slides/ap-slide-01.pptx",
+            "slideNumber": 1,
+            "version": "v1.0",
+            "lastUpdated": "2026-06",
+            "approved": true,
+            "approvedBy": "-",
+            "color": "#0078D4",
+            "icon": "📋"
+        },
+        {
+            "id": "AP-02",
+            "name": "Итоги 2024 года — ключевые показатели",
+            "category": "Аналитика продаж",
+            "tags": [
+                "kpi",
+                "выручка",
+                "nps",
+                "конверсия",
+                "итоги",
+                "2024"
+            ],
+            "preview": "assets/previews/ap-slide-02.png",
+            "file": "assets/slides/ap-slide-02.pptx",
+            "slideNumber": 2,
+            "version": "v1.0",
+            "lastUpdated": "2026-06",
+            "approved": true,
+            "approvedBy": "-",
+            "color": "#0078D4",
+            "icon": "📊"
+        },
+        {
+            "id": "AP-03",
+            "name": "Выручка по кварталам — план vs факт",
+            "category": "Аналитика продаж",
+            "tags": [
+                "выручка",
+                "кварталы",
+                "план",
+                "факт",
+                "динамика"
+            ],
+            "preview": "assets/previews/ap-slide-03.png",
+            "file": "assets/slides/ap-slide-03.pptx",
+            "slideNumber": 3,
+            "version": "v1.0",
+            "lastUpdated": "2026-06",
+            "approved": true,
+            "approvedBy": "-",
+            "color": "#0078D4",
+            "icon": "📈"
+        },
+        {
+            "id": "AP-04",
+            "name": "Динамика пользователей",
+            "category": "Аналитика продаж",
+            "tags": [
+                "пользователи",
+                "аудитория",
+                "рост",
+                "трафик",
+                "динамика"
+            ],
+            "preview": "assets/previews/ap-slide-04.png",
+            "file": "assets/slides/ap-slide-04.pptx",
+            "slideNumber": 4,
+            "version": "v1.0",
+            "lastUpdated": "2026-06",
+            "approved": true,
+            "approvedBy": "-",
+            "color": "#0078D4",
+            "icon": "👥"
+        },
+        {
+            "id": "AP-05",
+            "name": "Структура выручки по каналам",
+            "category": "Аналитика продаж",
+            "tags": [
+                "каналы",
+                "выручка",
+                "структура",
+                "онлайн",
+                "партнёры",
+                "прямые продажи"
+            ],
+            "preview": "assets/previews/ap-slide-05.png",
+            "file": "assets/slides/ap-slide-05.pptx",
+            "slideNumber": 5,
+            "version": "v1.0",
+            "lastUpdated": "2026-06",
+            "approved": true,
+            "approvedBy": "-",
+            "color": "#0078D4",
+            "icon": "🥧"
+        },
+        {
+            "id": "AP-06",
+            "name": "Воронка продаж",
+            "category": "Аналитика продаж",
+            "tags": [
+                "воронка",
+                "продажи",
+                "конверсия",
+                "crm",
+                "лиды",
+                "квалификация"
+            ],
+            "preview": "assets/previews/ap-slide-06.png",
+            "file": "assets/slides/ap-slide-06.pptx",
+            "slideNumber": 6,
+            "version": "v1.0",
+            "lastUpdated": "2026-06",
+            "approved": true,
+            "approvedBy": "-",
+            "color": "#0078D4",
+            "icon": "📉"
+        },
+        {
+            "id": "AP-07",
+            "name": "Сегментация клиентов",
+            "category": "Аналитика продаж",
+            "tags": [
+                "сегментация",
+                "клиенты",
+                "матрица",
+                "ценность",
+                "вовлечённость",
+                "отток"
+            ],
+            "preview": "assets/previews/ap-slide-07.png",
+            "file": "assets/slides/ap-slide-07.pptx",
+            "slideNumber": 7,
+            "version": "v1.0",
+            "lastUpdated": "2026-06",
+            "approved": true,
+            "approvedBy": "-",
+            "color": "#0078D4",
+            "icon": "🔲"
+        },
+        {
+            "id": "AP-08",
+            "name": "Топ продуктов по выручке",
+            "category": "Аналитика продаж",
+            "tags": [
+                "продукты",
+                "выручка",
+                "топ",
+                "рейтинг",
+                "лицензия",
+                "облако"
+            ],
+            "preview": "assets/previews/ap-slide-08.png",
+            "file": "assets/slides/ap-slide-08.pptx",
+            "slideNumber": 8,
+            "version": "v1.0",
+            "lastUpdated": "2026-06",
+            "approved": true,
+            "approvedBy": "-",
+            "color": "#0078D4",
+            "icon": "🏆"
+        },
+        {
+            "id": "AP-09",
+            "name": "Региональный анализ",
+            "category": "Аналитика продаж",
+            "tags": [
+                "регионы",
+                "выручка",
+                "география",
+                "москва",
+                "динамика",
+                "доля рынка"
+            ],
+            "preview": "assets/previews/ap-slide-09.png",
+            "file": "assets/slides/ap-slide-09.pptx",
+            "slideNumber": 9,
+            "version": "v1.0",
+            "lastUpdated": "2026-06",
+            "approved": false,
+            "approvedBy": "-",
+            "color": "#0078D4",
+            "icon": "🗺️"
+        },
+        {
+            "id": "AP-10",
+            "name": "Итоги и приоритеты 2025 — Аналитика продаж",
+            "category": "Аналитика продаж",
+            "tags": [
+                "итоги",
+                "приоритеты",
+                "2025",
+                "выводы",
+                "стратегия",
+                "онлайн"
+            ],
+            "preview": "assets/previews/ap-slide-10.png",
+            "file": "assets/slides/ap-slide-10.pptx",
+            "slideNumber": 10,
+            "version": "v1.0",
+            "lastUpdated": "2026-06",
+            "approved": true,
+            "approvedBy": "-",
+            "color": "#0078D4",
+            "icon": "✅"
+        },
+        {
+            "id": "MP-01",
+            "name": "Маркетинг и привлечение — обложка",
+            "category": "Титульные",
+            "tags": [
+                "обложка",
+                "титул",
+                "маркетинг",
+                "2024"
+            ],
+            "preview": "assets/previews/mp-slide-01.png",
+            "file": "assets/slides/mp-slide-01.pptx",
+            "slideNumber": 1,
+            "version": "v1.0",
+            "lastUpdated": "2026-06",
+            "approved": true,
+            "approvedBy": "-",
+            "color": "#f59e0b",
+            "icon": "📋"
+        },
+        {
+            "id": "MP-02",
+            "name": "Ключевые маркетинговые метрики",
+            "category": "Маркетинг",
+            "tags": [
+                "cac",
+                "ltv",
+                "roas",
+                "охват",
+                "метрики",
+                "kpi"
+            ],
+            "preview": "assets/previews/mp-slide-02.png",
+            "file": "assets/slides/mp-slide-02.pptx",
+            "slideNumber": 2,
+            "version": "v1.1",
+            "lastUpdated": "2026-06",
+            "approved": true,
+            "approvedBy": "-",
+            "color": "#f59e0b",
+            "icon": "📊",
+            "versions": [
+                {
+                    "version": "v1.0",
+                    "date": "2024-01",
+                    "file": "assets/slides/mp-slide-02-v1.0.pptx",
+                    "changes": "Первая версия"
+                },
+                {
+                    "version": "v1.1",
+                    "date": "2024-04",
+                    "file": "assets/slides/mp-slide-02-v1.1.pptx",
+                    "changes": "Обновлены CAC и LTV"
+                }
+            ]
+        },
+        {
+            "id": "MP-03",
+            "name": "Воронка привлечения",
+            "category": "Маркетинг",
+            "tags": [
+                "воронка",
+                "привлечение",
+                "конверсия",
+                "охват",
+                "лиды",
+                "покупка"
+            ],
+            "preview": "assets/previews/mp-slide-03.png",
+            "file": "assets/slides/mp-slide-03.pptx",
+            "slideNumber": 3,
+            "version": "v1.0",
+            "lastUpdated": "2026-06",
+            "approved": true,
+            "approvedBy": "-",
+            "color": "#f59e0b",
+            "icon": "📉"
+        },
+        {
+            "id": "MP-04",
+            "name": "Динамика трафика по каналам",
+            "category": "Маркетинг",
+            "tags": [
+                "трафик",
+                "каналы",
+                "динамика",
+                "seo",
+                "smm",
+                "контекст",
+                "email"
+            ],
+            "preview": "assets/previews/mp-slide-04.png",
+            "file": "assets/slides/mp-slide-04.pptx",
+            "slideNumber": 4,
+            "version": "v1.0",
+            "lastUpdated": "2026-06",
+            "approved": false,
+            "approvedBy": "-",
+            "color": "#f59e0b",
+            "icon": "📈"
+        },
+        {
+            "id": "MP-05",
+            "name": "Структура маркетингового бюджета",
+            "category": "Маркетинг",
+            "tags": [
+                "бюджет",
+                "маркетинг",
+                "структура",
+                "каналы",
+                "распределение"
+            ],
+            "preview": "assets/previews/mp-slide-05.png",
+            "file": "assets/slides/mp-slide-05.pptx",
+            "slideNumber": 5,
+            "version": "v1.0",
+            "lastUpdated": "2026-06",
+            "approved": true,
+            "approvedBy": "-",
+            "color": "#f59e0b",
+            "icon": "🥧"
+        },
+        {
+            "id": "MP-06",
+            "name": "Конверсия по каналам",
+            "category": "Маркетинг",
+            "tags": [
+                "конверсия",
+                "каналы",
+                "email",
+                "seo",
+                "smm",
+                "офлайн"
+            ],
+            "preview": "assets/previews/mp-slide-06.png",
+            "file": "assets/slides/mp-slide-06.pptx",
+            "slideNumber": 6,
+            "version": "v1.0",
+            "lastUpdated": "2026-06",
+            "approved": true,
+            "approvedBy": "-",
+            "color": "#f59e0b",
+            "icon": "🎯"
+        },
+        {
+            "id": "MP-07",
+            "name": "Контент-матрица",
+            "category": "Маркетинг",
+            "tags": [
+                "контент",
+                "матрица",
+                "охват",
+                "вовлечённость",
+                "стратегия",
+                "smm"
+            ],
+            "preview": "assets/previews/mp-slide-07.png",
+            "file": "assets/slides/mp-slide-07.pptx",
+            "slideNumber": 7,
+            "version": "v1.0",
+            "lastUpdated": "2026-06",
+            "approved": true,
+            "approvedBy": "-",
+            "color": "#f59e0b",
+            "icon": "🔲"
+        },
+        {
+            "id": "MP-08",
+            "name": "Сравнение каналов по ключевым метрикам",
+            "category": "Маркетинг",
+            "tags": [
+                "каналы",
+                "сравнение",
+                "cac",
+                "roas",
+                "бюджет",
+                "лиды"
+            ],
+            "preview": "assets/previews/mp-slide-08.png",
+            "file": "assets/slides/mp-slide-08.pptx",
+            "slideNumber": 8,
+            "version": "v1.0",
+            "lastUpdated": "2026-06",
+            "approved": true,
+            "approvedBy": "-",
+            "color": "#f59e0b",
+            "icon": "📋"
+        },
+        {
+            "id": "MP-09",
+            "name": "Топ кампаний по ROI",
+            "category": "Маркетинг",
+            "tags": [
+                "roi",
+                "кампании",
+                "топ",
+                "email",
+                "seo",
+                "эффективность"
+            ],
+            "preview": "assets/previews/mp-slide-09.png",
+            "file": "assets/slides/mp-slide-09.pptx",
+            "slideNumber": 9,
+            "version": "v1.0",
+            "lastUpdated": "2026-06",
+            "approved": true,
+            "approvedBy": "-",
+            "color": "#f59e0b",
+            "icon": "🏆"
+        },
+        {
+            "id": "MP-10",
+            "name": "Ключевые выводы — Маркетинг 2025",
+            "category": "Маркетинг",
+            "tags": [
+                "итоги",
+                "выводы",
+                "2025",
+                "email",
+                "seo",
+                "приоритеты"
+            ],
+            "preview": "assets/previews/mp-slide-10.png",
+            "file": "assets/slides/mp-slide-10.pptx",
+            "slideNumber": 10,
+            "version": "v1.0",
+            "lastUpdated": "2026-06",
+            "approved": true,
+            "approvedBy": "-",
+            "color": "#f59e0b",
+            "icon": "✅"
+        },
+        {
+            "id": "FO-01",
+            "name": "Финансовая отчётность — обложка",
+            "category": "Титульные",
+            "tags": [
+                "обложка",
+                "титул",
+                "финансы",
+                "2024",
+                "годовой отчёт"
+            ],
+            "preview": "assets/previews/fo-slide-01.png",
+            "file": "assets/slides/fo-slide-01.pptx",
+            "slideNumber": 1,
+            "version": "v1.0",
+            "lastUpdated": "2026-06",
+            "approved": true,
+            "approvedBy": "-",
+            "color": "#ef4444",
+            "icon": "📋"
+        },
+        {
+            "id": "FO-02",
+            "name": "Ключевые финансовые показатели",
+            "category": "Финансы",
+            "tags": [
+                "ebitda",
+                "выручка",
+                "рентабельность",
+                "долг",
+                "kpi",
+                "финансы"
+            ],
+            "preview": "assets/previews/fo-slide-02.png",
+            "file": "assets/slides/fo-slide-02.pptx",
+            "slideNumber": 2,
+            "version": "v1.2",
+            "lastUpdated": "2026-06",
+            "approved": true,
+            "approvedBy": "-",
+            "color": "#ef4444",
+            "icon": "📊",
+            "versions": [
+                {
+                    "version": "v1.0",
+                    "date": "2026-01",
+                    "file": "assets/slides/fo-slide-02-v1.0.pptx",
+                    "changes": "Первая версия"
+                },
+                {
+                    "version": "v1.1",
+                    "date": "2026-03",
+                    "file": "assets/slides/fo-slide-02-v1.1.pptx",
+                    "changes": "Обновлена рентабельность"
+                },
+                {
+                    "version": "v1.2",
+                    "date": "2026-06",
+                    "file": "assets/slides/fo-slide-02-v1.2.pptx",
+                    "changes": "Добавлен прогноз на 2025"
+                }
+            ]
+        },
+        {
+            "id": "FO-03",
+            "name": "Отчёт о прибылях и убытках (P&L)",
+            "category": "Финансы",
+            "tags": [
+                "pl",
+                "p&l",
+                "прибыль",
+                "убытки",
+                "ebitda",
+                "динамика"
+            ],
+            "preview": "assets/previews/fo-slide-03.png",
+            "file": "assets/slides/fo-slide-03.pptx",
+            "slideNumber": 3,
+            "version": "v1.0",
+            "lastUpdated": "2026-06",
+            "approved": true,
+            "approvedBy": "-",
+            "color": "#ef4444",
+            "icon": "💰"
+        },
+        {
+            "id": "FO-04",
+            "name": "Денежный поток (Cash Flow)",
+            "category": "Финансы",
+            "tags": [
+                "cashflow",
+                "денежный поток",
+                "операционный",
+                "инвестиционный",
+                "ликвидность"
+            ],
+            "preview": "assets/previews/fo-slide-04.png",
+            "file": "assets/slides/fo-slide-04.pptx",
+            "slideNumber": 4,
+            "version": "v1.0",
+            "lastUpdated": "2026-06",
+            "approved": true,
+            "approvedBy": "-",
+            "color": "#ef4444",
+            "icon": "💸"
+        },
+        {
+            "id": "FO-05",
+            "name": "Структура затрат",
+            "category": "Финансы",
+            "tags": [
+                "затраты",
+                "структура",
+                "фот",
+                "маркетинг",
+                "it",
+                "расходы"
+            ],
+            "preview": "assets/previews/fo-slide-05.png",
+            "file": "assets/slides/fo-slide-05.pptx",
+            "slideNumber": 5,
+            "version": "v1.0",
+            "lastUpdated": "2026-06",
+            "approved": false,
+            "approvedBy": "-",
+            "color": "#ef4444",
+            "icon": "🥧"
+        },
+        {
+            "id": "FO-06",
+            "name": "Динамика рентабельности",
+            "category": "Финансы",
+            "tags": [
+                "рентабельность",
+                "маржа",
+                "динамика",
+                "2022",
+                "2023",
+                "2024"
+            ],
+            "preview": "assets/previews/fo-slide-06.png",
+            "file": "assets/slides/fo-slide-06.pptx",
+            "slideNumber": 6,
+            "version": "v1.0",
+            "lastUpdated": "2026-06",
+            "approved": true,
+            "approvedBy": "-",
+            "color": "#ef4444",
+            "icon": "📈"
+        },
+        {
+            "id": "FO-07",
+            "name": "Бюджет vs Факт",
+            "category": "Финансы",
+            "tags": [
+                "бюджет",
+                "факт",
+                "исполнение",
+                "план",
+                "фот",
+                "отклонение"
+            ],
+            "preview": "assets/previews/fo-slide-07.png",
+            "file": "assets/slides/fo-slide-07.pptx",
+            "slideNumber": 7,
+            "version": "v1.0",
+            "lastUpdated": "2026-06",
+            "approved": true,
+            "approvedBy": "-",
+            "color": "#ef4444",
+            "icon": "📋"
+        },
+        {
+            "id": "FO-08",
+            "name": "Дебиторская задолженность",
+            "category": "Финансы",
+            "tags": [
+                "дебиторка",
+                "задолженность",
+                "риски",
+                "просрочка",
+                "контрагенты"
+            ],
+            "preview": "assets/previews/fo-slide-08.png",
+            "file": "assets/slides/fo-slide-08.pptx",
+            "slideNumber": 8,
+            "version": "v1.0",
+            "lastUpdated": "2026-06",
+            "approved": true,
+            "approvedBy": "-",
+            "color": "#ef4444",
+            "icon": "⚠️"
+        },
+        {
+            "id": "FO-09",
+            "name": "Топ статей расходов",
+            "category": "Финансы",
+            "tags": [
+                "расходы",
+                "статьи",
+                "топ",
+                "фот",
+                "маркетинг",
+                "операционные"
+            ],
+            "preview": "assets/previews/fo-slide-09.png",
+            "file": "assets/slides/fo-slide-09.pptx",
+            "slideNumber": 9,
+            "version": "v1.0",
+            "lastUpdated": "2026-06",
+            "approved": true,
+            "approvedBy": "-",
+            "color": "#ef4444",
+            "icon": "🏆"
+        },
+        {
+            "id": "FO-10",
+            "name": "Ключевые выводы — Финансы 2025",
+            "category": "Финансы",
+            "tags": [
+                "итоги",
+                "выводы",
+                "2025",
+                "ebitda",
+                "маржа",
+                "приоритеты"
+            ],
+            "preview": "assets/previews/fo-slide-10.png",
+            "file": "assets/slides/fo-slide-10.pptx",
+            "slideNumber": 10,
+            "version": "v1.0",
+            "lastUpdated": "2026-06",
+            "approved": true,
+            "approvedBy": "-",
+            "color": "#ef4444",
+            "icon": "✅"
+        }
+    ]
+}

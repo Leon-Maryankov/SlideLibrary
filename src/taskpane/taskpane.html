@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SlideLibrary</title>
+    <link rel="stylesheet" href="taskpane.css">
+</head>
+
+<body>
+    <div id="app">
+
+        <div class="header">
+            <div class="header__left">
+                <span class="header__icon"></span>
+                <h2 class="header__title">Slide Library</h2>
+            </div>
+            <button id="refreshBtn" class="btn btn--refresh" title="Обновить каталог"></button>
+        </div>
+
+        <div id="recentSection" class="section" style="display:none;">
+            <p class="section__label">Недавно использованные</p>
+            <div id="recentGrid" class="grid grid--recent"></div>
+        </div>
+
+        <div class="search-wrap">
+            <span class="search-icon"></span>
+            <input type="text" id="searchInput" class="search-input" placeholder="Поиск..." autocomplete="off" />
+        </div>
+
+        <div id="tabs" class="tabs"></div>
+
+        <div class="toolbar">
+            <span id="countLabel" class="count-label"></span>
+            <div class="toolbar__right">
+                <label class="filter-fav">
+                    Избранное
+                    <input type="checkbox" id="favFilterCheckbox">
+                </label>
+                <select id="sortSelect" class="sort-select">
+                    <option value="name">По алфавиту</option>
+                    <option value="date">По дате</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="slideGrid" class="grid"></div>
+
+        <div id="status" class="status"></div>
+
+    </div>
+
+    <div id="modal" class="modal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal__content">
+            <div class="modal__header">
+                <span id="modalTitle" class="modal__title"></span>
+                <button id="modalClose" class="modal__close" aria-label="Закрыть">✕</button>
+            </div>
+            <div id="modalPreview" class="modal__preview"></div>
+            <div id="modalMeta" class="modal__meta"></div>
+
+            <div id="modalVersions" class="versions" style="display:none;">
+                <p class="versions__label">Доступные версии:</p>
+                <ul id="versionsList" class="versions__list"></ul>
+            </div>
+
+            <div class="modal__actions">
+                <button id="modalInsert" class="btn btn--primary">Вставить слайд</button>
+                <button id="modalCancel" class="btn btn--secondary">Отмена</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+    <script src="taskpane.js" type="module"></script>
+</body>
+
+</html>
