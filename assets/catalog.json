@@ -17,15 +17,13 @@
                 "аналитика продаж",
                 "2024"
             ],
-            "preview": "assets/previews/ap-slide-01.png",
             "file": "assets/slides/ap-slide-01.pptx",
             "slideNumber": 1,
             "version": "v1.0",
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#0078D4",
-            "icon": "📋"
+            "color": "#0078D4"
         },
         {
             "id": "AP-02",
@@ -39,15 +37,13 @@
                 "итоги",
                 "2024"
             ],
-            "preview": "assets/previews/ap-slide-02.png",
             "file": "assets/slides/ap-slide-02.pptx",
             "slideNumber": 2,
             "version": "v1.0",
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#0078D4",
-            "icon": "📊"
+            "color": "#0078D4"
         },
         {
             "id": "AP-03",
@@ -60,15 +56,13 @@
                 "факт",
                 "динамика"
             ],
-            "preview": "assets/previews/ap-slide-03.png",
             "file": "assets/slides/ap-slide-03.pptx",
             "slideNumber": 3,
             "version": "v1.0",
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#0078D4",
-            "icon": "📈"
+            "color": "#0078D4"
         },
         {
             "id": "AP-04",
@@ -81,15 +75,13 @@
                 "трафик",
                 "динамика"
             ],
-            "preview": "assets/previews/ap-slide-04.png",
             "file": "assets/slides/ap-slide-04.pptx",
             "slideNumber": 4,
             "version": "v1.0",
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#0078D4",
-            "icon": "👥"
+            "color": "#0078D4"
         },
         {
             "id": "AP-05",
@@ -103,15 +95,13 @@
                 "партнёры",
                 "прямые продажи"
             ],
-            "preview": "assets/previews/ap-slide-05.png",
             "file": "assets/slides/ap-slide-05.pptx",
             "slideNumber": 5,
             "version": "v1.0",
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#0078D4",
-            "icon": "🥧"
+            "color": "#0078D4"
         },
         {
             "id": "AP-06",
@@ -125,15 +115,13 @@
                 "лиды",
                 "квалификация"
             ],
-            "preview": "assets/previews/ap-slide-06.png",
             "file": "assets/slides/ap-slide-06.pptx",
             "slideNumber": 6,
             "version": "v1.0",
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#0078D4",
-            "icon": "📉"
+            "color": "#0078D4"
         },
         {
             "id": "AP-07",
@@ -147,15 +135,13 @@
                 "вовлечённость",
                 "отток"
             ],
-            "preview": "assets/previews/ap-slide-07.png",
             "file": "assets/slides/ap-slide-07.pptx",
             "slideNumber": 7,
             "version": "v1.0",
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#0078D4",
-            "icon": "🔲"
+            "color": "#0078D4"
         },
         {
             "id": "AP-08",
@@ -169,15 +155,13 @@
                 "лицензия",
                 "облако"
             ],
-            "preview": "assets/previews/ap-slide-08.png",
             "file": "assets/slides/ap-slide-08.pptx",
             "slideNumber": 8,
             "version": "v1.0",
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#0078D4",
-            "icon": "🏆"
+            "color": "#0078D4"
         },
         {
             "id": "AP-09",
@@ -191,15 +175,13 @@
                 "динамика",
                 "доля рынка"
             ],
-            "preview": "assets/previews/ap-slide-09.png",
             "file": "assets/slides/ap-slide-09.pptx",
             "slideNumber": 9,
             "version": "v1.0",
             "lastUpdated": "2026-06",
             "approved": false,
             "approvedBy": "-",
-            "color": "#0078D4",
-            "icon": "🗺️"
+            "color": "#0078D4"
         },
         {
             "id": "AP-10",
@@ -213,15 +195,13 @@
                 "стратегия",
                 "онлайн"
             ],
-            "preview": "assets/previews/ap-slide-10.png",
             "file": "assets/slides/ap-slide-10.pptx",
             "slideNumber": 10,
             "version": "v1.0",
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#0078D4",
-            "icon": "✅"
+            "color": "#0078D4"
         },
         {
             "id": "MP-01",
@@ -233,15 +213,13 @@
                 "маркетинг",
                 "2024"
             ],
-            "preview": "assets/previews/mp-slide-01.png",
             "file": "assets/slides/mp-slide-01.pptx",
             "slideNumber": 1,
             "version": "v1.0",
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#f59e0b",
-            "icon": "📋"
+            "color": "#f59e0b"
         },
         {
             "id": "MP-02",
@@ -255,7 +233,6 @@
                 "метрики",
                 "kpi"
             ],
-            "preview": "assets/previews/mp-slide-02.png",
             "file": "assets/slides/mp-slide-02.pptx",
             "slideNumber": 2,
             "version": "v1.1",
@@ -263,7 +240,6 @@
             "approved": true,
             "approvedBy": "-",
             "color": "#f59e0b",
-            "icon": "📊",
             "versions": [
                 {
                     "version": "v1.0",
@@ -291,15 +267,13 @@
                 "лиды",
                 "покупка"
             ],
-            "preview": "assets/previews/mp-slide-03.png",
             "file": "assets/slides/mp-slide-03.pptx",
             "slideNumber": 3,
             "version": "v1.0",
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#f59e0b",
-            "icon": "📉"
+            "color": "#f59e0b"
         },
         {
             "id": "MP-04",
@@ -314,15 +288,13 @@
                 "контекст",
                 "email"
             ],
-            "preview": "assets/previews/mp-slide-04.png",
             "file": "assets/slides/mp-slide-04.pptx",
             "slideNumber": 4,
             "version": "v1.0",
             "lastUpdated": "2026-06",
             "approved": false,
             "approvedBy": "-",
-            "color": "#f59e0b",
-            "icon": "📈"
+            "color": "#f59e0b"
         },
         {
             "id": "MP-05",
@@ -335,15 +307,13 @@
                 "каналы",
                 "распределение"
             ],
-            "preview": "assets/previews/mp-slide-05.png",
             "file": "assets/slides/mp-slide-05.pptx",
             "slideNumber": 5,
             "version": "v1.0",
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#f59e0b",
-            "icon": "🥧"
+            "color": "#f59e0b"
         },
         {
             "id": "MP-06",
@@ -357,15 +327,13 @@
                 "smm",
                 "офлайн"
             ],
-            "preview": "assets/previews/mp-slide-06.png",
             "file": "assets/slides/mp-slide-06.pptx",
             "slideNumber": 6,
             "version": "v1.0",
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#f59e0b",
-            "icon": "🎯"
+            "color": "#f59e0b"
         },
         {
             "id": "MP-07",
@@ -379,15 +347,13 @@
                 "стратегия",
                 "smm"
             ],
-            "preview": "assets/previews/mp-slide-07.png",
             "file": "assets/slides/mp-slide-07.pptx",
             "slideNumber": 7,
             "version": "v1.0",
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#f59e0b",
-            "icon": "🔲"
+            "color": "#f59e0b"
         },
         {
             "id": "MP-08",
@@ -401,15 +367,13 @@
                 "бюджет",
                 "лиды"
             ],
-            "preview": "assets/previews/mp-slide-08.png",
             "file": "assets/slides/mp-slide-08.pptx",
             "slideNumber": 8,
             "version": "v1.0",
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#f59e0b",
-            "icon": "📋"
+            "color": "#f59e0b"
         },
         {
             "id": "MP-09",
@@ -423,15 +387,13 @@
                 "seo",
                 "эффективность"
             ],
-            "preview": "assets/previews/mp-slide-09.png",
             "file": "assets/slides/mp-slide-09.pptx",
             "slideNumber": 9,
             "version": "v1.0",
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#f59e0b",
-            "icon": "🏆"
+            "color": "#f59e0b"
         },
         {
             "id": "MP-10",
@@ -445,15 +407,13 @@
                 "seo",
                 "приоритеты"
             ],
-            "preview": "assets/previews/mp-slide-10.png",
             "file": "assets/slides/mp-slide-10.pptx",
             "slideNumber": 10,
             "version": "v1.0",
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#f59e0b",
-            "icon": "✅"
+            "color": "#f59e0b"
         },
         {
             "id": "FO-01",
@@ -466,15 +426,13 @@
                 "2024",
                 "годовой отчёт"
             ],
-            "preview": "assets/previews/fo-slide-01.png",
             "file": "assets/slides/fo-slide-01.pptx",
             "slideNumber": 1,
             "version": "v1.0",
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#ef4444",
-            "icon": "📋"
+            "color": "#ef4444"
         },
         {
             "id": "FO-02",
@@ -488,7 +446,6 @@
                 "kpi",
                 "финансы"
             ],
-            "preview": "assets/previews/fo-slide-02.png",
             "file": "assets/slides/fo-slide-02.pptx",
             "slideNumber": 2,
             "version": "v1.2",
@@ -496,7 +453,6 @@
             "approved": true,
             "approvedBy": "-",
             "color": "#ef4444",
-            "icon": "📊",
             "versions": [
                 {
                     "version": "v1.0",
@@ -530,15 +486,13 @@
                 "ebitda",
                 "динамика"
             ],
-            "preview": "assets/previews/fo-slide-03.png",
             "file": "assets/slides/fo-slide-03.pptx",
             "slideNumber": 3,
             "version": "v1.0",
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#ef4444",
-            "icon": "💰"
+            "color": "#ef4444"
         },
         {
             "id": "FO-04",
@@ -558,8 +512,7 @@
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#ef4444",
-            "icon": "💸"
+            "color": "#ef4444"
         },
         {
             "id": "FO-05",
@@ -580,8 +533,7 @@
             "lastUpdated": "2026-06",
             "approved": false,
             "approvedBy": "-",
-            "color": "#ef4444",
-            "icon": "🥧"
+            "color": "#ef4444"
         },
         {
             "id": "FO-06",
@@ -602,8 +554,7 @@
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#ef4444",
-            "icon": "📈"
+            "color": "#ef4444"
         },
         {
             "id": "FO-07",
@@ -624,8 +575,7 @@
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#ef4444",
-            "icon": "📋"
+            "color": "#ef4444"
         },
         {
             "id": "FO-08",
@@ -645,8 +595,7 @@
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#ef4444",
-            "icon": "⚠️"
+            "color": "#ef4444"
         },
         {
             "id": "FO-09",
@@ -667,8 +616,7 @@
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#ef4444",
-            "icon": "🏆"
+            "color": "#ef4444"
         },
         {
             "id": "FO-10",
@@ -682,15 +630,13 @@
                 "маржа",
                 "приоритеты"
             ],
-            "preview": "assets/previews/fo-slide-10.png",
-            "file": "assets/slides/fo-slide-10.pptx",
+            "file": "assets/slides/finance_slides.pptx",
             "slideNumber": 10,
             "version": "v1.0",
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#ef4444",
-            "icon": "✅"
+            "color": "#ef4444"
         }
     ]
 }

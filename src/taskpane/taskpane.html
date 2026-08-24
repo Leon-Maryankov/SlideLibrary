@@ -1,78 +1,279 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SlideLibrary</title>
+    <title>Slidebrary</title>
     <link rel="stylesheet" href="taskpane.css">
 </head>
 
 <body>
     <div id="app">
 
-        <div class="header">
-            <div class="header__left">
-                <span class="header__icon"></span>
-                <h2 class="header__title">Slide Library</h2>
+        <div id="mainView" class="view">
+
+            <div class="top-shell">
+                <div class="topbar">
+                    <button id="avatarBtn" class="avatar-btn" aria-label="Профиль"></button>
+                    <h2 class="topbar__title">Slidebrary</h2>
+                </div>
             </div>
-            <button id="refreshBtn" class="btn btn--refresh" title="Обновить каталог"></button>
-        </div>
 
-        <div id="recentSection" class="section" style="display:none;">
-            <p class="section__label">Недавно использованные</p>
-            <div id="recentGrid" class="grid grid--recent"></div>
-        </div>
+            <div class="body">
 
-        <div class="search-wrap">
-            <span class="search-icon"></span>
-            <input type="text" id="searchInput" class="search-input" placeholder="Поиск..." autocomplete="off" />
-        </div>
+                <nav class="sidebar" id="sidebar"></nav>
 
-        <div id="tabs" class="tabs"></div>
+                <main class="content">
 
-        <div class="toolbar">
-            <span id="countLabel" class="count-label"></span>
-            <div class="toolbar__right">
-                <label class="filter-fav">
-                    Избранное
-                    <input type="checkbox" id="favFilterCheckbox">
-                </label>
-                <select id="sortSelect" class="sort-select">
-                    <option value="name">По алфавиту</option>
-                    <option value="date">По дате</option>
-                </select>
+                    <div class="content__fixed">
+                        <div class="tabs-underline" id="scopeTabs">
+                            <button class="tab-underline tab-underline--active" data-scope="public">Публичное</button>
+                            <button class="tab-underline" data-scope="personal">Личное</button>
+                        </div>
+
+                        <div class="search-row">
+                            <div class="search-wrap">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="7" />
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                                </svg>
+                                <input type="text" id="searchInput" class="search-input" placeholder="Поиск"
+                                    autocomplete="off" />
+                            </div>
+                            <button id="filterBtn" class="filter-toggle" aria-label="Фильтры">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="4" y1="7" x2="20" y2="7" />
+                                    <circle cx="9" cy="7" r="2.2" fill="var(--surface)" />
+                                    <line x1="4" y1="17" x2="20" y2="17" />
+                                    <circle cx="15" cy="17" r="2.2" fill="var(--surface)" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="content__scroll">
+
+                        <div id="recentSection" class="section" style="display:none;">
+                            <p class="section__label">Недавно использованные</p>
+                            <div id="recentGrid" class="grid grid--recent"></div>
+                        </div>
+
+                        <div class="content__toolbar">
+                            <span id="countLabel" class="content__label">Выберите макет для вашего слайда</span>
+                            <div class="content__actions">
+                                <button id="sortBtn" title="Сортировка"></button>
+                                <button id="viewToggleBtn" title="Вид"></button>
+                                <button id="exportBtn" title="Скачать презентацию"></button>
+                            </div>
+                        </div>
+
+                        <div id="categoryHeader" class="category-header" style="display:none;"></div>
+
+                        <div id="slideGrid" class="grid"></div>
+
+                        <div id="status" class="status"></div>
+                    </div>
+                </main>
+            </div>
+
+            <div class="footer-actions">
+                <button id="addToLibraryBtn" class="btn btn--secondary btn--add-library" style="display:none;">Добавить
+                    в библиотеку</button>
+                <button id="cancelBtn" class="btn btn--secondary">Отменить</button>
+                <button id="footerInsertBtn" class="btn btn--primary">Добавить</button>
             </div>
         </div>
 
-        <div id="slideGrid" class="grid"></div>
+        <div id="filtersView" class="view" style="display:none;">
+            <div class="panel-header">
+                <button id="clearFiltersBtn" class="link-btn">Очистить</button>
+                <span class="panel-header__title">Фильтры</span>
+                <button id="closeFiltersBtn" class="icon-btn" aria-label="Закрыть">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                        <line x1="6" y1="18" x2="18" y2="6" />
+                    </svg>
+                </button>
+            </div>
 
-        <div id="status" class="status"></div>
+            <div class="filters-body" id="filtersBody"> </div>
+
+            <div class="filters-footer">
+                <button id="applyFiltersBtn" class="btn btn--accent btn--full">Показать результаты</button>
+            </div>
+        </div>
+
+        <div id="cabinetView" class="view" style="display:none;">
+            <div class="panel-header">
+                <button id="cabinetBackBtn" class="icon-btn" aria-label="Назад">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M20 12H5" />
+                        <polyline points="10 6 4 12 10 18" />
+                    </svg>
+                </button>
+                <span class="panel-header__title">Личный кабинет</span>
+                <button id="closeCabinetBtn" class="icon-btn" aria-label="Закрыть">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                        <line x1="6" y1="18" x2="18" y2="6" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="cabinet-body">
+                <div class="cabinet-field">
+                    <label>Почта</label>
+                    <p id="cabinetEmail" class="cabinet-value">maryankof@mail.ru</p>
+                </div>
+
+                <div class="cabinet-field">
+                    <label>Выберите папку на диске с личными шаблонами</label>
+                    <button id="cabinetFolderBtn" class="cabinet-folder-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z" />
+                        </svg>
+                        <span id="cabinetFolderLabel">Выбрать...</span>
+                    </button>
+                    <!-- webkitdirectory lets the person pick a whole folder; every file's
+                         webkitRelativePath is used to sort it into the right tab in taskpane.js -->
+                    <input type="file" id="folderImportInput" webkitdirectory multiple style="display:none;">
+                    <p class="cabinet-hint">
+                        Внутри папки должны быть подпапки с названиями вкладок: Избранное, Презентации,
+                        Фотографии, Иллюстрации, Иконки, Логотипы, Шаблоны. Импорт действует до закрытия
+                        панели — при следующем открытии папку нужно выбрать заново.
+                    </p>
+                </div>
+
+                <div class="cabinet-field">
+                    <label>Личная библиотека (JSON)</label>
+                    <button id="downloadLibraryBtn" class="cabinet-folder-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 3v12" />
+                            <polyline points="7 11 12 16 17 11" />
+                            <path d="M5 19h14" />
+                        </svg>
+                        <span>Скачать personal-library.json</span>
+                    </button>
+                    <p class="cabinet-hint">
+                        Всё, что вы добавили через «Добавить в библиотеку» или «Загрузить свой шаблон», хранится
+                        как один JSON-массив — такой же формы, как catalog.json. Эта кнопка выгружает его файлом.
+                    </p>
+                </div>
+
+                <div class="cabinet-field">
+                    <label>Предложенные файлы (JSON)</label>
+                    <button id="downloadSuggestionsBtn" class="cabinet-folder-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 3v12" />
+                            <polyline points="7 11 12 16 17 11" />
+                            <path d="M5 19h14" />
+                        </svg>
+                        <span>Скачать suggested-files.json</span>
+                    </button>
+                    <p class="cabinet-hint">
+                        «Предложить файл в базу» сохраняет запись локально — без сервера её никто, кроме вас,
+                        не увидит. Скачайте этот файл и передайте тому, кто ведёт основной catalog.json, чтобы
+                        предложение реально попало в общую библиотеку.
+                    </p>
+                </div>
+
+                <div class="cabinet-field">
+                    <label>Последний вход</label>
+                    <p id="cabinetLastLogin" class="cabinet-value cabinet-value--muted">2 апреля 2025 г. 23:14:06</p>
+                </div>
+
+                <div class="cabinet-field">
+                    <label>Файл индексации данных. Обновлён</label>
+                    <p id="cabinetIndexUpdated" class="cabinet-value cabinet-value--muted">2 ноября 2025 г. 23:16:06</p>
+                </div>
+            </div>
+
+            <div class="cabinet-footer">
+                <button id="cabinetCancelBtn" class="btn btn--secondary">Отменить</button>
+                <button id="cabinetSaveBtn" class="btn btn--primary is-active">Сохранить</button>
+            </div>
+        </div>
+
+        <div id="suggestView" class="view" style="display:none;">
+            <div class="panel-header">
+                <button id="suggestBackBtn" class="icon-btn" aria-label="Назад">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M20 12H5" />
+                        <polyline points="10 6 4 12 10 18" />
+                    </svg>
+                </button>
+                <span class="panel-header__title">Предложить свой файл в базу</span>
+                <button id="closeSuggestBtn" class="icon-btn" aria-label="Закрыть">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                        <line x1="6" y1="18" x2="18" y2="6" />
+                    </svg>
+                </button>
+            </div>
+            <div class="filters-body" id="suggestBody"></div>
+        </div>
+
+        <div id="aiView" class="view" style="display:none;">
+            <div class="panel-header">
+                <button id="aiBackBtn" class="icon-btn" aria-label="Назад">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M20 12H5" />
+                        <polyline points="10 6 4 12 10 18" />
+                    </svg>
+                </button>
+                <span class="panel-header__title">Создать презентацию по теме</span>
+                <button id="closeAiBtn" class="icon-btn" aria-label="Закрыть">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                        <line x1="6" y1="18" x2="18" y2="6" />
+                    </svg>
+                </button>
+            </div>
+            <div class="filters-body" id="aiBody"></div>
+        </div>
 
     </div>
 
+    <!-- Slide detail modal -->
     <div id="modal" class="modal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
         <div class="modal__content">
             <div class="modal__header">
-                <span id="modalTitle" class="modal__title"></span>
-                <button id="modalClose" class="modal__close" aria-label="Закрыть">✕</button>
+                <span id="modalTitle" class="modal__title">Подробнее</span>
+                <button id="modalClose" class="modal__close" aria-label="Закрыть">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                        <line x1="6" y1="18" x2="18" y2="6" />
+                    </svg>
+                </button>
             </div>
-            <div id="modalPreview" class="modal__preview"></div>
+            <div id="modalPreview" class="modal__preview">
+                <div id="modalPreviewImg" class="modal__preview-img"></div>
+                <div id="modalDots" class="modal__dots"></div>
+            </div>
             <div id="modalMeta" class="modal__meta"></div>
 
             <div id="modalVersions" class="versions" style="display:none;">
-                <p class="versions__label">Доступные версии:</p>
+                <p class="versions__label">Доступные версии</p>
                 <ul id="versionsList" class="versions__list"></ul>
             </div>
 
             <div class="modal__actions">
-                <button id="modalInsert" class="btn btn--primary">Вставить слайд</button>
-                <button id="modalCancel" class="btn btn--secondary">Отмена</button>
+                <button id="modalInsert" class="btn btn--primary is-active">Вставить слайд</button>
             </div>
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
     <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
     <script src="taskpane.js" type="module"></script>
 </body>
