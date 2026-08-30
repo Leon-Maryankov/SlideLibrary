@@ -981,14 +981,16 @@ svg {
 }
 
 .btn--primary {
-  background: var(--line);
+  background: var(--bg);
   color: var(--muted);
   border: 1px solid transparent;
 }
 
+/* Активная основная кнопка - синий фон, белый текст */
 .btn--primary.is-active {
   background: var(--blue-bright);
   color: #fff;
+  border-color: var(--blue-bright);
 }
 
 .btn--primary.is-active:hover {
@@ -1302,13 +1304,13 @@ svg {
    current slide's dot highlighted brighter/wider. */
 .modal__dots {
   position: absolute;
+  /* Делаем абсолютное позиционирование */
   left: 50%;
   bottom: 10px;
+  /* Прижимаем к низу превью */
   transform: translateX(-50%);
   z-index: 2;
   display: flex;
-  align-items: center;
-  justify-content: center;
   gap: 5px;
   padding: 5px 9px;
   border-radius: 999px;
@@ -1491,7 +1493,8 @@ svg {
    get a real border/fill so the person can tell at a glance.
    ============================================================ */
 .btn--secondary {
-  border-color: var(--line);
+  background: var(--surface);
+  border: 1px solid var(--line);
   color: var(--muted-2);
 }
 
@@ -1792,4 +1795,23 @@ svg {
   bottom: 8px;
   font-size: 10.5px;
   color: var(--muted-2);
+}
+
+.card__pub-btn {
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+  box-shadow: none;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+.card__pub-btn:hover {
+  background: var(--pale);
+  color: var(--blue-bright);
 }

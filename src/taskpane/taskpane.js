@@ -2,7 +2,7 @@ import catalogData from '../../assets/catalog.json';
 
 const ICONS = {
   back1: '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.47 4.217a.75.75 0 0 0 0 1.06L12.185 10 7.469 14.72a.75.75 0 1 0 1.062 1.06l5.245-5.25a.75.75 0 0 0 0-1.061L8.531 4.218a.75.75 0 0 0-1.061-.001z" fill="currentColor"/></svg>',
-  back2: '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><path d="M1 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0 3a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0 3a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/></svg>',
+  back2: '<svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M26.6923 15C25.7577 15 25 15.8954 25 17C25 18.1046 25.7577 19 26.6923 19L45.3077 19C46.2423 19 47 18.1046 47 17C47 15.8954 46.2423 15 45.3077 15L26.6923 15Z" fill="black"/><path d="M30.6364 28C29.7326 28 29 28.8954 29 30C29 31.1046 29.7326 32 30.6364 32L45.3636 32C46.2674 32 47 31.1046 47 30C47 28.8954 46.2674 28 45.3636 28L30.6364 28Z" fill="black"/><path d="M34.5556 41C33.6964 41 33 41.8954 33 43C33 44.1046 33.6964 45 34.5556 45L45.4444 45C46.3036 45 47 44.1046 47 43C47 41.8954 46.3036 41 45.4444 41L34.5556 41Z" fill="black"/><path d="M36 17C36 15.8954 35.0357 15 33.8462 15L12.83 15L17.4142 10.4142C18.1352 9.69325 18.1906 8.55878 17.5806 7.7742L17.4142 7.58578C16.6332 6.80474 15.3668 6.80474 14.5858 7.58578L6.58579 15.5858C5.80474 16.3668 5.80474 17.6332 6.58579 18.4142L14.5858 26.4142C15.3668 27.1953 16.6332 27.1953 17.4142 26.4142C18.1953 25.6332 18.1953 24.3668 17.4142 23.5858L12.83 19L33.8462 19C34.9564 19 35.8704 18.22 35.9874 17.2179L36 17Z" fill="black"/></svg>',
   heart1: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M15.992 4.006c-1.452.064-2.753.637-3.881 1.694l-.117.113-.122-.118C10.662 4.576 9.275 4 7.734 4 4.577 4 2 6.56 2 9.717c0 3.088 1.127 4.552 6.182 8.546l2.688 2.098a1.84 1.84 0 0 0 2.26 0l2.364-1.843.933-.74C20.965 14.144 22 12.676 22 9.718 22 6.56 19.423 4 16.266 4zm.274 1.794c2.165 0 3.934 1.757 3.934 3.917l-.005.294c-.076 2.156-1.062 3.341-5.509 6.852l-2.663 2.078a.04.04 0 0 1-.046 0l-2.364-1.843-.874-.691c-4.142-3.31-4.939-4.44-4.939-6.69C3.8 7.557 5.569 5.8 7.734 5.8c1.333 0 2.507.618 3.57 1.915a.9.9 0 0 0 1.398-.007C13.739 6.416 14.909 5.8 16.266 5.8"/></svg>',
   heart2: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>',
   presentation: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M8.462 4h7.076c.948 0 1.714 0 2.334.05.64.053 1.203.163 1.726.43a4.4 4.4 0 0 1 1.922 1.922c.282.553.39 1.153.438 1.84a.9.9 0 0 1-1.796.126c-.04-.586-.123-.908-.245-1.148a2.6 2.6 0 0 0-1.137-1.137c-.226-.115-.527-.195-1.055-.238-.538-.044-1.23-.045-2.225-.045h-7c-.995 0-1.687 0-2.226.045-.527.043-.828.123-1.054.238A2.6 2.6 0 0 0 4.083 7.22c-.115.226-.195.527-.238 1.054-.04.477-.044 1.073-.045 1.894l4.46-1.952c1.693-.74 3.552.628 3.348 2.464l-.241 2.17a.6.6 0 0 0 1.02.49l2.977-2.976a.9.9 0 1 1 1.272 1.272l-2.976 2.977c-1.604 1.604-4.333.292-4.082-1.962l.24-2.17a.6.6 0 0 0-.836-.616L3.8 12.132V13.5c0 .995 0 1.687.045 2.226.043.527.123.828.238 1.054a2.6 2.6 0 0 0 1.137 1.137c.226.115.527.195 1.054.238.539.044 1.231.045 2.226.045h2.17a.9.9 0 0 1 0 1.8H8.462c-.948 0-1.714 0-2.334-.05-.64-.053-1.203-.163-1.726-.43a4.4 4.4 0 0 1-1.922-1.922c-.267-.523-.377-1.087-.43-1.726C2 15.252 2 14.486 2 13.538v-3.076c0-.948 0-1.714.05-2.334.053-.64.163-1.203.43-1.726A4.4 4.4 0 0 1 4.402 4.48c.523-.267 1.087-.377 1.726-.43C6.748 4 7.514 4 8.462 4Zm13.537 7.293a1.001 1.001 0 0 0-1.416 0l-.708.708 2.124 2.124.708-.708a1.001 1.001 0 0 0 0-1.416l-.708-.708Zm-.981 3.812-2.124-2.124-4.338 4.338c-.44.44-.77.976-.967 1.566l-.573 1.72a.3.3 0 0 0 .38.38l1.719-.574a4.005 4.005 0 0 0 1.565-.968l4.338-4.338Z"/></svg>',
@@ -11,7 +11,7 @@ const ICONS = {
   shapes: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 28 28"><path fill="currentColor" fill-rule="evenodd" d="M15.4 5h-2.8c-1.7132 0-2.8777.0016-3.778.0751-.8768.0716-1.3252.2015-1.638.3609a4 4 0 0 0-1.748 1.748c-.1594.3128-.2893.7612-.3609 1.638C5.0016 9.7224 5 10.8869 5 12.6v2.8c0 1.7132.0016 2.8777.0751 3.7779.0716.8769.2015 1.3253.3609 1.6381a4.0002 4.0002 0 0 0 1.748 1.748c.3128.1594.7612.2893 1.638.3609.9003.0735 2.0648.0751 3.778.0751h2.8c1.7132 0 2.8777-.0016 3.7779-.0751.8769-.0716 1.3253-.2015 1.6381-.3609a4.0003 4.0003 0 0 0 1.748-1.748c.1594-.3128.2893-.7612.3609-1.6381.0735-.9002.0751-2.0647.0751-3.7779v-2.8c0-1.7132-.0016-2.8777-.0751-3.778-.0716-.8768-.2015-1.3252-.3609-1.638a4.0002 4.0002 0 0 0-1.748-1.748c-.3128-.1594-.7612-.2893-1.6381-.3609C18.2777 5.0016 17.1132 5 15.4 5ZM3.654 6.276C3 7.5596 3 9.2398 3 12.6v2.8c0 3.3603 0 5.0405.654 6.3239a5.9996 5.9996 0 0 0 2.622 2.6221C7.5596 25 9.2398 25 12.6 25h2.8c3.3603 0 5.0405 0 6.3239-.654a5.9993 5.9993 0 0 0 2.6221-2.6221C25 20.4405 25 18.7603 25 15.4v-2.8c0-3.3603 0-5.0405-.654-6.324a5.9996 5.9996 0 0 0-2.6221-2.622C20.4405 3 18.7603 3 15.4 3h-2.8c-3.3603 0-5.0405 0-6.324.654a6 6 0 0 0-2.622 2.622Z" clip-rule="evenodd"/><path fill="currentColor" d="M8 10c0-.6904.5596-1.25 1.25-1.25s1.25.5596 1.25 1.25-.5596 1.25-1.25 1.25S8 10.6904 8 10Zm4 0c0-.5523.4477-1 1-1h6c.5523 0 1 .4477 1 1s-.4477 1-1 1h-6c-.5523 0-1-.4477-1-1Zm-4 8c0-.6904.5596-1.25 1.25-1.25s1.25.5596 1.25 1.25-.5596 1.25-1.25 1.25S8 18.6904 8 18Zm4 0c0-.5523.4477-1 1-1h3c.5523 0 1 .4477 1 1s-.4477 1-1 1h-3c-.5523 0-1-.4477-1-1Zm-4-4c0-.6904.5596-1.25 1.25-1.25s1.25.5596 1.25 1.25-.5596 1.25-1.25 1.25S8 14.6904 8 14Zm4 0c0-.5523.4477-1 1-1h6c.5523 0 1 .4477 1 1s-.4477 1-1 1h-6c-.5523 0-1-.4477-1-1Z"/></svg>',
   logo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M9 16l3-8 3 8"/><line x1="10" y1="13" x2="14" y2="13"/></svg>',
   template: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 28 28"><path fill-rule="evenodd" d="M7.96 3h12.08c.666 0 1.226 0 1.683.037.48.04.934.124 1.366.344a3.5 3.5 0 0 1 1.53 1.53c.22.432.305.887.344 1.366C25 6.734 25 7.294 25 7.96v.08c0 .666 0 1.226-.037 1.683-.04.48-.124.934-.345 1.366a3.5 3.5 0 0 1-1.529 1.53c-.432.22-.887.305-1.366.344-.457.037-1.017.037-1.683.037H7.96c-.666 0-1.226 0-1.683-.037-.48-.04-.934-.124-1.366-.345a3.5 3.5 0 0 1-1.53-1.529c-.22-.432-.304-.887-.344-1.366C3 9.266 3 8.706 3 8.04v-.08c0-.666 0-1.226.037-1.683.04-.48.124-.934.344-1.366a3.5 3.5 0 0 1 1.53-1.53c.432-.22.887-.304 1.366-.344C6.734 3 7.294 3 7.96 3ZM6.44 5.03c-.356.03-.518.081-.621.133a1.5 1.5 0 0 0-.656.656c-.052.103-.103.265-.132.62C5 6.806 5 7.283 5 8s0 1.194.03 1.56c.03.356.081.518.133.621a1.5 1.5 0 0 0 .656.655c.103.053.265.104.62.133C6.806 11 7.283 11 8 11h12c.717 0 1.194 0 1.56-.03.356-.03.518-.081.621-.134a1.5 1.5 0 0 0 .655-.655c.053-.103.104-.265.133-.62C23 9.194 23 8.717 23 8s0-1.194-.03-1.56c-.03-.356-.081-.518-.133-.621a1.5 1.5 0 0 0-.656-.656c-.103-.052-.265-.103-.62-.132C21.194 5 20.717 5 20 5H8c-.717 0-1.194 0-1.56.03ZM7.96 15h.08c.666 0 1.226 0 1.683.037.48.04.934.124 1.366.345a3.5 3.5 0 0 1 1.53 1.529c.22.432.305.887.344 1.366.037.457.037 1.017.037 1.683v.08c0 .666 0 1.226-.037 1.683-.04.48-.124.934-.345 1.366a3.5 3.5 0 0 1-1.529 1.53c-.432.22-.887.305-1.366.344C9.266 25 8.706 25 8.04 25h-.08c-.666 0-1.226 0-1.683-.037-.48-.04-.934-.124-1.366-.345a3.5 3.5 0 0 1-1.53-1.529c-.22-.432-.304-.887-.344-1.366C3 21.266 3 20.706 3 20.04v-.08c0-.666 0-1.226.037-1.683.04-.48.124-.934.344-1.366a3.5 3.5 0 0 1 1.53-1.53c.432-.22.887-.305 1.366-.344C6.734 15 7.294 15 7.96 15Zm-1.52 2.03c-.356.03-.518.081-.621.133a1.5 1.5 0 0 0-.656.656c-.052.103-.103.265-.132.62C5 18.806 5 19.283 5 20s0 1.194.03 1.56c.03.356.081.518.133.621a1.5 1.5 0 0 0 .656.655c.103.053.265.104.62.133C6.806 23 7.283 23 8 23s1.194 0 1.56-.03c.356-.03.518-.081.621-.133a1.5 1.5 0 0 0 .655-.656c.053-.103.104-.265.133-.62C11 21.194 11 20.717 11 20s0-1.194-.03-1.56c-.03-.356-.081-.518-.134-.621a1.5 1.5 0 0 0-.655-.655c-.103-.053-.265-.104-.62-.133C9.194 17 8.717 17 8 17s-1.194 0-1.56.03ZM19.96 15c-.666 0-1.226 0-1.683.037-.48.04-.934.124-1.366.345a3.5 3.5 0 0 0-1.53 1.529c-.22.432-.305.887-.344 1.366C15 18.734 15 19.294 15 19.96v.08c0 .666 0 1.226.037 1.683.04.48.124.934.345 1.366a3.5 3.5 0 0 0 1.529 1.53c.432.22.887.305 1.366.344.457.037 1.017.037 1.683.037h.08c.666 0 1.226 0 1.683-.037.48-.04.934-.124 1.366-.345a3.5 3.5 0 0 0 1.53-1.529c.22-.432.305-.887.344-1.366.037-.457.037-1.017.037-1.683v-.08c0-.666 0-1.226-.037-1.683-.04-.48-.124-.934-.345-1.366a3.5 3.5 0 0 0-1.529-1.53c-.432-.22-.887-.305-1.366-.344C21.266 15 20.706 15 20.04 15h-.08Zm-2.141 2.163c.103-.052.265-.103.62-.132C18.806 17 19.283 17 20 17s1.194 0 1.56.03c.356.03.518.081.621.133a1.5 1.5 0 0 1 .655.656c.053.103.104.265.133.62.03.367.031.844.031 1.561s0 1.194-.03 1.56c-.03.356-.081.518-.133.621a1.5 1.5 0 0 1-.656.655c-.103.053-.265.104-.62.133C21.194 23 20.717 23 20 23s-1.194 0-1.56-.03c-.356-.03-.518-.081-.621-.133a1.5 1.5 0 0 1-.655-.656c-.053-.103-.104-.265-.133-.62C17 21.194 17 20.717 17 20s0-1.194.03-1.56c.03-.356.081-.518.133-.621a1.5 1.5 0 0 1 .656-.655Z" clip-rule="evenodd"/></svg>',
-  ai: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 28 28"><path fill-rule="evenodd" d="M11 2a1 1 0 0 1 1 1v2h3.997V3a1 1 0 0 1 2 0v2H19a4 4 0 0 1 4 4v1h2a1 1 0 1 1 0 2h-2v3.982h2a1 1 0 0 1 0 2h-2V19a4 4 0 0 1-4 4h-1.012v2a1 1 0 0 1-2 0v-2H12v2a1 1 0 0 1-2 0v-2H9a4 4 0 0 1-4-4v-1H3a1 1 0 0 1 0-2h2v-4H3a1 1 0 0 1 0-2h2V9a4 4 0 0 1 4-4h1V3a1 1 0 0 1 1-1ZM9 7h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm4.008 3c-.774 0-1.237.066-1.717.323a2.34 2.34 0 0 0-.968.968c-.257.48-.323.943-.323 1.717v1.985c0 .773.066 1.236.323 1.716.222.415.553.746.968.968.48.257.943.323 1.716.323h1.986c.773 0 1.236-.066 1.716-.323a2.34 2.34 0 0 0 .968-.968c.257-.48.323-.943.323-1.716v-1.985c0-.774-.066-1.236-.323-1.717a2.34 2.34 0 0 0-.968-.968c-.48-.257-.943-.323-1.716-.323h-1.986Zm-.774 2.087a.444.444 0 0 1 .156-.053c.103-.018.28-.034.617-.034h1.986c.338 0 .514.016.617.034.077.014.11.028.156.053a.34.34 0 0 1 .147.147.443.443 0 0 1 .053.156c.018.103.034.28.034.618v1.985c0 .338-.016.514-.034.617a.443.443 0 0 1-.053.156.34.34 0 0 1-.147.147.444.444 0 0 1-.156.053 3.75 3.75 0 0 1-.617.034h-1.986a3.75 3.75 0 0 1-.617-.034.444.444 0 0 1-.156-.053.34.34 0 0 1-.147-.147.443.443 0 0 1-.053-.156 3.764 3.764 0 0 1-.034-.617v-1.985c0-.338.016-.515.034-.618a.443.443 0 0 1 .053-.156.34.34 0 0 1 .147-.147Z" clip-rule="evenodd"/></svg>',
+  ai: '<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><g><path d="M19.8506 34.7139C19.8505 35.4238 19.2753 35.9998 18.5654 36C17.8555 35.9998 17.2793 35.4238 17.2793 34.7139V29.041H19.8506V34.7139ZM14.0918 32.5527C14.0918 33.2625 13.5163 33.8384 12.8066 33.8389C12.0966 33.8389 11.5205 33.2628 11.5205 32.5527V29.041H14.0918V32.5527ZM24.8916 32.5527C24.8916 33.2625 24.3161 33.8384 23.6064 33.8389C22.8964 33.8389 22.3203 33.2628 22.3203 32.5527V29.041H24.8662C24.8747 29.041 24.8831 29.0401 24.8916 29.04V32.5527ZM31.834 23.04C32.5438 23.0403 33.12 23.6164 33.1201 24.3262C33.1199 25.0359 32.5437 25.6111 31.834 25.6113H28.9766C29.0206 25.3682 29.0449 25.1181 29.0449 24.8623V23.04H31.834ZM6.95703 24.8623C6.95703 25.1181 6.98139 25.3682 7.02539 25.6113H3.44629C2.73636 25.6113 2.1604 25.036 2.16016 24.3262C2.1603 23.6162 2.7363 23.04 3.44629 23.04H6.95703V24.8623ZM34.7139 17.2793C35.4238 17.2793 35.9998 17.8555 36 18.5654C35.9998 19.2753 35.4238 19.8506 34.7139 19.8506H29.0449V17.2793H34.7139ZM6.95703 19.8506H1.28613C0.576229 19.8506 0.000245737 19.2753 0 18.5654C0.00017429 17.8555 0.576184 17.2793 1.28613 17.2793H6.95703V19.8506ZM31.834 12.2383C32.5439 12.2385 33.1201 12.8145 33.1201 13.5244C33.1198 14.2341 32.5436 14.8093 31.834 14.8096H29.0449V12.2383H31.834ZM6.95703 14.8096H3.44629C2.73642 14.8096 2.1605 14.2342 2.16016 13.5244C2.16016 12.8143 2.73621 12.2383 3.44629 12.2383H6.95703V14.8096ZM23.6064 2.87891C24.3161 2.87936 24.8915 3.45533 24.8916 4.16504V6.95312H22.3203V4.16504C22.3204 3.45505 22.8964 2.87891 23.6064 2.87891ZM12.8066 2.87891C13.5163 2.87935 14.0917 3.45532 14.0918 4.16504V6.95312H11.5205V4.16504C11.5206 3.45505 12.0966 2.87891 12.8066 2.87891ZM18.5654 0C19.2753 0.000245711 19.8506 0.576204 19.8506 1.28613V6.95312H17.2793V1.28613C17.2793 0.57616 17.8555 0.000174338 18.5654 0Z" fill="currentColor"/><rect x="7.91992" y="7.9165" width="20.16" height="20.16" rx="3.21429" stroke="currentColor" stroke-width="2.57143"/><path d="M15.4795 13.1104C17.9512 13.1105 20.0047 15.1121 20.0049 17.6104V21.5967C20.0046 22.3063 19.4294 22.8816 18.7197 22.8818C18.01 22.8817 17.4339 22.3064 17.4336 21.5967V20.1572H13.5254V21.5967C13.5251 22.3065 12.9491 22.8818 12.2393 22.8818C11.5295 22.8817 10.9534 22.3064 10.9531 21.5967V17.6104C10.9534 15.1121 13.0078 13.1105 15.4795 13.1104ZM23.6055 13.3164C24.3152 13.3168 24.8906 13.8927 24.8906 14.6025V21.3906C24.8905 22.1003 24.3151 22.6763 23.6055 22.6768C22.8955 22.6768 22.3195 22.1006 22.3193 21.3906V14.6025C22.3193 13.8925 22.8954 13.3164 23.6055 13.3164ZM15.4795 15.6826C14.4095 15.6828 13.5398 16.5451 13.5264 17.5859H17.4326C17.4192 16.5451 16.5495 15.6827 15.4795 15.6826Z" fill="currentColor"/></g></svg>',
   check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>',
   hourglass: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12M6 21h12M7 3c0 5 4 6 5 8-1 2-5 3-5 8M17 3c0 5-4 6-5 8 1 2 5 3 5 8"/></svg>',
   plus: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>',
@@ -39,14 +39,6 @@ const ICONS = {
   folderPlus: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"/><line x1="12" y1="10" x2="12" y2="16"/><line x1="9" y1="13" x2="15" y2="13"/></svg>',
 };
 
-const ICON_GLYPH_LIST = [
-  ICONS.bolt, ICONS.grid, ICONS.bell, ICONS.camera, ICONS.circleSlash, ICONS.tv,
-  ICONS.star, ICONS.camera, ICONS.template, ICONS.circleSlash, ICONS.grid, ICONS.gamepad,
-  ICONS.image, ICONS.bell, ICONS.heart1, ICONS.heart2, ICONS.smile, ICONS.image, ICONS.bell,
-  ICONS.shapes, ICONS.bell, ICONS.smile, ICONS.vk, ICONS.cloud, ICONS.folderIcon,
-  ICONS.ai, ICONS.music, ICONS.settings, ICONS.image, ICONS.vk, ICONS.circleSlash,
-];
-
 const SIDEBAR_ITEMS = [
   { kind: 'favorites', label: 'Избранное', icon: ICONS.heart1 },
   { kind: 'presentations', label: 'Презентации', icon: ICONS.presentation },
@@ -58,9 +50,8 @@ const SIDEBAR_ITEMS = [
 ];
 const AI_NAV_ITEM = { kind: 'ai', label: 'ИИ-ассистент', icon: ICONS.ai };
 
-// Sections whose grid is made of real multi-slide decks (dot pagination + export)
 const DECK_SECTIONS = ['presentations', 'favorites', 'templates'];
-// Sections whose grid is made of single insertable images
+
 const TILE_SECTIONS = ['photos', 'illustrations', 'icons', 'logos'];
 
 const SECTION_LABELS = {
@@ -75,9 +66,6 @@ const SECTION_LABELS = {
 
 const PRODUCT_OPTIONS = ['Все', 'MAX', 'VK'];
 
-// Full hashtag taxonomy for the "add file" forms and the Фильтры screen —
-// matches the categories the team defined (по типу контента / продуктам /
-// формату / стилю / сфере / аудитории / типу выступления / структуре).
 const TAG_TAXONOMY = {
   contentType: ['Презентации', 'Шаблон', 'Таблицы', 'Схемы', 'Диаграммы', 'QR-коды', 'Иллюстрации', 'Фото', 'Иконки', '3D-элементы', 'Опрос/голосование', 'Видео', 'Карты', 'Roadmap'],
   product: ['VK Видео', 'VK Музыка', 'VK tech', 'Маркетинг', 'All hands', 'Сферум', 'MAX'],
@@ -91,69 +79,17 @@ const TAG_TAXONOMY = {
 const TAG_SUGGESTIONS_FLAT = [...new Set(Object.values(TAG_TAXONOMY).flat())];
 const MAX_TAGS = 25;
 
-/* ---- built-in placeholder visuals for Фото / Иллюстрации / Иконки / Логотипы
-   (public scope). They now double as *real* insertable content: at insert
-   time their gradient/glyph is rasterised to a PNG on an offscreen canvas
-   and dropped onto the current slide — see rasterizeTile(). ---- */
-const PHOTO_TILE_SEED = [
-  { color: '#17449C', badge: 'MAX', product: 'MAX' },
-  { color: '#033394', badge: 'MAX', product: 'MAX' },
-  { color: '#2688EB', badge: 'MAX', product: 'MAX' },
-  { color: '#012258', badge: 'VK', product: 'VK' },
-  { color: '#005FFF', badge: 'VK', product: 'VK' },
-  { color: '#17449C', badge: 'VK', product: 'VK' },
-].map((ph, i) => ({
-  id: 'ph' + (i + 1), name: 'Фото ' + (i + 1), scope: 'public', kind: 'photos',
-  visual: 'photo-swatch', color: ph.color, badge: ph.badge, product: ph.product,
-}));
-
 const ILLUSTRATION_STYLE_TYPES = ['3D', 'Плоская иллюстрация', 'Паттерн'];
-const ILLUSTRATION_TILE_SEED = [
-  'linear-gradient(135deg,#2688EB,#012258)',
-  'linear-gradient(135deg,#DEE9FF,#2688EB)',
-  'linear-gradient(135deg,#FFD36E,#E0433F)',
-  'linear-gradient(135deg,#005FFF,#17449C)',
-  'linear-gradient(135deg,#8FD3C7,#2688EB)',
-  'linear-gradient(135deg,#033394,#005FFF)',
-].map((gradient, i) => ({
-  id: 'sh' + (i + 1), name: 'Иллюстрация ' + (i + 1), scope: 'public', kind: 'illustrations',
-  visual: 'shape-swatch', gradient, styleType: ILLUSTRATION_STYLE_TYPES[i % ILLUSTRATION_STYLE_TYPES.length],
-}));
 
-// Built-in icon glyphs are all vector SVG — the "format" filter's PNG/GIF
-// options only have something to show for personally-imported icons whose
-// real file extension is png/gif. That's not a bug: it's genuinely no
-// icons of that format existing yet, same as any real filter would do.
-const ICON_TILE_SEED = ICON_GLYPH_LIST.map((svg, i) => ({
-  id: 'icon' + i, name: 'Иконка ' + (i + 1), scope: 'public', kind: 'icons',
-  visual: 'icon-glyph', svg, format: 'SVG',
-}));
-
-const LOGO_TILE_SEED = [
-  { id: 'lg1', bg: '#FFFFFF', markBg: 'linear-gradient(135deg,#2688EB,#005FFF)', word: 'max', wordColor: '#012258', product: 'MAX' },
-  { id: 'lg2', bg: '#DEE9FF', markBg: 'linear-gradient(135deg,#2688EB,#17449C)', word: 'max', wordColor: '#012258', product: 'MAX' },
-  { id: 'lg3', bg: '#EEF1F8', markBg: '#FFFFFF', word: 'max', wordColor: '#012258', product: 'MAX' },
-  { id: 'lg4', bg: '#012258', markBg: '#012258', word: 'vk', wordColor: '#FFFFFF', markBorder: true, product: 'VK' },
-  { id: 'lg5', bg: '#FFFFFF', markBg: 'linear-gradient(135deg,#2688EB,#005FFF)', markOnly: true, product: 'VK' },
-  { id: 'lg6', bg: '#012258', markBg: '#012258', markOnly: true, markBorder: true, product: 'VK' },
-].map(lv => ({
-  id: lv.id, name: 'Логотип', scope: 'public', kind: 'logos',
-  visual: 'logo-mark', bg: lv.bg, markBg: lv.markBg, word: lv.markOnly ? null : lv.word,
-  wordColor: lv.wordColor, markOnly: !!lv.markOnly, markBorder: !!lv.markBorder, product: lv.product,
-}));
-
-// Folder name (Russian, matching the sidebar labels) -> section kind, used
-// when importing a personal template folder. Lower-cased at lookup time.
 const FOLDER_LABEL_TO_KIND = {};
 SIDEBAR_ITEMS.forEach(item => { FOLDER_LABEL_TO_KIND[item.label.toLowerCase()] = item.kind; });
-// A few forgiving English aliases too, in case someone names folders that way.
 Object.assign(FOLDER_LABEL_TO_KIND, {
   favorites: 'favorites', presentations: 'presentations', photos: 'photos',
   illustrations: 'illustrations', icons: 'icons', logos: 'logos', templates: 'templates',
 });
 
 let slides = catalogData.slides || catalogData;
-let tiles = [...PHOTO_TILE_SEED, ...ILLUSTRATION_TILE_SEED, ...ICON_TILE_SEED, ...LOGO_TILE_SEED];
+let tiles = (catalogData.tiles && Array.isArray(catalogData.tiles)) ? [...catalogData.tiles] : [];
 
 let activeSection = 'presentations';
 let activeScope = 'public';
@@ -165,12 +101,9 @@ let recentlyUsed = [];
 let insertingIds = new Set();
 let selectedIds = new Set();
 let modalSlideId = null;
+let modalKeydownHandler = null; 
 let sidebarCollapsed = true;
 
-// Per-card / per-modal "which page of the deck is currently shown".
-// Keyed by slide id -> index into that slide's normalized pages (see
-// getDeckPages). This is what lets the pagination dots actually flip
-// through real slides, and lets "Вставить" insert the page you're on.
 let cardPreviewIndex = {};
 let modalPreviewIndex = 0;
 
@@ -246,14 +179,28 @@ const $downloadLibraryBtn = document.getElementById('downloadLibraryBtn');
 const $downloadSuggestionsBtn = document.getElementById('downloadSuggestionsBtn');
 const $folderImportInput = document.getElementById('folderImportInput');
 
-const hasStorage = typeof OfficeRuntime !== 'undefined' && OfficeRuntime.storage;
+const storageImpl = (typeof OfficeRuntime !== 'undefined' && OfficeRuntime.storage) 
+    ? {
+        getItem: (key) => OfficeRuntime.storage.getItem(key),
+        setItem: (key, value) => OfficeRuntime.storage.setItem(key, value),
+        removeItem: (key) => OfficeRuntime.storage.removeItem(key)
+      }
+    : (typeof window !== 'undefined' && window.localStorage)
+    ? {
+        getItem: (key) => Promise.resolve(window.localStorage.getItem(key)),
+        setItem: (key, value) => Promise.resolve(window.localStorage.setItem(key, value)),
+        removeItem: (key) => Promise.resolve(window.localStorage.removeItem(key))
+      }
+    : null;
+
+const hasStorage = !!storageImpl;
 
 async function loadFromStorage() {
   if (!hasStorage) return;
   try {
-    const favsRaw = await OfficeRuntime.storage.getItem('sl_favorites');
+    const favsRaw = await storageImpl.getItem('sl_favorites');
     if (favsRaw) JSON.parse(favsRaw).forEach(id => favorites.add(id));
-    const recRaw = await OfficeRuntime.storage.getItem('sl_recent');
+    const recRaw = await storageImpl.getItem('sl_recent');
     if (recRaw) recentlyUsed = JSON.parse(recRaw).slice(0, 3);
   } catch (e) {
     console.warn('[Slidebrary] Storage error:', e);
@@ -263,7 +210,7 @@ async function loadFromStorage() {
 async function persistFavorites() {
   if (!hasStorage) return;
   try {
-    await OfficeRuntime.storage.setItem('sl_favorites', JSON.stringify([...favorites]));
+    await storageImpl.setItem('sl_favorites', JSON.stringify([...favorites]));
   } catch (e) {
     console.warn('[Slidebrary] Storage write error:', e);
   }
@@ -273,14 +220,13 @@ async function addToRecent(id) {
   recentlyUsed = [id, ...recentlyUsed.filter(x => x !== id)].slice(0, 3);
   if (!hasStorage) return;
   try {
-    await OfficeRuntime.storage.setItem('sl_recent', JSON.stringify(recentlyUsed));
+    await storageImpl.setItem('sl_recent', JSON.stringify(recentlyUsed));
   } catch (e) {
     console.warn('[Slidebrary] Storage write error:', e);
   }
 }
 
 function facetMatches(item, key, value) {
-  // "Все" is the single "no filter" sentinel value across every facet.
   const isAny = value === 'Все';
   if (isAny) return true;
   if (item[key] !== undefined) return item[key] === value;
@@ -290,21 +236,6 @@ function facetMatches(item, key, value) {
   return haystack.includes(value.toLowerCase());
 }
 
-/* ============================================================
-   PPTX auto-parser — a .pptx is a ZIP archive containing one XML
-   file per slide (ppt/slides/slideN.xml). We unzip it client-side
-   with JSZip (no server) to find the REAL slide count and pull each
-   slide's title text straight out of the XML — so the catalog only
-   needs ONE entry per presentation (a single `file` path); the
-   modal's dots and page count come from parsing the actual .pptx,
-   not from a manually authored `slides` array.
-
-   This does NOT faithfully render each slide's visuals (that would
-   require a full OOXML rendering engine, way beyond a client-side
-   parser) — pages without a supplied `preview` image fall back to a
-   text card showing the extracted title, which is still enough to
-   tell slides apart and to insert the right one.
-   ============================================================ */
 const pptxPageCache = {};
 const pptxParseInFlight = {};
 
@@ -315,8 +246,6 @@ function looksLikePptxFile(fileSource) {
   return false;
 }
 
-// Only auto-parse decks the catalog DIDN'T already describe in detail —
-// if `slides`/`previews` was authored by hand, trust that instead.
 function shouldAutoParsePptx(item) {
   return !(item.slides && item.slides.length) && !(item.previews && item.previews.length) && looksLikePptxFile(item.file);
 }
@@ -383,8 +312,6 @@ async function parsePptxDeck(item) {
   return task;
 }
 
-// Kicks off parsing in the background (no-op if already cached/unsupported/
-// not a .pptx) and calls onReady(pages) once real multi-slide data is found.
 function ensurePptxPagesParsed(item, onReady) {
   if (pptxPageCache[item.id]) { onReady(pptxPageCache[item.id]); return; }
   if (!shouldAutoParsePptx(item)) return;
@@ -393,20 +320,6 @@ function ensurePptxPagesParsed(item, onReady) {
   });
 }
 
-/* ============================================================
-   Deck pages helper — a deck (presentation/template/favorite) can
-   describe its pages in one of four ways (checked in this order):
-     0. A cached result from parsePptxDeck() — real slides pulled
-        straight out of the .pptx itself.
-     1. `slides`: [{ preview, file, name? }, ...] — full pages,
-        each with its OWN file to insert (a real multi-slide deck).
-     2. `previews`: [url, url, ...] — just images to flip through,
-        all inserting the same `file`.
-     3. `preview` / `file` — a single-page item (default case).
-   Returns a normalized array of { preview, file } so the rest of
-   the app never has to branch on which form the data used, and the
-   number of pagination dots always matches the real slide count.
-   ============================================================ */
 function getDeckPages(item) {
   if (pptxPageCache[item.id]) return pptxPageCache[item.id];
   if (item.slides && item.slides.length) {
@@ -421,8 +334,6 @@ function getDeckPages(item) {
   return [{ preview: null, file: item.file }];
 }
 
-// Resolves which file should be inserted/exported for a deck right now,
-// based on whichever dot/page the person currently has showing.
 function getActiveFile(item) {
   const pages = getDeckPages(item);
   const idx = Math.min(cardPreviewIndex[item.id] || 0, pages.length - 1);
@@ -434,9 +345,6 @@ function getDeckSlides(section) {
   let items = slides.filter(s => {
     const scope = s.scope || 'public';
     if (scope !== activeScope) return false;
-    // Items with an explicit `kind` only show under that one section
-    // (used by personal folder imports). Items without `kind` (the
-    // bundled catalog) show under both Презентации and Шаблоны, as before.
     if (s.kind && s.kind !== section) return false;
     if (q) {
       const haystack = [s.name, s.category, ...(s.tags || [])].filter(Boolean).join(' ').toLowerCase();
@@ -456,8 +364,6 @@ function getDeckSlides(section) {
   return items.sort(sortFns[sortMode] || sortFns.name);
 }
 
-// Same idea as getDeckSlides, but for the single-image sections
-// (Фотографии / Иллюстрации / Иконки / Логотипы).
 function getTileItems(kind) {
   const q = searchQuery.toLowerCase().trim();
   return tiles.filter(t => {
@@ -553,15 +459,6 @@ function renderAll() {
   updateLibraryButtonVisibility();
 }
 
-/* ============================================================
-   Small reusable dropdown — replaces native <select> everywhere
-   so the open list is styled with the app's own palette instead
-   of whatever the OS/browser applies to <option> rows.
-   ============================================================ */
-/* ============================================================
-   Small pill toggle switch — "Использовать шаблон / загрузить свой",
-   "Расширенный ИИ".
-   ============================================================ */
 function createToggleSwitch(initial, onChange) {
   const btn = document.createElement('button');
   btn.type = 'button';
@@ -652,11 +549,6 @@ function createDropdown({ options, value, onChange }) {
   return wrap;
 }
 
-/* ============================================================
-   Tag picker — hashtag chips like "Label ×" with a "X/25" counter,
-   a free-text input (Enter to add), and a row of suggested tags
-   drawn from TAG_SUGGESTIONS_FLAT. Used by the file-upload forms.
-   ============================================================ */
 function createTagPicker(initialTags) {
   const wrap = document.createElement('div');
   wrap.className = 'tagpicker';
@@ -743,15 +635,6 @@ function createTagPicker(initialTags) {
   return { el: wrap, getTags: () => [...tags] };
 }
 
-/* ============================================================
-   Reusable "add file" form — powers both:
-   - Личное → Шаблоны → "Загрузить свой" (simple: file, name, type, tags)
-   - Публичное → Шаблоны → "Предложить файл в базу" (full: + product,
-     sphere, format, structure, speechType, theme, AI-generated checkbox)
-   Renders into `mount`. onSubmit(data) is only called once required
-   fields are filled in (file + name); the Добавить button reflects
-   this via the .is-active class, matching the reference states.
-   ============================================================ */
 function renderAddFileForm(mount, { full = false, onSubmit, onCancel }) {
   mount.innerHTML = '';
   const form = document.createElement('div');
@@ -972,9 +855,6 @@ function renderContent() {
   return renderGrid();
 }
 
-/* ============================================================
-   Render: deck grid / list (Избранное, Презентации)
-   ============================================================ */
 function renderGrid() {
   const items = getDeckSlides(activeSection);
   const isList = viewMode === 'list';
@@ -1013,13 +893,6 @@ function renderRecent() {
   })));
 }
 
-/* ============================================================
-   Card builder — shared by Избранное / Презентации / Шаблоны.
-   Real pagination: if the deck has more than one page (see
-   getDeckPages), the dots under the thumbnail are clickable and
-   swap the shown image in place, without opening the modal or
-   re-rendering the whole grid (so scroll position is preserved).
-   ============================================================ */
 function buildCard(item, opts = {}) {
   const {
     mode = 'grid',
@@ -1068,7 +941,7 @@ function buildCard(item, opts = {}) {
     ).join('')}</div>` : ''}
   `;
 
-  if (isList) {
+      if (isList) {
     card.innerHTML = `
       ${thumbHtml}
       <div class="card__body"><p class="card__name">${item.name}</p></div>
@@ -1079,6 +952,12 @@ function buildCard(item, opts = {}) {
         <button class="card__btn${isIns ? ' card__btn--loading' : ''}${selected ? ' card__btn--selected' : ''}" data-id="${item.id}" aria-label="Выбрать слайд">
           ${isIns ? '…' : (selected ? ICONS.check : ICONS.plus)}
         </button>
+        <!-- КНОПКА ПУБЛИКАЦИИ - СВОЙ КЛАСС card__pub-btn -->
+        ${item.scope === 'personal' ? `
+          <button class="card__pub-btn" data-action="publish" data-id="${item.id}" aria-label="Добавить в публичную библиотеку" title="Добавить в публичную библиотеку">
+            ${ICONS.cloud}
+          </button>
+        ` : ''}
       </div>
     `;
   } else {
@@ -1092,7 +971,7 @@ function buildCard(item, opts = {}) {
     e.stopPropagation();
     onToggleFav(item.id);
   }));
-  card.querySelectorAll('.card__btn').forEach(btn => btn.addEventListener('click', e => {
+  card.querySelectorAll('.card__btn:not([data-action="publish"])').forEach(btn => btn.addEventListener('click', e => {
     e.stopPropagation();
     onToggleSelect(item.id);
   }));
@@ -1109,6 +988,18 @@ function buildCard(item, opts = {}) {
         dotsWrap.querySelectorAll('.card__dot').forEach(d =>
           d.classList.toggle('card__dot--active', Number(d.dataset.index) === idx)
         );
+      });
+    });
+  }
+
+  const pubBtn = card.querySelector('[data-action="publish"]');
+  if (pubBtn) {
+    pubBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      e.preventDefault();
+      movePersonalToPublic(item.id).catch(err => {
+        console.error('Ошибка публикации:', err);
+        setStatus('❌ Ошибка: ' + err.message, 'error');
       });
     });
   }
@@ -1130,13 +1021,6 @@ function toggleSelect(id) {
   updateFooterState();
 }
 
-/* ============================================================
-   Render: Фотографии / Иллюстрации / Иконки / Логотипы — one
-   unified data source (getTileItems) and one unified card builder
-   (buildTileNode), so search + filters behave the same everywhere,
-   and every tile — mock or personally-imported — can genuinely be
-   inserted onto the current slide via "Добавить".
-   ============================================================ */
 function renderTilePanel(kind) {
   const items = getTileItems(kind);
   $grid.className = kind === 'icons' ? 'grid grid--icons' : 'grid';
@@ -1152,28 +1036,25 @@ function buildTileNode(tile) {
   const isSelected = panelSelectedId === tile.id;
   const el = document.createElement('div');
 
-  if (tile.visual === 'photo-swatch') {
-    el.className = 'tile tile--photo' + (isSelected ? ' tile--selected' : '');
-    el.innerHTML = `
-      <div class="tile__ph" style="background:linear-gradient(160deg, ${tile.color}33, ${tile.color}88);">
-        <span class="tile__badge">${tile.badge || ''}</span>
-      </div>`;
-  } else if (tile.visual === 'shape-swatch') {
-    el.className = 'tile tile--3d' + (isSelected ? ' tile--selected' : '');
-    el.innerHTML = `<div class="tile__shape" style="background:${tile.gradient};"></div>`;
-  } else if (tile.visual === 'icon-glyph') {
-    el.className = 'tile tile--icon' + (isSelected ? ' tile--selected' : '');
-    el.innerHTML = tile.svg;
-  } else if (tile.visual === 'logo-mark') {
-    el.className = 'tile tile--logo' + (tile.markOnly ? ' tile--logo--mark-only' : '') + (isSelected ? ' tile--selected' : '');
-    el.style.background = tile.bg;
-    const border = tile.markBorder ? 'border:1.5px solid rgba(255,255,255,.25);' : '';
-    el.innerHTML = `
-      <span class="logo-mark" style="background:${tile.markBg};${border}"></span>
-      ${tile.markOnly ? '' : `<span class="logo-word" style="color:${tile.wordColor};">${tile.word}</span>`}
-    `;
+  if (tile.visual === 'image' || tile.preview) {
+    if (tile.kind === 'photos') {
+      el.className = 'tile tile--photo' + (isSelected ? ' tile--selected' : '');
+      el.innerHTML = `<img src="${tile.preview || tile.file}" alt="${tile.name}" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">`;
+    } else if (tile.kind === 'illustrations') {
+      el.className = 'tile tile--3d' + (isSelected ? ' tile--selected' : '');
+      el.innerHTML = `<div class="tile__shape" style="background:url('${tile.preview || tile.file}') center/cover no-repeat; width:100%;height:100%;"></div>`;
+    } else if (tile.kind === 'icons') {
+      el.className = 'tile tile--icon' + (isSelected ? ' tile--selected' : '');
+      el.innerHTML = `<img src="${tile.preview || tile.file}" alt="${tile.name}" style="width:70%;height:70%;object-fit:contain;">`;
+    } else if (tile.kind === 'logos') {
+      el.className = 'tile tile--logo' + (isSelected ? ' tile--selected' : '');
+      el.style.background = '#fff';
+      el.innerHTML = `<img src="${tile.preview || tile.file}" alt="${tile.name}" style="width:80%;height:80%;object-fit:contain;">`;
+    } else {
+      el.className = 'tile tile--imported' + (isSelected ? ' tile--selected' : '');
+      el.innerHTML = `<img src="${tile.preview || tile.file}" alt="${tile.name}" style="width:100%;height:100%;object-fit:cover;">`;
+    }
   } else {
-    // A real imported image (personal folder).
     el.className = 'tile tile--imported' + (isSelected ? ' tile--selected' : '');
     el.innerHTML = `<img src="${tile.preview}" alt="${tile.name}">`;
   }
@@ -1182,10 +1063,6 @@ function buildTileNode(tile) {
   return el;
 }
 
-/* ============================================================
-   Render: Шаблоны — same deck grid + card component as
-   Презентации, framed with a product filter above it.
-   ============================================================ */
 function renderTemplatesPanel() {
   if (activeScope === 'personal' && showTemplateUploadForm) {
     $grid.className = 'grid grid--form';
@@ -1277,9 +1154,6 @@ function setStatus(message, type) {
   }
 }
 
-/* ============================================================
-   Insert full slides (Презентации / Избранное / Шаблоны)
-   ============================================================ */
 function toBase64(fileOrUrl) {
   if (fileOrUrl instanceof File || fileOrUrl instanceof Blob) {
     return new Promise((resolve, reject) => {
@@ -1288,6 +1162,17 @@ function toBase64(fileOrUrl) {
       reader.onerror = reject;
       reader.readAsDataURL(fileOrUrl);
     });
+  }
+  if (typeof fileOrUrl !== 'string') {
+    if (fileOrUrl && typeof fileOrUrl === 'object' && fileOrUrl.data) {
+      fileOrUrl = fileOrUrl.data;
+    }
+    if (typeof fileOrUrl !== 'string') {
+      fileOrUrl = String(fileOrUrl);
+    }
+  }
+  if (fileOrUrl.startsWith('data:')) {
+    return Promise.resolve(fileOrUrl.split(',')[1]);
   }
   const url = fileOrUrl.startsWith('http') ? fileOrUrl : (window.location.origin + '/' + fileOrUrl);
   return fetch(url)
@@ -1371,106 +1256,6 @@ function exportItems(items) {
     });
 }
 
-/* ============================================================
-   Insert a single image (Фотографии / Иллюстрации / Иконки /
-   Логотипы) onto whichever slide is currently selected in
-   PowerPoint. Real personal-library images are used as-is;
-   built-in mock tiles are rasterised to a PNG on an offscreen
-   canvas first, so the button is functional even without a real
-   bundled image asset behind it.
-   ============================================================ */
-function loadImageEl(src) {
-  return new Promise((resolve, reject) => {
-    const img = new Image();
-    img.onload = () => resolve(img);
-    img.onerror = reject;
-    img.src = src;
-  });
-}
-
-function svgToDataUri(svgMarkup) {
-  return 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgMarkup)));
-}
-
-function extractHexColors(cssStr) {
-  if (!cssStr) return [];
-  return cssStr.match(/#[0-9a-fA-F]{3,8}/g) || [];
-}
-
-function roundRectPath(ctx, x, y, w, h, r) {
-  ctx.beginPath();
-  ctx.moveTo(x + r, y);
-  ctx.arcTo(x + w, y, x + w, y + h, r);
-  ctx.arcTo(x + w, y + h, x, y + h, r);
-  ctx.arcTo(x, y + h, x, y, r);
-  ctx.arcTo(x, y, x + w, y, r);
-  ctx.closePath();
-}
-
-async function rasterizeTile(tile) {
-  const W = 640, H = 400;
-  const canvas = document.createElement('canvas');
-  canvas.width = W; canvas.height = H;
-  const ctx = canvas.getContext('2d');
-
-  if (tile.visual === 'photo-swatch') {
-    const grad = ctx.createLinearGradient(0, 0, W, H);
-    grad.addColorStop(0, tile.color + '55');
-    grad.addColorStop(1, tile.color + 'dd');
-    ctx.fillStyle = grad;
-    ctx.fillRect(0, 0, W, H);
-  } else if (tile.visual === 'shape-swatch') {
-    const stops = extractHexColors(tile.gradient);
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(0, 0, W, H);
-    const grad = ctx.createLinearGradient(0, 0, W, H);
-    grad.addColorStop(0, stops[0] || '#2688EB');
-    grad.addColorStop(1, stops[1] || '#012258');
-    ctx.fillStyle = grad;
-    roundRectPath(ctx, W * 0.19, H * 0.19, W * 0.62, H * 0.62, 24);
-    ctx.fill();
-  } else if (tile.visual === 'logo-mark') {
-    ctx.fillStyle = tile.bg || '#ffffff';
-    ctx.fillRect(0, 0, W, H);
-    const stops = extractHexColors(tile.markBg);
-    const grad = ctx.createLinearGradient(W * 0.3, H * 0.3, W * 0.7, H * 0.7);
-    grad.addColorStop(0, stops[0] || tile.markBg || '#2688EB');
-    grad.addColorStop(1, stops[1] || stops[0] || tile.markBg || '#005FFF');
-    ctx.fillStyle = grad;
-    ctx.beginPath();
-    ctx.arc(W / 2, H / 2, Math.min(W, H) * 0.18, 0, Math.PI * 2);
-    ctx.fill();
-    if (tile.word) {
-      ctx.fillStyle = tile.wordColor || '#012258';
-      ctx.font = `700 ${Math.round(H * 0.16)}px -apple-system, sans-serif`;
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText(tile.word, W / 2 + W * 0.16, H / 2);
-    }
-  } else if (tile.visual === 'icon-glyph') {
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(0, 0, W, H);
-    try {
-      const img = await loadImageEl(svgToDataUri(tile.svg));
-      const size = Math.min(W, H) * 0.5;
-      ctx.drawImage(img, (W - size) / 2, (H - size) / 2, size, size);
-    } catch (e) { /* leave the plain background if the glyph fails to rasterise */ }
-  } else if (tile.preview) {
-    try {
-      const img = await loadImageEl(tile.preview);
-      ctx.drawImage(img, 0, 0, W, H);
-    } catch (e) {
-      ctx.fillStyle = '#DEE9FF';
-      ctx.fillRect(0, 0, W, H);
-    }
-  } else {
-    ctx.fillStyle = '#DEE9FF';
-    ctx.fillRect(0, 0, W, H);
-  }
-
-  return canvas.toDataURL('image/png');
-}
-
 function fileToDataUrl(file) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -1484,7 +1269,7 @@ async function getTileInsertDataUrl(tile) {
   if (tile.file instanceof File || tile.file instanceof Blob) {
     return await fileToDataUrl(tile.file);
   }
-  return await rasterizeTile(tile);
+  return tile.file;
 }
 
 function insertImageCommonApi(base64) {
@@ -1556,15 +1341,6 @@ async function insertTileImage(tile) {
   }
 }
 
-/* ============================================================
-   "Добавить в библиотеку" — captures the presentation currently
-   open in PowerPoint (the one the task pane is docked in) as a new
-   deck in the personal library, with a REAL preview generated for
-   every slide via Slide.getImageAsBase64() — no manual .png prep,
-   no catalog.json edits. Persisted to OfficeRuntime.storage, so
-   (unlike folder import) it survives closing and reopening the
-   task pane.
-   ============================================================ */
 function getActivePresentationBase64() {
   return new Promise((resolve, reject) => {
     if (!window.Office || !Office.context || !Office.context.document || !Office.context.document.getFileAsync) {
@@ -1627,42 +1403,37 @@ async function getActivePresentationSlidePreviews() {
   });
 }
 
-// The personal library is kept as ONE JSON array under a single storage
-// key — structurally the same shape as catalog.json's `slides` array —
-// so every "add" (Добавить в библиотеку / загрузить свой шаблон /
-// Предложить файл) is literally an append/update to that JSON object,
-// and the whole thing can be exported as a real .json file on demand
-// (see downloadPersonalLibraryJson below).
 const PERSONAL_LIBRARY_KEY = 'sl_personal_library_json';
 
 async function loadPersonalLibraryJson() {
   if (!hasStorage) return [];
   try {
-    const raw = await OfficeRuntime.storage.getItem(PERSONAL_LIBRARY_KEY);
+    const raw = await storageImpl.getItem(PERSONAL_LIBRARY_KEY);
     return raw ? JSON.parse(raw) : [];
   } catch (e) {
     return [];
   }
 }
 
-async function persistLibraryDeck(deck) {
-  if (!hasStorage) throw new Error('Постоянное хранилище недоступно в этом окружении');
+async function persistLibraryDeck(item) {
+  if (!hasStorage) throw new Error('Хранилище недоступно');
   const list = await loadPersonalLibraryJson();
-  const idx = list.findIndex(x => x.id === deck.id);
-  if (idx >= 0) list[idx] = deck; else list.push(deck);
-  await OfficeRuntime.storage.setItem(PERSONAL_LIBRARY_KEY, JSON.stringify(list));
+  const idx = list.findIndex(x => x.id === item.id);
+  if (idx >= 0) list[idx] = item; else list.push(item);
+  await storageImpl.setItem(PERSONAL_LIBRARY_KEY, JSON.stringify(list));
 }
 
 async function loadLibraryDecksFromStorage() {
   const list = await loadPersonalLibraryJson();
-  list.forEach(deck => {
-    if (!slides.some(s => s.id === deck.id)) slides.push(deck);
+  list.forEach(item => {
+    if (TILE_SECTIONS.includes(item.kind)) {
+      if (!tiles.some(t => t.id === item.id)) tiles.push(item);
+    } else {
+      if (!slides.some(s => s.id === item.id)) slides.push(item);
+    }
   });
 }
 
-// Lets the person grab their personal library as a real, inspectable
-// .json file — same shape as catalog.json, so it could be merged into
-// the public catalog by hand if a team wants to "promote" it later.
 async function downloadPersonalLibraryJson() {
   const list = await loadPersonalLibraryJson();
   const payload = { version: new Date().toISOString().slice(0, 10), scope: 'personal', slides: list };
@@ -1684,19 +1455,12 @@ async function addActivePresentationToLibrary() {
     ]);
     const fileDataUrl = 'data:application/vnd.openxmlformats-officedocument.presentationml.presentation;base64,' + wholeBase64;
     const pageList = previews.length ? previews : [null];
-    // NOTE: every page points at the SAME whole-presentation file — the
-    // PowerPoint JS API doesn't expose a way to export just one slide as
-    // its own standalone .pptx, only the full document. So the dots let
-    // you preview each slide individually, but "Вставить слайд" inserts
-    // the whole captured presentation. Isolating single slides would need
-    // unzipping/rewriting the .pptx package client-side (e.g. with
-    // JSZip) — a solid next step if you want true per-slide re-insertion.
-    const pages = pageList.map((preview, i) => ({ name: 'Слайд ' + (i + 1), preview, file: fileDataUrl }));
+  const pages = pageList.map((preview, i) => ({ name: 'Слайд ' + (i + 1), preview, file: fileDataUrl }));
     let name = 'Моя презентация';
     try {
       const url = Office.context.document.url;
       if (url) name = url.split(/[\\/]/).pop().replace(/\.pptx?$/i, '') || name;
-    } catch (e) { /* keep default name */ }
+    } catch (e) {}
 
     const id = 'lib-' + slugify(name) + '-' + Date.now();
     const deck = {
@@ -1727,7 +1491,14 @@ function updateLibraryButtonVisibility() {
 }
 
 if ($addToLibraryBtn) {
-  $addToLibraryBtn.addEventListener('click', () => addActivePresentationToLibrary());
+  $addToLibraryBtn.addEventListener('click', () => {
+    $addToLibraryBtn.classList.add('is-active');
+    addActivePresentationToLibrary()
+      .catch(e => console.error(e))
+      .finally(() => {
+        setTimeout(() => $addToLibraryBtn.classList.remove('is-active'), 1500);
+      });
+  });
 }
 
 $exportBtn.addEventListener('click', () => {
@@ -1763,11 +1534,6 @@ $viewToggleBtn.addEventListener('click', () => {
   renderAll();
 });
 
-/* ============================================================
-   Filters screen — built with the same createDropdown component
-   used in the category header, so every dropdown in the app opens
-   the same themed list instead of a native OS-styled one.
-   ============================================================ */
 function renderFiltersBody() {
   $filtersBody.innerHTML = '';
   FILTER_FACETS.forEach(facet => {
@@ -1839,13 +1605,6 @@ function closeCabinetView() {
 
 $avatarBtn.addEventListener('click', openCabinetView);
 
-/* ============================================================
-   "Предложить файл в базу" — Публичное → Шаблоны. Since there's
-   no backend here, the submission is saved locally (marked "на
-   модерации") rather than actually appearing in everyone else's
-   public catalog — see the chat response for what a real
-   moderation pipeline would need.
-   ============================================================ */
 const $suggestView = document.getElementById('suggestView');
 const $suggestBody = document.getElementById('suggestBody');
 const $closeSuggestBtn = document.getElementById('closeSuggestBtn');
@@ -1867,18 +1626,12 @@ function closeSuggestView() {
   $mainView.style.display = 'flex';
 }
 
-// Same "single JSON array" pattern as the personal library — every
-// suggestion is one entry appended to this array (downloadable below).
-// Honest note: there's no backend here, so "на модерации" means "saved
-// locally, findable in Личный кабинет" — not actually sent to anyone
-// yet. See downloadSuggestionsJson to hand that file to whoever runs
-// your real catalog.json so they can merge it in.
 const SUGGESTIONS_KEY = 'sl_suggestions_json';
 
 async function loadSuggestionsJson() {
   if (!hasStorage) return [];
   try {
-    const raw = await OfficeRuntime.storage.getItem(SUGGESTIONS_KEY);
+    const raw = await storageImpl.getItem(SUGGESTIONS_KEY);
     return raw ? JSON.parse(raw) : [];
   } catch (e) {
     return [];
@@ -1897,7 +1650,6 @@ async function downloadSuggestionsJson() {
 }
 
 async function submitFileSuggestion(data) {
-  setStatus('⏳ Сохраняем предложение…', '');
   try {
     const fileDataUrl = await fileToDataUrl(data.file);
     const suggestion = {
@@ -1913,8 +1665,7 @@ async function submitFileSuggestion(data) {
       try {
         const list = await loadSuggestionsJson();
         list.push(suggestion);
-        await OfficeRuntime.storage.setItem(SUGGESTIONS_KEY, JSON.stringify(list));
-      } catch (e) {
+        await storageImpl.setItem(SUGGESTIONS_KEY, JSON.stringify(list));      } catch (e) {
         console.warn('[Slidebrary] Could not persist suggestion:', e);
       }
     }
@@ -1926,17 +1677,146 @@ async function submitFileSuggestion(data) {
   }
 }
 
+function base64ToBlob(base64Data, contentType = 'application/octet-stream') {
+    const byteCharacters = atob(base64Data);
+    const byteNumbers = new Array(byteCharacters.length);
+    for (let i = 0; i < byteCharacters.length; i++) {
+        byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+    const byteArray = new Uint8Array(byteNumbers);
+    return new Blob([byteArray], { type: contentType });
+}
+
+
+function mapServerAssetPath(path) {
+  if (!path) return path;
+  if (typeof path !== 'string') return path;
+  if (path.startsWith('http')) return path;
+  return 'http://localhost:3001/' + path;
+}
+
+async function refreshCatalogData() {
+  try {
+    const response = await fetch('http://localhost:3001/assets/catalog.json', { cache: 'no-store' });
+    if (response.ok) {
+      const data = await response.json();
+      slides = data.slides || data;
+      tiles = (data.tiles && Array.isArray(data.tiles)) ? [...data.tiles] : [];
+      renderAll();
+    } else {
+      console.warn('Не удалось получить каталог');
+    }
+  } catch (error) {
+    console.error('Ошибка обновления каталога:', error);
+  }
+}
+
+let catalogSyncInterval = null;
+
+function startAutoSync() {
+  if (catalogSyncInterval) return;
+  catalogSyncInterval = setInterval(async () => {
+    try {
+      const response = await fetch('http://localhost:3001/assets/catalog.json', { cache: 'no-store' });
+      if (response.ok) {
+        const data = await response.json();
+        const newSlides = data.slides || data;
+        const newTiles = data.tiles || [];
+        
+        const slidesChanged = JSON.stringify(slides) !== JSON.stringify(newSlides);
+        const tilesChanged = JSON.stringify(tiles) !== JSON.stringify(newTiles);
+        
+        if (slidesChanged || tilesChanged) {
+          await refreshCatalogData();
+        }
+      }
+    } catch (e) {}
+  }, 5000);
+}
+
+startAutoSync();
+
+async function movePersonalToPublic(itemId) {
+  const item = slides.find(s => s.id === itemId) || tiles.find(t => t.id === itemId);
+  if (!item) return;
+  if (!item.file) {
+    setStatus('❌ Не удалось найти файл для публикации', 'error');
+    return;
+  }
+
+  setStatus('⏳ Отправляем на сервер...', '');
+
+  try {
+    let blob;
+    if (typeof item.file === 'string' && item.file.startsWith('data:')) {
+      const [meta, data] = item.file.split(',');
+      const mime = meta.match(/:(.*?);/)[1] || 'application/octet-stream';
+      blob = base64ToBlob(data, mime);
+    } else if (item.file instanceof Blob) {
+      blob = item.file;
+    } else if (typeof item.file === 'string') {
+      const res = await fetch(item.file);
+      blob = await res.blob();
+    } else {
+      throw new Error('Не удалось распознать формат файла');
+    }
+
+    const formData = new FormData();
+    formData.append('file', blob, (item.name || 'slide') + '.pptx');
+    formData.append('name', item.name);
+    formData.append('tags', JSON.stringify(item.tags || []));
+    formData.append('category', item.category || 'Без категории');
+
+    const response = await fetch('http://localhost:3001/api/upload', {
+      method: 'POST',
+      body: formData
+    });
+
+    if (!response.ok) {
+      const errData = await response.json().catch(() => ({}));
+      throw new Error(errData.error || `Ошибка сервера: ${response.status}`);
+    }
+
+    // Вместо window.location.reload() просто обновляем данные каталога
+    setStatus(`✅ «${item.name}» опубликована в библиотеке!`, 'success');
+    
+    // Даем пользователю увидеть сообщение и обновляем данные без перезагрузки
+    setTimeout(async () => {
+      await refreshCatalogData();
+    }, 1200);
+
+  } catch (error) {
+    console.error('Ошибка загрузки:', error);
+    
+    if (error instanceof TypeError) {
+      setStatus('⚠️ Сервер не запущен. Сохраняем локально...', 'error');
+      
+      const publicItem = {
+        id: item.id.replace('local-', 'pub-'),
+        name: item.name,
+        category: item.category || 'Без категории',
+        tags: item.tags || [],
+        file: item.file,
+        pendingFile: true
+      };
+
+      if (hasStorage) {
+        const list = await loadSuggestionsJson();
+        list.push(publicItem);
+        await storageImpl.setItem(SUGGESTIONS_KEY, JSON.stringify(list));
+        setStatus(`⚠️ Сервер не запущен. Сохранено в suggested-files.json.`, 'error');
+      } else {
+        setStatus('❌ Хранилище недоступно.', 'error');
+      }
+    } else {
+      setStatus(`❌ Ошибка сервера: ${error.message}`, 'error');
+    }
+  }
+}
+
 if ($closeSuggestBtn) $closeSuggestBtn.addEventListener('click', closeSuggestView);
 if ($suggestBackBtn) $suggestBackBtn.addEventListener('click', closeSuggestView);
 
-/* ============================================================
-   ИИ-ассистент — the form itself is fully wired; "Начать" can't
-   actually generate slides without a real generation backend
-   connected (no server here, and API keys can't live in
-   client-side code), so it reports that honestly instead of
-   pretending to work. See the chat response for how to wire a
-   real backend in behind this exact form.
-   ============================================================ */
 const $aiView = document.getElementById('aiView');
 const $aiBody = document.getElementById('aiBody');
 const $closeAiBtn = document.getElementById('closeAiBtn');
@@ -2167,35 +2047,65 @@ function buildTilesFromBucket(rootName, kind, list) {
   });
 }
 
-function handleFolderImport(fileList) {
+async function handleFolderImport(fileList) {
   if (!fileList || !fileList.length) return;
   setStatus('⏳ Импортируем папку…', '');
 
   const { rootName, deckBuckets, tileBuckets, unmatchedCount } = classifyFilesForImport(fileList);
 
-  // Merge, don't replace: importing a folder updates any deck/tile sharing
-  // its stable id (re-importing the SAME folder) and simply adds anything
-  // new alongside whatever personal content is already there from an
-  // earlier import in this session.
   let deckNew = 0, deckUpdated = 0;
-  Object.keys(deckBuckets).forEach(kind => {
+  let tileNew = 0, tileUpdated = 0;
+
+  // 1. Обработка презентаций (Deck)
+  for (const kind of Object.keys(deckBuckets)) {
     const decks = buildDecksFromBucket(rootName, kind, deckBuckets[kind]);
-    decks.forEach(deck => {
+    for (const deck of decks) {
+      // Превращаем File в base64, чтобы сохранить в JSON
+      if (deck.file instanceof File) {
+        try {
+          deck.file = await fileToDataUrl(deck.file);
+        } catch (e) {
+          console.warn('Не удалось прочитать файл презентации:', deck.name, e);
+        }
+      }
+      // Если есть превью (картинка рядом с pptx), тоже конвертируем
+      if (deck.preview && deck.preview.startsWith('blob:')) {
+        try {
+          const file = deckBuckets[kind][deck.id]?.files.find(f => f.preview === deck.preview);
+          // Находим оригинальный файл по ссылке (нужно немного переписать buildDecksFromBucket или сохранить ссылку в самом deck)
+          // Вместо этого, проще: попробуем не сохранять превью, а парсер сам найдёт текст
+          // deck.preview = null; // Или удалить, чтобы рендерился текст
+        } catch (e) {}
+      }
+
       const idx = slides.findIndex(s => s.id === deck.id);
       if (idx >= 0) { slides[idx] = deck; deckUpdated++; }
       else { slides.push(deck); deckNew++; }
-    });
-  });
+      
+      // Сохраняем в хранилище (JSON)
+      try { await persistLibraryDeck(deck); } catch (e) { console.warn('Не удалось сохранить презентацию в JSON', e); }
+    }
+  }
 
-  let tileNew = 0, tileUpdated = 0;
-  Object.keys(tileBuckets).forEach(kind => {
+  // 2. Обработка картинок (Tiles: Фото, Иллюстрации, Иконки, Логотипы)
+  for (const kind of Object.keys(tileBuckets)) {
     const items = buildTilesFromBucket(rootName, kind, tileBuckets[kind]);
-    items.forEach(tile => {
+    for (const tile of items) {
+      // Конвертируем File в base64
+      if (tile.file instanceof File) {
+        try {
+          tile.file = await fileToDataUrl(tile.file);
+        } catch (e) { console.warn('Не удалось прочитать картинку:', tile.name, e); }
+      }
+
       const idx = tiles.findIndex(t => t.id === tile.id);
       if (idx >= 0) { tiles[idx] = tile; tileUpdated++; }
       else { tiles.push(tile); tileNew++; }
-    });
-  });
+
+      // Сохраняем в хранилище (JSON)
+      try { await persistLibraryDeck(tile); } catch (e) { console.warn('Не удалось сохранить картинку в JSON', e); }
+    }
+  }
 
   persistFavorites();
   $cabinetFolderLabel.textContent = rootName || 'Готово';
@@ -2206,9 +2116,9 @@ function handleFolderImport(fileList) {
   if (deckNew || deckUpdated) parts.push(`презентации: +${deckNew}` + (deckUpdated ? `, обновлено ${deckUpdated}` : ''));
   if (tileNew || tileUpdated) parts.push(`изображения: +${tileNew}` + (tileUpdated ? `, обновлено ${tileUpdated}` : ''));
   if (parts.length) {
-    setStatus(`✅ Импортировано (${parts.join('; ')})` + (unmatchedCount ? ` — ${unmatchedCount} файлов пропущено` : ''), 'success');
+    setStatus(`✅ Импортировано и сохранено в personal-library.json (${parts.join('; ')})` + (unmatchedCount ? ` — ${unmatchedCount} файлов пропущено` : ''), 'success');
   } else {
-    setStatus('⚠️ В папке не нашлось подходящих файлов. Внутри должны быть подпапки с названиями вкладок: Избранное, Презентации, Фотографии, Иллюстрации, Иконки, Логотипы, Шаблоны', 'error');
+    setStatus('⚠️ В папке не нашлось подходящих файлов...', 'error');
   }
 }
 
@@ -2294,9 +2204,6 @@ function openModal(id) {
   $modal.style.display = 'flex';
 }
 
-// Renders the modal's big preview + overlaid dots for a given set of
-// pages. Split out of openModal so it can be re-run once the background
-// pptx parser (see ensurePptxPagesParsed) finds the real slide count.
 function renderModalPages(item, pages) {
   const color = item.color || '#2688EB';
   modalPreviewIndex = 0;
@@ -2309,9 +2216,6 @@ function renderModalPages(item, pages) {
         onerror="this.outerHTML='<span style=\\'color:${color};\\' class=\\'modal__preview-fallback\\' aria-hidden=\\'true\\'>${ICONS.fileGlyph}</span>'"
       >`;
     } else if (page.autoTitle) {
-      // Auto-parsed from the real .pptx but we don't have a rendered
-      // image for this specific page — show its real title instead of
-      // a generic icon, so pages still feel distinguishable.
       $modalPreviewImg.innerHTML = `
         <div class="modal__preview-textcard" style="background:${color};">
           <span class="modal__preview-textcard__index">${page.autoIndex || idx + 1}</span>
@@ -2320,6 +2224,21 @@ function renderModalPages(item, pages) {
     } else {
       $modalPreviewImg.innerHTML = `<span style="color:${color};" class="modal__preview-fallback" aria-hidden="true">${ICONS.fileGlyph}</span>`;
     }
+  };
+
+  // Функция обновления точек
+  const updateDots = () => {
+    $modalDots.querySelectorAll('.modal-dot').forEach(d =>
+      d.classList.toggle('modal-dot--active', Number(d.dataset.index) === modalPreviewIndex)
+    );
+  };
+
+  // Универсальная функция перехода к слайду
+  const goToSlide = (index) => {
+    if (index < 0 || index >= pages.length) return;
+    modalPreviewIndex = index;
+    renderModalPreview(index);
+    updateDots();
   };
 
   renderModalPreview(0);
@@ -2333,18 +2252,66 @@ function renderModalPages(item, pages) {
   if (dotCount > 1) {
     $modalDots.querySelectorAll('.modal-dot').forEach(dot => {
       dot.addEventListener('click', () => {
-        const idx = Number(dot.dataset.index);
-        modalPreviewIndex = idx;
-        renderModalPreview(idx);
-        $modalDots.querySelectorAll('.modal-dot').forEach(d =>
-          d.classList.toggle('modal-dot--active', Number(d.dataset.index) === idx)
-        );
+        goToSlide(Number(dot.dataset.index));
       });
     });
   }
+
+  // Тач-свайп
+  let touchStartX = 0;
+  $modalPreview.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX;
+  });
+  $modalPreview.addEventListener('touchend', e => {
+    const deltaX = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(deltaX) > 50) {
+      if (deltaX < 0) goToSlide(modalPreviewIndex + 1);
+      else goToSlide(modalPreviewIndex - 1);
+    }
+  });
+
+  // Свайп мышкой (drag)
+  let mouseStartX = 0;
+  $modalPreview.addEventListener('mousedown', e => {
+    mouseStartX = e.clientX;
+  });
+  $modalPreview.addEventListener('mouseup', e => {
+    const deltaX = e.clientX - mouseStartX;
+    if (Math.abs(deltaX) > 50) {
+      if (deltaX < 0) goToSlide(modalPreviewIndex + 1);
+      else goToSlide(modalPreviewIndex - 1);
+    }
+  });
+
+  // НОВОЕ: Колесо мыши
+  $modalPreview.addEventListener('wheel', (e) => {
+    if (pages.length <= 1) return;
+    e.preventDefault(); // Отключаем прокрутку страницы
+    const delta = Math.sign(e.deltaY);
+    if (delta > 0) goToSlide(modalPreviewIndex + 1);
+    else if (delta < 0) goToSlide(modalPreviewIndex - 1);
+  });
+
+  // НОВОЕ: Клавиши влево/вправо (ArrowLeft / ArrowRight)
+  // Удаляем предыдущий обработчик, чтобы не накапливались
+  if (modalKeydownHandler) {
+    document.removeEventListener('keydown', modalKeydownHandler);
+  }
+  modalKeydownHandler = (e) => {
+    if ($modal.style.display === 'none') return;
+    if (pages.length <= 1) return;
+    if (e.key === 'ArrowRight') goToSlide(modalPreviewIndex + 1);
+    if (e.key === 'ArrowLeft') goToSlide(modalPreviewIndex - 1);
+  };
+  document.addEventListener('keydown', modalKeydownHandler);
 }
 
 function closeModal() {
+  // Убираем слушатель клавиатуры, чтобы он не мешал в других местах
+  if (modalKeydownHandler) {
+    document.removeEventListener('keydown', modalKeydownHandler);
+    modalKeydownHandler = null;
+  }
   $modal.style.display = 'none';
   modalSlideId = null;
 }

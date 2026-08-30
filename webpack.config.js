@@ -1,7 +1,6 @@
 /* eslint-disable no-undef */
-const path = require('path'); // <--- добавил эту строку (в самом верху)
+const path = require('path');
 const devCerts = require("office-addin-dev-certs");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const urlDev = "https://localhost:3000/";
@@ -56,25 +55,6 @@ module.exports = async (env, options) => {
         template: "./src/taskpane/taskpane.html",
         chunks: ["polyfill", "taskpane"],
       }),
-      new CopyWebpackPlugin({
-        patterns: [
-          {
-            from: "assets/*",
-            to: "assets/[name][ext][query]",
-          },
-          {
-            from: "manifest*.xml",
-            to: "[name]" + "[ext]",
-            transform(content) {
-              if (dev) {
-                return content;
-              } else {
-                return content.toString().replace(new RegExp(urlDev, "g"), urlProd);
-              }
-            },
-          },
-        ],
-      }),
       new HtmlWebpackPlugin({
         filename: "commands.html",
         template: "./src/commands/commands.html",
@@ -82,8 +62,10 @@ module.exports = async (env, options) => {
       }),
     ],
     devServer: {
+      // ВАЖНО: Следим ТОЛЬКО за папкой src (код), чтобы работал HMR и ничего не падало
       static: {
-        directory: path.join(__dirname, '.'), // <--- ЭТО ГЛАВНОЕ! Раздаём всю корневую папку
+        directory: path.join(__dirname, 'src'),
+        watch: true
       },
       headers: {
         "Access-Control-Allow-Origin": "*",
@@ -93,6 +75,14 @@ module.exports = async (env, options) => {
         options: env.WEBPACK_BUILD || options.https !== undefined ? options.https : await getHttpsOptions(),
       },
       port: process.env.npm_package_config_dev_server_port || 3000,
+      // ВАЖНО: Все запросы к /assets перенаправляем на Node сервер (порт 3001)
+      proxy: [
+        {
+          context: ['/assets'],
+          target: 'http://localhost:3001',
+          changeOrigin: true
+        }
+      ]
     },
   };
 

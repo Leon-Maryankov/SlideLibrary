@@ -23,7 +23,8 @@
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#0078D4"
+            "color": "#0078D4",
+            "preview": "assets/previews/ap-slide-01/slide-1.png"
         },
         {
             "id": "AP-02",
@@ -43,7 +44,8 @@
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#0078D4"
+            "color": "#0078D4",
+            "preview": "assets/previews/ap-slide-02/slide-1.png"
         },
         {
             "id": "AP-03",
@@ -62,7 +64,8 @@
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#0078D4"
+            "color": "#0078D4",
+            "preview": "assets/previews/ap-slide-03/slide-1.png"
         },
         {
             "id": "AP-04",
@@ -81,7 +84,8 @@
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#0078D4"
+            "color": "#0078D4",
+            "preview": "assets/previews/ap-slide-04/slide-1.png"
         },
         {
             "id": "AP-05",
@@ -101,7 +105,8 @@
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#0078D4"
+            "color": "#0078D4",
+            "preview": "assets/previews/ap-slide-05/slide-1.png"
         },
         {
             "id": "AP-06",
@@ -121,7 +126,8 @@
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#0078D4"
+            "color": "#0078D4",
+            "preview": "assets/previews/ap-slide-06/slide-1.png"
         },
         {
             "id": "AP-07",
@@ -141,7 +147,8 @@
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#0078D4"
+            "color": "#0078D4",
+            "preview": "assets/previews/ap-slide-07/slide-1.png"
         },
         {
             "id": "AP-08",
@@ -161,7 +168,8 @@
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#0078D4"
+            "color": "#0078D4",
+            "preview": "assets/previews/ap-slide-08/slide-1.png"
         },
         {
             "id": "AP-09",
@@ -181,7 +189,8 @@
             "lastUpdated": "2026-06",
             "approved": false,
             "approvedBy": "-",
-            "color": "#0078D4"
+            "color": "#0078D4",
+            "preview": "assets/previews/ap-slide-09/slide-1.png"
         },
         {
             "id": "AP-10",
@@ -201,7 +210,8 @@
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#0078D4"
+            "color": "#0078D4",
+            "preview": "assets/previews/ap-slide-10/slide-1.png"
         },
         {
             "id": "MP-01",
@@ -219,7 +229,8 @@
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#f59e0b"
+            "color": "#f59e0b",
+            "preview": "assets/previews/mp-slide-01/slide-1.png"
         },
         {
             "id": "MP-02",
@@ -253,7 +264,8 @@
                     "file": "assets/slides/mp-slide-02-v1.1.pptx",
                     "changes": "Обновлены CAC и LTV"
                 }
-            ]
+            ],
+            "preview": "assets/previews/mp-slide-02/slide-1.png"
         },
         {
             "id": "MP-03",
@@ -273,7 +285,8 @@
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#f59e0b"
+            "color": "#f59e0b",
+            "preview": "assets/previews/mp-slide-03/slide-1.png"
         },
         {
             "id": "MP-04",
@@ -294,7 +307,8 @@
             "lastUpdated": "2026-06",
             "approved": false,
             "approvedBy": "-",
-            "color": "#f59e0b"
+            "color": "#f59e0b",
+            "preview": "assets/previews/mp-slide-04/slide-1.png"
         },
         {
             "id": "MP-05",
@@ -313,7 +327,8 @@
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#f59e0b"
+            "color": "#f59e0b",
+            "preview": "assets/previews/mp-slide-05/slide-1.png"
         },
         {
             "id": "MP-06",
@@ -333,7 +348,8 @@
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#f59e0b"
+            "color": "#f59e0b",
+            "preview": "assets/previews/mp-slide-06/slide-1.png"
         },
         {
             "id": "MP-07",
@@ -353,7 +369,8 @@
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#f59e0b"
+            "color": "#f59e0b",
+            "preview": "assets/previews/mp-slide-07/slide-1.png"
         },
         {
             "id": "MP-08",
@@ -373,7 +390,8 @@
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#f59e0b"
+            "color": "#f59e0b",
+            "preview": "assets/previews/mp-slide-08/slide-1.png"
         },
         {
             "id": "MP-09",
@@ -393,7 +411,8 @@
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#f59e0b"
+            "color": "#f59e0b",
+            "preview": "assets/previews/mp-slide-09/slide-1.png"
         },
         {
             "id": "MP-10",
@@ -413,7 +432,8 @@
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#f59e0b"
+            "color": "#f59e0b",
+            "preview": "assets/previews/mp-slide-10/slide-1.png"
         },
         {
             "id": "FO-01",
@@ -432,7 +452,8 @@
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#ef4444"
+            "color": "#ef4444",
+            "preview": "assets/previews/fo-slide-01/slide-1.png"
         },
         {
             "id": "FO-02",
@@ -472,7 +493,8 @@
                     "file": "assets/slides/fo-slide-02-v1.2.pptx",
                     "changes": "Добавлен прогноз на 2025"
                 }
-            ]
+            ],
+            "preview": "assets/previews/fo-slide-02/slide-1.png"
         },
         {
             "id": "FO-03",
@@ -492,7 +514,8 @@
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#ef4444"
+            "color": "#ef4444",
+            "preview": "assets/previews/fo-slide-03/slide-1.png"
         },
         {
             "id": "FO-04",
@@ -505,7 +528,7 @@
                 "инвестиционный",
                 "ликвидность"
             ],
-            "preview": "assets/previews/fo-slide-04.png",
+            "preview": "assets/previews/fo-slide-04/slide-1.png",
             "file": "assets/slides/fo-slide-04.pptx",
             "slideNumber": 4,
             "version": "v1.0",
@@ -526,7 +549,7 @@
                 "it",
                 "расходы"
             ],
-            "preview": "assets/previews/fo-slide-05.png",
+            "preview": "assets/previews/fo-slide-05/slide-1.png",
             "file": "assets/slides/fo-slide-05.pptx",
             "slideNumber": 5,
             "version": "v1.0",
@@ -547,7 +570,7 @@
                 "2023",
                 "2024"
             ],
-            "preview": "assets/previews/fo-slide-06.png",
+            "preview": "assets/previews/fo-slide-06/slide-1.png",
             "file": "assets/slides/fo-slide-06.pptx",
             "slideNumber": 6,
             "version": "v1.0",
@@ -568,7 +591,7 @@
                 "фот",
                 "отклонение"
             ],
-            "preview": "assets/previews/fo-slide-07.png",
+            "preview": "assets/previews/fo-slide-07/slide-1.png",
             "file": "assets/slides/fo-slide-07.pptx",
             "slideNumber": 7,
             "version": "v1.0",
@@ -588,7 +611,7 @@
                 "просрочка",
                 "контрагенты"
             ],
-            "preview": "assets/previews/fo-slide-08.png",
+            "preview": "assets/previews/fo-slide-08/slide-1.png",
             "file": "assets/slides/fo-slide-08.pptx",
             "slideNumber": 8,
             "version": "v1.0",
@@ -609,7 +632,7 @@
                 "маркетинг",
                 "операционные"
             ],
-            "preview": "assets/previews/fo-slide-09.png",
+            "preview": "assets/previews/fo-slide-09/slide-1.png",
             "file": "assets/slides/fo-slide-09.pptx",
             "slideNumber": 9,
             "version": "v1.0",
@@ -636,7 +659,262 @@
             "lastUpdated": "2026-06",
             "approved": true,
             "approvedBy": "-",
-            "color": "#ef4444"
+            "color": "#ef4444",
+            "previews": [
+                "assets/previews/finance_slides/slide-01.png",
+                "assets/previews/finance_slides/slide-02.png",
+                "assets/previews/finance_slides/slide-03.png",
+                "assets/previews/finance_slides/slide-04.png",
+                "assets/previews/finance_slides/slide-05.png",
+                "assets/previews/finance_slides/slide-06.png",
+                "assets/previews/finance_slides/slide-07.png",
+                "assets/previews/finance_slides/slide-08.png",
+                "assets/previews/finance_slides/slide-09.png",
+                "assets/previews/finance_slides/slide-10.png"
+            ]
+        },
+        {
+            "id": "pub-1787761279784",
+            "name": "marketing_slides",
+            "category": "Без категории",
+            "tags": [],
+            "file": "assets/slides/marketing_slides_1787761274199.pptx",
+            "previews": [
+                "assets/previews/marketing_slides_1787761274199/slide-01.png",
+                "assets/previews/marketing_slides_1787761274199/slide-02.png",
+                "assets/previews/marketing_slides_1787761274199/slide-03.png",
+                "assets/previews/marketing_slides_1787761274199/slide-04.png",
+                "assets/previews/marketing_slides_1787761274199/slide-05.png",
+                "assets/previews/marketing_slides_1787761274199/slide-06.png",
+                "assets/previews/marketing_slides_1787761274199/slide-07.png",
+                "assets/previews/marketing_slides_1787761274199/slide-08.png",
+                "assets/previews/marketing_slides_1787761274199/slide-09.png",
+                "assets/previews/marketing_slides_1787761274199/slide-10.png"
+            ],
+            "lastUpdated": "2026-08",
+            "approved": false,
+            "approvedBy": "-",
+            "color": "#2688EB"
+        },
+        {
+            "id": "pub-1787761674349",
+            "name": "аналитика",
+            "category": "Презентации",
+            "tags": [
+                "Презентации"
+            ],
+            "file": "assets/slides/аналитика_1787761668716.pptx",
+            "previews": [
+                "assets/previews/аналитика_1787761668716/slide-01.png",
+                "assets/previews/аналитика_1787761668716/slide-02.png",
+                "assets/previews/аналитика_1787761668716/slide-03.png",
+                "assets/previews/аналитика_1787761668716/slide-04.png",
+                "assets/previews/аналитика_1787761668716/slide-05.png",
+                "assets/previews/аналитика_1787761668716/slide-06.png",
+                "assets/previews/аналитика_1787761668716/slide-07.png",
+                "assets/previews/аналитика_1787761668716/slide-08.png",
+                "assets/previews/аналитика_1787761668716/slide-09.png",
+                "assets/previews/аналитика_1787761668716/slide-10.png"
+            ],
+            "lastUpdated": "2026-08",
+            "approved": false,
+            "approvedBy": "-",
+            "color": "#2688EB"
+        },
+        {
+            "id": "pub-1787762333815",
+            "name": "finance_slides",
+            "category": "Без категории",
+            "tags": [],
+            "file": "assets/slides/finance_slides_1787762328614.pptx",
+            "previews": [
+                "assets/previews/finance_slides_1787762328614/slide-01.png",
+                "assets/previews/finance_slides_1787762328614/slide-02.png",
+                "assets/previews/finance_slides_1787762328614/slide-03.png",
+                "assets/previews/finance_slides_1787762328614/slide-04.png",
+                "assets/previews/finance_slides_1787762328614/slide-05.png",
+                "assets/previews/finance_slides_1787762328614/slide-06.png",
+                "assets/previews/finance_slides_1787762328614/slide-07.png",
+                "assets/previews/finance_slides_1787762328614/slide-08.png",
+                "assets/previews/finance_slides_1787762328614/slide-09.png",
+                "assets/previews/finance_slides_1787762328614/slide-10.png"
+            ],
+            "lastUpdated": "2026-08",
+            "approved": false,
+            "approvedBy": "-",
+            "color": "#2688EB"
+        },
+        {
+            "id": "pub-1788096870362-finance_slides_1787746234626",
+            "name": "finance_slides_1787746234626",
+            "category": "Общее",
+            "tags": [],
+            "file": "assets/slides/finance_slides_1787746234626.pptx",
+            "preview": "assets/previews/finance_slides_1787746234626/slide-01.png",
+            "previews": [
+                "assets/previews/finance_slides_1787746234626/slide-01.png",
+                "assets/previews/finance_slides_1787746234626/slide-02.png",
+                "assets/previews/finance_slides_1787746234626/slide-03.png",
+                "assets/previews/finance_slides_1787746234626/slide-04.png",
+                "assets/previews/finance_slides_1787746234626/slide-05.png",
+                "assets/previews/finance_slides_1787746234626/slide-06.png",
+                "assets/previews/finance_slides_1787746234626/slide-07.png",
+                "assets/previews/finance_slides_1787746234626/slide-08.png",
+                "assets/previews/finance_slides_1787746234626/slide-09.png",
+                "assets/previews/finance_slides_1787746234626/slide-10.png"
+            ],
+            "lastUpdated": "2026-08",
+            "approved": false,
+            "approvedBy": "-",
+            "color": "#2688EB"
+        },
+        {
+            "id": "pub-1788096873645-fo-slide-02-v1.0",
+            "name": "fo-slide-02-v1.0",
+            "category": "Общее",
+            "tags": [],
+            "file": "assets/slides/fo-slide-02-v1.0.pptx",
+            "preview": "assets/previews/fo-slide-02-v1.0/slide-1.png",
+            "previews": [
+                "assets/previews/fo-slide-02-v1.0/slide-1.png"
+            ],
+            "lastUpdated": "2026-08",
+            "approved": false,
+            "approvedBy": "-",
+            "color": "#2688EB"
+        },
+        {
+            "id": "pub-1788096877201-fo-slide-10",
+            "name": "fo-slide-10",
+            "category": "Общее",
+            "tags": [],
+            "file": "assets/slides/fo-slide-10.pptx",
+            "preview": "assets/previews/fo-slide-10/slide-1.png",
+            "previews": [
+                "assets/previews/fo-slide-10/slide-1.png"
+            ],
+            "lastUpdated": "2026-08",
+            "approved": false,
+            "approvedBy": "-",
+            "color": "#2688EB"
+        }
+    ],
+    "tiles": [
+        {
+            "id": "icons-AI-1787762751442",
+            "name": "AI",
+            "scope": "public",
+            "kind": "icons",
+            "visual": "image",
+            "file": "assets/icons/AI.svg",
+            "preview": "assets/icons/AI.svg",
+            "format": "svg"
+        },
+        {
+            "id": "icons-check-1787762751442",
+            "name": "check",
+            "scope": "public",
+            "kind": "icons",
+            "visual": "image",
+            "file": "assets/icons/check.svg",
+            "preview": "assets/icons/check.svg",
+            "format": "svg"
+        },
+        {
+            "id": "icons-download-1787762751443",
+            "name": "download",
+            "scope": "public",
+            "kind": "icons",
+            "visual": "image",
+            "file": "assets/icons/download.svg",
+            "preview": "assets/icons/download.svg",
+            "format": "svg"
+        },
+        {
+            "id": "icons-hourglass-1787762751443",
+            "name": "hourglass",
+            "scope": "public",
+            "kind": "icons",
+            "visual": "image",
+            "file": "assets/icons/hourglass.svg",
+            "preview": "assets/icons/hourglass.svg",
+            "format": "svg"
+        },
+        {
+            "id": "icons-logo-1787762751443",
+            "name": "logo",
+            "scope": "public",
+            "kind": "icons",
+            "visual": "image",
+            "file": "assets/icons/logo.svg",
+            "preview": "assets/icons/logo.svg",
+            "format": "svg"
+        },
+        {
+            "id": "icons-refresh-1787762751443",
+            "name": "refresh",
+            "scope": "public",
+            "kind": "icons",
+            "visual": "image",
+            "file": "assets/icons/refresh.svg",
+            "preview": "assets/icons/refresh.svg",
+            "format": "svg"
+        },
+        {
+            "id": "icons-search-1787762751443",
+            "name": "search",
+            "scope": "public",
+            "kind": "icons",
+            "visual": "image",
+            "file": "assets/icons/search.svg",
+            "preview": "assets/icons/search.svg",
+            "format": "svg"
+        },
+        {
+            "id": "icons-sort_arrow_up-1787762751443",
+            "name": "sort_arrow_up",
+            "scope": "public",
+            "kind": "icons",
+            "visual": "image",
+            "file": "assets/icons/sort_arrow_up.svg",
+            "preview": "assets/icons/sort_arrow_up.svg",
+            "format": "svg"
+        },
+        {
+            "id": "logos-vk-1787762751444",
+            "name": "vk",
+            "scope": "public",
+            "kind": "logos",
+            "visual": "image",
+            "file": "assets/logos/vk.webp",
+            "preview": "assets/logos/vk.webp"
+        },
+        {
+            "id": "illustrations-vkk-1788097212897",
+            "name": "vkk",
+            "scope": "public",
+            "kind": "illustrations",
+            "visual": "image",
+            "file": "assets/illustrations/vkk.webp",
+            "preview": "assets/illustrations/vkk.webp"
+        },
+        {
+            "id": "illustrations-vkkk-1788099795663",
+            "name": "vkkk",
+            "scope": "public",
+            "kind": "illustrations",
+            "visual": "image",
+            "file": "assets/illustrations/vkkk.avif",
+            "preview": "assets/illustrations/vkkk.avif"
+        },
+        {
+            "id": "illustrations-m-1788100459391",
+            "name": "m",
+            "scope": "public",
+            "kind": "illustrations",
+            "visual": "image",
+            "file": "assets/illustrations/m.webp",
+            "preview": "assets/illustrations/m.webp"
         }
     ]
 }

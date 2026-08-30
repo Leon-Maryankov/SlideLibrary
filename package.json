@@ -23,11 +23,16 @@
     "start": "office-addin-debugging start manifest.xml",
     "stop": "office-addin-debugging stop manifest.xml",
     "validate": "office-addin-manifest validate manifest.xml",
-    "watch": "webpack --mode development --watch"
+    "watch": "webpack --mode development --watch",
+    "start-server": "node server.js"
   },
   "dependencies": {
     "@vkontakte/icons": "^3.64.1",
     "core-js": "^3.36.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.4.2",
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1",
     "regenerator-runtime": "^0.14.1"
   },
   "devDependencies": {
