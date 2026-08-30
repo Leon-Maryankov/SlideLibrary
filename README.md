@@ -9,6 +9,11 @@
 - Microsoft PowerPoint 2019, 2021 или Microsoft 365
 - [Node.js](https://nodejs.org/) (LTS-версия)
 - npm (устанавливается вместе с Node.js)
+- LibreOffice (для генерации превью слайдов). Скачать: https://ru.libreoffice.org/download/libreoffice/
+- Poppler (утилита pdftoppm, используется вместе с LibreOffice).
+  - Windows: установите через Chocolatey (от админа): choco install poppler
+  - Linux: sudo apt install poppler-utils
+  - macOS: brew install poppler
   
 ---
 
@@ -43,14 +48,22 @@ npm install
 npm install -g office-addin-dev-certs
 office-addin-dev-certs install
 ```
-### 4. Запустите локальный сервер разработки
+### 4. Настройте переменные окружения
+Скопируйте .env.example в .env:
+```bash
+cp .env.example .env
+```
+### 5. Запустите локальный сервер
+В первом окне терминала:
+```bash
+node server.js
+```
+Сервер запустится на http://localhost:3001 и автоматически просканирует папку assets/, сгенерирует превью и обновит catalog.json.
+### 6. Запустите надстройку
+Во втором окне терминала:
 ```bash
 npm start
 ```
-### 5. Загрузите надстройку в PowerPoint
-Откройте Microsoft PowerPoint.
-«Главная» → «Надстройки» → Надстройка появится на ленте → откройте панель SlideLibrary.
-
 ---
 
 ## Каталог слайдов (`catalog.json`)
@@ -82,11 +95,7 @@ npm start
 
 ---
 
-## 🔄 Обновление каталога (удалённый источник)
-По умолчанию надстройка загружает каталог из локального catalog.json при старте. Кнопка «Обновить» может загружать свежий JSON из удалённого источника (например, с GitHub Pages). Для этого в файле taskpane.js задана константа:
-```js
-const CATALOG_URL = 'https://leon-maryankov.github.io/SlideLibrary/assets/catalog.json';
-```
-Вы можете изменить этот URL на свой — например, на корпоративный
-SharePoint, Google Drive (с прямой ссылкой на JSON) или любой другой
-публичный HTTPS-адрес.
+## Добавление своих файлов
+- Презентация: положите .pptx в assets/slides/ — сервер сам создаст превью и добавит запись в catalog.json.
+- Изображение: положите файл в соответствующую папку (photos, illustrations, icons, logos) — он автоматически появится во вкладке.
+- Личные файлы: используйте «Личный кабинет» в надстройке (кнопка «Добавить в библиотеку» или импорт папки).
