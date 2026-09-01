@@ -1,12 +1,8 @@
 :root {
   --navy: #012258;
-  /* primary text / headings */
   --blue-deep: #033394;
-  /* pressed / strong accents */
   --blue-mid: #17449C;
-  /* secondary accents */
   --blue: #2688EB;
-  /* icons, links */
   --blue-bright: #005FFF;
   --bg: #FAFAFA;
   --pale: #DEE9FF;
@@ -473,12 +469,6 @@ svg {
   font-weight: 500;
 }
 
-/* ============================================================
-   Custom dropdown — used everywhere a <select> used to be (the
-   Фильтры screen and the product/type/extension pickers). The
-   open list is styled with the app's own palette instead of the
-   OS/browser default option-row colours.
-   ============================================================ */
 .dropdown {
   position: relative;
 }
@@ -707,9 +697,6 @@ svg {
   font-size: 11px;
 }
 
-/* Real (clickable) pagination dots under a grid card — one dot per
-   preview page in that deck. The active dot is tracked via a class,
-   not :first-child, since the person can click any dot to jump. */
 .card__dots {
   display: flex;
   justify-content: center;
@@ -935,7 +922,6 @@ svg {
   border-radius: var(--radius-sm);
 }
 
-/* Real imported image (personal folder) — plain photo-style tile */
 .tile--imported {
   aspect-ratio: 4 / 3;
   background: var(--surface);
@@ -986,7 +972,6 @@ svg {
   border: 1px solid transparent;
 }
 
-/* Активная основная кнопка - синий фон, белый текст */
 .btn--primary.is-active {
   background: var(--blue-bright);
   color: #fff;
@@ -1267,9 +1252,6 @@ svg {
   opacity: 0.55;
 }
 
-/* Fallback for auto-parsed pptx pages that don't have a rendered image —
-   shows the slide's real title (pulled straight from the .pptx XML) on a
-   colored card instead of a generic icon, so pages stay distinguishable. */
 .modal__preview-textcard {
   position: absolute;
   inset: 0;
@@ -1298,16 +1280,10 @@ svg {
   overflow: hidden;
 }
 
-/* Pagination dots overlaid directly on the bottom edge of the preview
-   image itself (not as a separate row below it) — matches the reference:
-   a soft dark pill so the dots stay legible over any image, with the
-   current slide's dot highlighted brighter/wider. */
 .modal__dots {
   position: absolute;
-  /* Делаем абсолютное позиционирование */
   left: 50%;
   bottom: 10px;
-  /* Прижимаем к низу превью */
   transform: translateX(-50%);
   z-index: 2;
   display: flex;
@@ -1487,11 +1463,6 @@ svg {
   background: transparent;
 }
 
-/* ============================================================
-   Button active/inactive states — matches the reference: idle
-   buttons are flat and muted, active ones (something to act on)
-   get a real border/fill so the person can tell at a glance.
-   ============================================================ */
 .btn--secondary {
   background: var(--surface);
   border: 1px solid var(--line);
@@ -1514,10 +1485,6 @@ svg {
   font-size: 12.5px;
 }
 
-/* ============================================================
-   Toggle switch — "Использовать шаблон / загрузить свой",
-   "Расширенный ИИ".
-   ============================================================ */
 .switch-row {
   cursor: default;
 }
@@ -1552,9 +1519,6 @@ svg {
   transform: translateX(18px);
 }
 
-/* ============================================================
-   "Предложить файл в базу" button
-   ============================================================ */
 .suggest-file-btn {
   display: flex;
   align-items: center;
@@ -1580,10 +1544,6 @@ svg {
   border-color: var(--blue-bright);
 }
 
-/* ============================================================
-   "Add file" upload form — shared by Личное→Шаблоны "загрузить
-   свой" and Публичное→Шаблоны "Предложить файл в базу".
-   ============================================================ */
 .grid--form {
   display: block;
 }
@@ -1669,10 +1629,6 @@ svg {
   flex: 1;
 }
 
-/* ============================================================
-   Tag picker — "Хештеги" chips with a X/25 counter, free-text
-   input, and clickable suggestions from the taxonomy.
-   ============================================================ */
 .tagpicker {
   display: flex;
   flex-direction: column;
@@ -1764,9 +1720,6 @@ svg {
   border-color: var(--pale);
 }
 
-/* ============================================================
-   AI assistant form ("Создать презентацию по теме")
-   ============================================================ */
 .ai-textarea-wrap {
   position: relative;
 }

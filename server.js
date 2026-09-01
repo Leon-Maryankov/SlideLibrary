@@ -3,6 +3,7 @@ require('dotenv').config();
 const fs = require('fs');
 const { execSync } = require('child_process');
 
+// ========== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ==========
 function findExecutable(name, defaultPaths = []) {
   const envKey = name.toUpperCase() + '_PATH';
   if (process.env[envKey] && fs.existsSync(process.env[envKey])) {
@@ -23,6 +24,7 @@ function findExecutable(name, defaultPaths = []) {
   return null;
 }
 
+// ========== ПОИСК ИСПОЛНЯЕМЫХ ФАЙЛОВ ==========
 const SOFFICE_PATH = findExecutable('soffice', [
   'C:\\Program Files\\LibreOffice\\program\\soffice.exe',
   'C:\\Program Files (x86)\\LibreOffice\\program\\soffice.exe',
@@ -43,15 +45,14 @@ if (!PDFTOPPM_PATH) console.error('❌ Poppler не найден. Установ
 
 const express = require('express');
 const cors = require('cors');
-const fs = require('fs');
 const path = require('path');
 const { exec } = require('child_process');
 const multer = require('multer');
 
 const app = express();
 app.use(cors());
-
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
+app.use(express.static(__dirname)); 
 
 const upload = multer({ storage: multer.memoryStorage() });
 
@@ -65,8 +66,30 @@ const tileFolders = {
   logos: path.join(__dirname, 'assets', 'logos')
 };
 
-if (!fs.existsSync(SOFFICE_PATH)) console.error('❌ LibreOffice не найден:', SOFFICE_PATH);
-if (!fs.existsSync(PDFTOPPM_PATH)) console.error('❌ Poppler не найден:', PDFTOPPM_PATH);
+function ensureDirectories() {
+  const dirs = [slidesDir, previewsDir, ...Object.values(tileFolders)];
+  dirs.forEach(dir => {
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+      console.log(`📁 Создана папка: ${dir}`);
+    }
+  });
+}
+ensureDirectories();
+
+if (!fs.existsSync(catalogPath)) {
+  const emptyCatalog = {
+    version: new Date().toISOString().slice(0, 7),
+    categories: ['Общее'],
+    slides: [],
+    tiles: []
+  };
+  fs.writeFileSync(catalogPath, JSON.stringify(emptyCatalog, null, 4));
+  console.log('📄 Создан пустой catalog.json');
+}
+
+if (!fs.existsSync(SOFFICE_PATH)) console.error('❌ LibreOffice не найден по пути:', SOFFICE_PATH);
+if (!fs.existsSync(PDFTOPPM_PATH)) console.error('❌ Poppler не найден по пути:', PDFTOPPM_PATH);
 
 function generatePreviewsForPptx(pptxPath) {
   const baseName = path.parse(pptxPath).name;
@@ -103,6 +126,12 @@ function generatePreviewsForPptx(pptxPath) {
 
 async function syncCatalog() {
   console.log('Синхронизация каталога...');
+
+  // Если папка slides не существует – просто выходим (ничего синхронизировать)
+  if (!fs.existsSync(slidesDir)) {
+    console.log('⚠️ Папка slides отсутствует, синхронизация пропущена.');
+    return;
+  }
 
   const catalog = JSON.parse(fs.readFileSync(catalogPath, 'utf8'));
   if (!catalog.slides) catalog.slides = [];
@@ -156,7 +185,8 @@ async function syncCatalog() {
 
   for (const [kind, folder] of Object.entries(tileFolders)) {
     if (!fs.existsSync(folder)) continue;
-const files = fs.readdirSync(folder).filter(f => /\.(png|jpe?g|gif|svg|webp|avif|aviff)$/i.test(f));    for (const file of files) {
+    const files = fs.readdirSync(folder).filter(f => /\.(png|jpe?g|gif|svg|webp|avif|aviff)$/i.test(f));
+    for (const file of files) {
       const filePath = `assets/${kind}/${file}`;
       const exists = catalog.tiles.some(t => t.file === filePath);
       if (!exists) {
@@ -257,9 +287,9 @@ app.get('/api/sync', async (req, res) => {
   }
 });
 
-const PORT = 3001;
-app.listen(PORT, () => {
-  console.log(`✅ Сервер запущен на http://localhost:${PORT}`);
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`✅ Сервер запущен на http://0.0.0.0:${PORT}`);
   syncCatalog().catch(e => console.error('Ошибка синхронизации:', e));
 });
 
@@ -276,14 +306,18 @@ const onFilesChange = debounce(() => {
   syncCatalog().catch(e => console.error('Ошибка автосинхронизации:', e));
 }, 2000);
 
-if (fs.existsSync(slidesDir)) fs.watch(slidesDir, onFilesChange);
-Object.values(tileFolders).forEach(folder => {
-  if (fs.existsSync(folder)) fs.watch(folder, onFilesChange);
-});
+try {
+  if (fs.existsSync(slidesDir)) fs.watch(slidesDir, onFilesChange);
+  Object.values(tileFolders).forEach(folder => {
+    if (fs.existsSync(folder)) fs.watch(folder, onFilesChange);
+  });
 
-if (fs.existsSync(catalogPath)) {
-  fs.watch(catalogPath, debounce(() => {
-    console.log('📝 catalog.json изменён вручную, пересинхронизирую...');
-    syncCatalog().catch(e => console.error('Ошибка синхронизации:', e));
-  }, 1000));
+  if (fs.existsSync(catalogPath)) {
+    fs.watch(catalogPath, debounce(() => {
+      console.log('📝 catalog.json изменён вручную, пересинхронизирую...');
+      syncCatalog().catch(e => console.error('Ошибка синхронизации:', e));
+    }, 1000));
+  }
+} catch (watchErr) {
+  console.warn('⚠️ Не удалось настроить слежение за файлами (возможно, внутри Docker):', watchErr.message);
 }

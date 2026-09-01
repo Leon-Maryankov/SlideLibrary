@@ -37,6 +37,11 @@ const ICONS = {
   avatar: '<svg fill="none" height="56" viewBox="0 0 56 56" width="56" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor"><path clip-rule="evenodd" d="m37.5 24.5c0 5.2484-4.2516 9.5-9.5 9.5s-9.5-4.2516-9.5-9.5 4.2516-9.5 9.5-9.5 9.5 4.2516 9.5 9.5zm-3 0c0-3.5916-2.9084-6.5-6.5-6.5s-6.5 2.9084-6.5 6.5 2.9084 6.5 6.5 6.5 6.5-2.9084 6.5-6.5z" fill-rule="evenodd"/><path d="m28 37.5014c6.4644 0 12.4115 2.232 17.1069 5.9661l-2.25 2.0498c-4.1218-3.1474-9.2693-5.0159-14.8569-5.0159s-10.7351 1.8685-14.8569 5.0159l-2.25-2.0498c4.6954-3.7341 10.6425-5.9661 17.1069-5.9661z"/><path clip-rule="evenodd" d="m52 28c0 13.2548-10.7452 24-24 24s-24-10.7452-24-24 10.7452-24 24-24 24 10.7452 24 24zm-3 0c0 11.598-9.402 21-21 21s-21-9.402-21-21 9.402-21 21-21 21 9.402 21 21z" fill-rule="evenodd"/></g></svg>',
   chevronDown: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>',
   folderPlus: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"/><line x1="12" y1="10" x2="12" y2="16"/><line x1="9" y1="13" x2="15" y2="13"/></svg>',
+  search: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>',
+  filter: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><circle cx="9" cy="7" r="2.2" fill="var(--surface)"/><line x1="4" y1="17" x2="20" y2="17"/><circle cx="15" cy="17" r="2.2" fill="var(--surface)"/></svg>',
+  back: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12H5"/><polyline points="10 6 4 12 10 18"/></svg>',
+  close: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>',
+  downloadSimple: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><polyline points="7 11 12 16 17 11"/><path d="M5 19h14"/></svg>'
 };
 
 const SIDEBAR_ITEMS = [
@@ -1700,8 +1705,12 @@ async function refreshCatalogData() {
     const response = await fetch('http://localhost:3001/assets/catalog.json', { cache: 'no-store' });
     if (response.ok) {
       const data = await response.json();
-      slides = data.slides || data;
-      tiles = (data.tiles && Array.isArray(data.tiles)) ? [...data.tiles] : [];
+      const publicSlides = data.slides || [];
+      const publicTiles = data.tiles || [];
+      const personalSlides = slides.filter(s => s.scope === 'personal');
+      const personalTiles = tiles.filter(t => t.scope === 'personal');
+      slides = [...publicSlides, ...personalSlides];
+      tiles = [...publicTiles, ...personalTiles];
       renderAll();
     } else {
       console.warn('Не удалось получить каталог');
@@ -1777,10 +1786,8 @@ async function movePersonalToPublic(itemId) {
       throw new Error(errData.error || `Ошибка сервера: ${response.status}`);
     }
 
-    // Вместо window.location.reload() просто обновляем данные каталога
     setStatus(`✅ «${item.name}» опубликована в библиотеке!`, 'success');
     
-    // Даем пользователю увидеть сообщение и обновляем данные без перезагрузки
     setTimeout(async () => {
       await refreshCatalogData();
     }, 1200);
@@ -1923,27 +1930,6 @@ $cabinetSaveBtn.addEventListener('click', () => {
   setStatus('✅ Настройки сохранены', 'success');
 });
 
-/* ============================================================
-   Personal folder import.
-   The person picks a folder (via the browser's native folder
-   picker — <input webkitdirectory>). Inside it we expect
-   subfolders named exactly like the sidebar tabs: Избранное,
-   Презентации, Фотографии, Иллюстрации, Иконки, Логотипы,
-   Шаблоны. Everything found in each subfolder is added to the
-   matching tab under "Личное":
-     - Презентации / Шаблоны / Избранное: every .pptx becomes a
-       slide. If several .pptx sit directly in a sub-subfolder
-       together with same-named .png/.jpg previews (01.pptx +
-       01.png, 02.pptx + 02.png, ...), they're grouped into ONE
-       multi-page deck (pagination dots, like a real presentation).
-       A lone .pptx with no subfolder becomes a single-page deck.
-     - Фотографии / Иллюстрации / Иконки / Логотипы: every image
-       file becomes one insertable tile.
-   This only lasts for the current session — the browser does not
-   let a web page keep raw filesystem access between visits, so
-   the folder needs to be re-selected next time the task pane
-   is opened. See the note under the button in Личный кабинет.
-   ============================================================ */
 function stripExt(filename) {
   return filename.replace(/\.[^.]+$/, '');
 }
@@ -1957,8 +1943,8 @@ function slugify(str) {
 }
 
 function classifyFilesForImport(fileList) {
-  const deckBuckets = {};   // kind -> { deckKey -> { name, files:[{file,filename}] } }
-  const tileBuckets = {};   // kind -> [{file, filename, category}]
+  const deckBuckets = {};  
+  const tileBuckets = {};   
   let rootName = '';
   let unmatchedCount = 0;
 
@@ -2010,10 +1996,7 @@ function buildDecksFromBucket(rootName, kind, bucket) {
       .filter(b => byBase[b].file)
       .map(b => ({ name: b, file: byBase[b].file, preview: byBase[b].preview || null }));
     if (!pages.length) return;
-    // Stable id: re-importing the SAME folder refreshes this exact deck
-    // in place; a DIFFERENT root folder never collides, so previously
-    // imported content stays untouched.
-    const deckId = 'local-' + slugify(rootName) + '-' + kind + '-' + slugify(deckKey);
+   const deckId = 'local-' + slugify(rootName) + '-' + kind + '-' + slugify(deckKey);
     const deck = {
       id: deckId,
       name: group.name || pages[0].name,
@@ -2056,11 +2039,9 @@ async function handleFolderImport(fileList) {
   let deckNew = 0, deckUpdated = 0;
   let tileNew = 0, tileUpdated = 0;
 
-  // 1. Обработка презентаций (Deck)
   for (const kind of Object.keys(deckBuckets)) {
     const decks = buildDecksFromBucket(rootName, kind, deckBuckets[kind]);
     for (const deck of decks) {
-      // Превращаем File в base64, чтобы сохранить в JSON
       if (deck.file instanceof File) {
         try {
           deck.file = await fileToDataUrl(deck.file);
@@ -2068,30 +2049,23 @@ async function handleFolderImport(fileList) {
           console.warn('Не удалось прочитать файл презентации:', deck.name, e);
         }
       }
-      // Если есть превью (картинка рядом с pptx), тоже конвертируем
       if (deck.preview && deck.preview.startsWith('blob:')) {
         try {
           const file = deckBuckets[kind][deck.id]?.files.find(f => f.preview === deck.preview);
-          // Находим оригинальный файл по ссылке (нужно немного переписать buildDecksFromBucket или сохранить ссылку в самом deck)
-          // Вместо этого, проще: попробуем не сохранять превью, а парсер сам найдёт текст
-          // deck.preview = null; // Или удалить, чтобы рендерился текст
-        } catch (e) {}
+          } catch (e) {}
       }
 
       const idx = slides.findIndex(s => s.id === deck.id);
       if (idx >= 0) { slides[idx] = deck; deckUpdated++; }
       else { slides.push(deck); deckNew++; }
       
-      // Сохраняем в хранилище (JSON)
       try { await persistLibraryDeck(deck); } catch (e) { console.warn('Не удалось сохранить презентацию в JSON', e); }
     }
   }
 
-  // 2. Обработка картинок (Tiles: Фото, Иллюстрации, Иконки, Логотипы)
   for (const kind of Object.keys(tileBuckets)) {
     const items = buildTilesFromBucket(rootName, kind, tileBuckets[kind]);
     for (const tile of items) {
-      // Конвертируем File в base64
       if (tile.file instanceof File) {
         try {
           tile.file = await fileToDataUrl(tile.file);
@@ -2102,7 +2076,6 @@ async function handleFolderImport(fileList) {
       if (idx >= 0) { tiles[idx] = tile; tileUpdated++; }
       else { tiles.push(tile); tileNew++; }
 
-      // Сохраняем в хранилище (JSON)
       try { await persistLibraryDeck(tile); } catch (e) { console.warn('Не удалось сохранить картинку в JSON', e); }
     }
   }
@@ -2137,13 +2110,6 @@ if ($downloadSuggestionsBtn) {
   $downloadSuggestionsBtn.addEventListener('click', () => downloadSuggestionsJson());
 }
 
-/* ============================================================
-   Slide detail modal ("Подробнее") — large preview with real
-   pagination dots below it; the dot count always matches the
-   deck's actual slide count (via getDeckPages). Clicking a dot
-   swaps the shown slide without closing the modal, and "Вставить
-   слайд" inserts whichever page is currently on screen.
-   ============================================================ */
 function openModal(id) {
   const item = slides.find(s => s.id === id);
   if (!item) return;
@@ -2152,12 +2118,8 @@ function openModal(id) {
 
   renderModalPages(item, getDeckPages(item));
 
-  // If the catalog only gave us one page but the file itself looks like a
-  // real multi-slide .pptx, parse it in the background (JSZip) and
-  // re-render with the real page count + titles once it's ready — no
-  // manual `slides` array needed in the JSON for this to work.
-  ensurePptxPagesParsed(item, (pages) => {
-    if (modalSlideId !== item.id) return; // person already closed/moved on
+ ensurePptxPagesParsed(item, (pages) => {
+    if (modalSlideId !== item.id) return; 
     renderModalPages(item, pages);
   });
 
@@ -2226,14 +2188,12 @@ function renderModalPages(item, pages) {
     }
   };
 
-  // Функция обновления точек
   const updateDots = () => {
     $modalDots.querySelectorAll('.modal-dot').forEach(d =>
       d.classList.toggle('modal-dot--active', Number(d.dataset.index) === modalPreviewIndex)
     );
   };
 
-  // Универсальная функция перехода к слайду
   const goToSlide = (index) => {
     if (index < 0 || index >= pages.length) return;
     modalPreviewIndex = index;
@@ -2257,7 +2217,6 @@ function renderModalPages(item, pages) {
     });
   }
 
-  // Тач-свайп
   let touchStartX = 0;
   $modalPreview.addEventListener('touchstart', e => {
     touchStartX = e.touches[0].clientX;
@@ -2270,7 +2229,6 @@ function renderModalPages(item, pages) {
     }
   });
 
-  // Свайп мышкой (drag)
   let mouseStartX = 0;
   $modalPreview.addEventListener('mousedown', e => {
     mouseStartX = e.clientX;
@@ -2283,17 +2241,14 @@ function renderModalPages(item, pages) {
     }
   });
 
-  // НОВОЕ: Колесо мыши
   $modalPreview.addEventListener('wheel', (e) => {
     if (pages.length <= 1) return;
-    e.preventDefault(); // Отключаем прокрутку страницы
+    e.preventDefault(); 
     const delta = Math.sign(e.deltaY);
     if (delta > 0) goToSlide(modalPreviewIndex + 1);
     else if (delta < 0) goToSlide(modalPreviewIndex - 1);
   });
 
-  // НОВОЕ: Клавиши влево/вправо (ArrowLeft / ArrowRight)
-  // Удаляем предыдущий обработчик, чтобы не накапливались
   if (modalKeydownHandler) {
     document.removeEventListener('keydown', modalKeydownHandler);
   }
@@ -2307,7 +2262,6 @@ function renderModalPages(item, pages) {
 }
 
 function closeModal() {
-  // Убираем слушатель клавиатуры, чтобы он не мешал в других местах
   if (modalKeydownHandler) {
     document.removeEventListener('keydown', modalKeydownHandler);
     modalKeydownHandler = null;

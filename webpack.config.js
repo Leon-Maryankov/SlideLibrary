@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 const path = require('path');
 const devCerts = require("office-addin-dev-certs");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -62,7 +61,6 @@ module.exports = async (env, options) => {
       }),
     ],
     devServer: {
-      // ВАЖНО: Следим ТОЛЬКО за папкой src (код), чтобы работал HMR и ничего не падало
       static: {
         directory: path.join(__dirname, 'src'),
         watch: true
@@ -75,7 +73,6 @@ module.exports = async (env, options) => {
         options: env.WEBPACK_BUILD || options.https !== undefined ? options.https : await getHttpsOptions(),
       },
       port: process.env.npm_package_config_dev_server_port || 3000,
-      // ВАЖНО: Все запросы к /assets перенаправляем на Node сервер (порт 3001)
       proxy: [
         {
           context: ['/assets'],
