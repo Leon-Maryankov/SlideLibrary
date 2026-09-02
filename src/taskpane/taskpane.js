@@ -1,4 +1,17 @@
-import catalogData from '../../assets/catalog.json';
+let slides = [];
+let tiles = [];
+
+async function loadCatalog() {
+  try {
+    const response = await fetch('/assets/catalog.json');
+    const catalogData = await response.json();
+    slides = catalogData.slides || catalogData || [];
+    tiles = (catalogData.tiles && Array.isArray(catalogData.tiles)) ? [...catalogData.tiles] : [];
+    renderAll();
+  } catch (e) {
+    console.error('Ошибка загрузки каталога:', e);
+  }
+}
 
 const ICONS = {
   back1: '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.47 4.217a.75.75 0 0 0 0 1.06L12.185 10 7.469 14.72a.75.75 0 1 0 1.062 1.06l5.245-5.25a.75.75 0 0 0 0-1.061L8.531 4.218a.75.75 0 0 0-1.061-.001z" fill="currentColor"/></svg>',
@@ -56,7 +69,6 @@ const SIDEBAR_ITEMS = [
 const AI_NAV_ITEM = { kind: 'ai', label: 'ИИ-ассистент', icon: ICONS.ai };
 
 const DECK_SECTIONS = ['presentations', 'favorites', 'templates'];
-
 const TILE_SECTIONS = ['photos', 'illustrations', 'icons', 'logos'];
 
 const SECTION_LABELS = {
@@ -70,7 +82,6 @@ const SECTION_LABELS = {
 };
 
 const PRODUCT_OPTIONS = ['Все', 'MAX', 'VK'];
-
 const TAG_TAXONOMY = {
   contentType: ['Презентации', 'Шаблон', 'Таблицы', 'Схемы', 'Диаграммы', 'QR-коды', 'Иллюстрации', 'Фото', 'Иконки', '3D-элементы', 'Опрос/голосование', 'Видео', 'Карты', 'Roadmap'],
   product: ['VK Видео', 'VK Музыка', 'VK tech', 'Маркетинг', 'All hands', 'Сферум', 'MAX'],
@@ -83,7 +94,6 @@ const TAG_TAXONOMY = {
 };
 const TAG_SUGGESTIONS_FLAT = [...new Set(Object.values(TAG_TAXONOMY).flat())];
 const MAX_TAGS = 25;
-
 const ILLUSTRATION_STYLE_TYPES = ['3D', 'Плоская иллюстрация', 'Паттерн'];
 
 const FOLDER_LABEL_TO_KIND = {};
@@ -93,8 +103,8 @@ Object.assign(FOLDER_LABEL_TO_KIND, {
   illustrations: 'illustrations', icons: 'icons', logos: 'logos', templates: 'templates',
 });
 
-let slides = catalogData.slides || catalogData;
-let tiles = (catalogData.tiles && Array.isArray(catalogData.tiles)) ? [...catalogData.tiles] : [];
+// slides и tiles уже объявлены в начале, поэтому удаляем старые дублирующие строки
+// let slides = ... и let tiles = ... удалены
 
 let activeSection = 'presentations';
 let activeScope = 'public';
@@ -1274,66 +1284,47 @@ async function getTileInsertDataUrl(tile) {
   if (tile.file instanceof File || tile.file instanceof Blob) {
     return await fileToDataUrl(tile.file);
   }
-  return tile.file;
-}
-
-function insertImageCommonApi(base64) {
-  return new Promise((resolve, reject) => {
-    if (!window.Office || !Office.context || !Office.context.document || !Office.context.document.setSelectedDataAsync) {
-      reject(new Error('Office.context.document.setSelectedDataAsync недоступен в этом окружении.'));
-      return;
+  if (typeof tile.file === 'string') {
+    if (tile.file.startsWith('data:')) {
+      return tile.file;
     }
-    Office.context.document.setSelectedDataAsync(
-      base64,
-      { coercionType: Office.CoercionType.Image },
-      (asyncResult) => {
-        if (asyncResult.status === Office.AsyncResultStatus.Failed) {
-          reject(new Error((asyncResult.error && asyncResult.error.message) || 'Не удалось вставить изображение'));
-        } else {
-          resolve();
-        }
+    let url = tile.file;
+    if (!url.startsWith('http')) {
+      url = window.location.origin + '/' + url.replace(/^\/+/, '');
+    }
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status} — ${response.statusText}`);
       }
-    );
-  });
+      const blob = await response.blob();
+      return await fileToDataUrl(blob);
+    } catch (err) {
+      console.error('Ошибка загрузки файла по пути:', url, err);
+      throw new Error(`Не удалось загрузить файл: ${tile.file}`);
+    }
+  }
+  return tile.file;
 }
 
 async function insertTileImage(tile) {
   if (insertingIds.has(tile.id)) return;
+  if (!tile.file) {
+    setStatus('❌ Ошибка: у выбранного элемента отсутствует файл.', 'error');
+    console.error('[insertTileImage] tile.file is missing', tile);
+    return;
+  }
+
   insertingIds.add(tile.id);
   renderContent();
   setStatus('⏳ Вставка изображения...', '');
+
   try {
     const dataUrl = await getTileInsertDataUrl(tile);
-    const base64 = dataUrl.split(',')[1];
-
-    let inserted = false;
-    if (typeof PowerPoint !== 'undefined') {
-      try {
-        await PowerPoint.run(async context => {
-          let slide;
-          try {
-            const sel = context.presentation.getSelectedSlides();
-            sel.load('items');
-            await context.sync();
-            slide = sel.items.length ? sel.items[0] : context.presentation.slides.getItemAt(0);
-          } catch (e) {
-            slide = context.presentation.slides.getItemAt(0);
-          }
-          if (typeof slide.shapes.addImage !== 'function') {
-            throw new Error('shapes.addImage unsupported in this host');
-          }
-          slide.shapes.addImage(base64);
-          await context.sync();
-        });
-        inserted = true;
-      } catch (apiErr) {
-        console.warn('[Slidebrary] PowerPoint.run image insert unavailable, falling back to Common API:', apiErr);
-      }
+    if (!dataUrl) {
+      throw new Error('Не удалось получить data URL изображения');
     }
-    if (!inserted) {
-      await insertImageCommonApi(base64);
-    }
-
+    await insertImageCommonApi(dataUrl);
     insertingIds.delete(tile.id);
     panelSelectedId = null;
     renderAll();
@@ -1342,8 +1333,44 @@ async function insertTileImage(tile) {
     console.error('[Slidebrary] Image insert error:', err);
     insertingIds.delete(tile.id);
     renderContent();
-    setStatus('❌ Ошибка: ' + err.message, 'error');
+    const errorMsg = err.message || String(err) || 'неизвестная ошибка';
+    setStatus(`❌ Ошибка: ${errorMsg}`, 'error');
   }
+}
+
+function insertImageCommonApi(dataUrl) {
+  return new Promise((resolve, reject) => {
+    if (!window.Office || !Office.context || !Office.context.document || !Office.context.document.setSelectedDataAsync) {
+      reject(new Error('Office.context.document.setSelectedDataAsync недоступен в этом окружении.'));
+      return;
+    }
+    if (!dataUrl || typeof dataUrl !== 'string' || dataUrl.length === 0) {
+      reject(new Error('Нет данных изображения для вставки.'));
+      return;
+    }
+    let base64Data = dataUrl;
+    if (dataUrl.startsWith('data:')) {
+      const parts = dataUrl.split(',');
+      if (parts.length === 2) {
+        base64Data = parts[1];
+      } else {
+        reject(new Error('Некорректный data URL'));
+        return;
+      }
+    }
+
+    Office.context.document.setSelectedDataAsync(
+      base64Data,
+      { coercionType: Office.CoercionType.Image },
+      (asyncResult) => {
+        if (asyncResult.status === Office.AsyncResultStatus.Failed) {
+          reject(new Error(asyncResult.error ? asyncResult.error.message : 'Не удалось вставить изображение'));
+        } else {
+          resolve();
+        }
+      }
+    );
+  });
 }
 
 function getActivePresentationBase64() {
@@ -2346,7 +2373,7 @@ if ($closeBtn) $closeBtn.addEventListener('click', () => setStatus('Закрыт
 async function init() {
   await loadFromStorage();
   await loadLibraryDecksFromStorage();
-  renderAll();
+  await loadCatalog(); 
 }
 
 Office.onReady(() => {

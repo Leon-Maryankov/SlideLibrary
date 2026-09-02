@@ -49,6 +49,17 @@ const multer = require('multer');
 
 const app = express();
 app.use(cors());
+
+app.get('/taskpane.css', (req, res) => {
+  res.type('text/css');
+  res.sendFile(path.join(__dirname, 'src/taskpane', 'taskpane.css'));
+});
+
+app.get('/taskpane.js', (req, res) => {
+  res.type('application/javascript');
+  res.sendFile(path.join(__dirname, 'src/taskpane', 'taskpane.js'));
+});
+
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 app.use(express.static(__dirname)); 
 app.use(express.static(path.join(__dirname, 'src/taskpane')));

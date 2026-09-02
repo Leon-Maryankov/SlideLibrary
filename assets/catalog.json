@@ -814,6 +814,54 @@
             "approved": false,
             "approvedBy": "-",
             "color": "#2688EB"
+        },
+        {
+            "id": "pub-1788367472086",
+            "name": "finance_slides",
+            "category": "Без категории",
+            "tags": [],
+            "file": "assets/slides/finance_slides_1788367458960.pptx",
+            "preview": "assets/previews/finance_slides_1788367458960/slide-01.png",
+            "previews": [
+                "assets/previews/finance_slides_1788367458960/slide-01.png",
+                "assets/previews/finance_slides_1788367458960/slide-02.png",
+                "assets/previews/finance_slides_1788367458960/slide-03.png",
+                "assets/previews/finance_slides_1788367458960/slide-04.png",
+                "assets/previews/finance_slides_1788367458960/slide-05.png",
+                "assets/previews/finance_slides_1788367458960/slide-06.png",
+                "assets/previews/finance_slides_1788367458960/slide-07.png",
+                "assets/previews/finance_slides_1788367458960/slide-08.png",
+                "assets/previews/finance_slides_1788367458960/slide-09.png",
+                "assets/previews/finance_slides_1788367458960/slide-10.png"
+            ],
+            "lastUpdated": "2026-09",
+            "approved": false,
+            "approvedBy": "-",
+            "color": "#2688EB"
+        },
+        {
+            "id": "pub-1788378658576",
+            "name": "marketing_slides",
+            "category": "Без категории",
+            "tags": [],
+            "file": "assets/slides/marketing_slides_1788378645706.pptx",
+            "preview": "assets/previews/marketing_slides_1788378645706/slide-01.png",
+            "previews": [
+                "assets/previews/marketing_slides_1788378645706/slide-01.png",
+                "assets/previews/marketing_slides_1788378645706/slide-02.png",
+                "assets/previews/marketing_slides_1788378645706/slide-03.png",
+                "assets/previews/marketing_slides_1788378645706/slide-04.png",
+                "assets/previews/marketing_slides_1788378645706/slide-05.png",
+                "assets/previews/marketing_slides_1788378645706/slide-06.png",
+                "assets/previews/marketing_slides_1788378645706/slide-07.png",
+                "assets/previews/marketing_slides_1788378645706/slide-08.png",
+                "assets/previews/marketing_slides_1788378645706/slide-09.png",
+                "assets/previews/marketing_slides_1788378645706/slide-10.png"
+            ],
+            "lastUpdated": "2026-09",
+            "approved": false,
+            "approvedBy": "-",
+            "color": "#2688EB"
         }
     ],
     "tiles": [
