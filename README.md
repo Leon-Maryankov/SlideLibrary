@@ -29,13 +29,13 @@ git clone https://github.com/Leon-Maryankov/SlideLibrary.git
 cd SlideLibrary
 ```
 #### 3. Запустить контейнер или создать образ самостоятельно
-- Создать образ самостоятельно:
-```
-docker-compose up --build
-```
 - Запустить контейнер:
 ```
 docker-compose up
+```
+- Создать образ самостоятельно:
+```
+docker-compose up --build
 ```
 - Готовый образ всегда доступен по адресу:
 ```
