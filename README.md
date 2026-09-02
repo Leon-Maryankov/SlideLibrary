@@ -4,19 +4,6 @@
 
 ---
 
-## Требования
-
-- Microsoft PowerPoint 2019, 2021 или Microsoft 365
-- [Node.js](https://nodejs.org/) (LTS-версия)
-- npm (устанавливается вместе с Node.js)
-- LibreOffice (для генерации превью слайдов). Скачать: https://ru.libreoffice.org/download/libreoffice/
-- Poppler (утилита pdftoppm, используется вместе с LibreOffice).
-  - Windows: установите через Chocolatey (от админа): choco install poppler
-  - Linux: sudo apt install poppler-utils
-  - macOS: brew install poppler
-  
----
-
 ## Возможности
 
 - Поиск слайдов по названию, тегам и категории
@@ -32,34 +19,71 @@
 
 ## Установка
 
-### 1. Клонируйте репозиторий
+### Способ 1. Запуск через Docker
+
+#### 1.Установите Docker Desktop
+[Скачать Docker Desktop](https://www.docker.com/products/docker-desktop/)
+#### 2.Склонируйте репозиторий
+```
+git clone https://github.com/Leon-Maryankov/SlideLibrary.git
+cd SlideLibrary
+```
+#### 3. Запустить контейнер или создать образ самостоятельно
+- Создать образ самостоятельно:
+```
+docker-compose up --build
+```
+- Запустить контейнер:
+```
+docker-compose up
+```
+- Готовый образ всегда доступен по адресу:
+```
+ghcr.io/leon-maryankov/slidelibrary:latest
+```
+#### 4. Открыть надстройку в PowerPoint
+
+### Способ 2. Локальный запуск
+
+#### Требования:
+
+- Microsoft PowerPoint 2019, 2021 или Microsoft 365
+- [Node.js](https://nodejs.org/) (LTS-версия)
+- npm (устанавливается вместе с Node.js)
+- LibreOffice (для генерации превью слайдов). Скачать: https://ru.libreoffice.org/download/libreoffice/
+- Poppler (утилита pdftoppm, используется вместе с LibreOffice).
+  - Windows: установите через Chocolatey (от админа): choco install poppler
+  - Linux: sudo apt install poppler-utils
+  - macOS: brew install poppler
+
+#### 1. Клонируйте репозиторий
 ```bash
 git clone https://github.com/leon-maryankov/SlideLibrary.git
 cd SlideLibrary
 ```
-### 2. Установите зависимости
+#### 2. Установите зависимости
 ```bash
 npm install
 ```
-### 3. Установите доверенный сертификат (только для Windows)
+#### 3. Установите доверенный сертификат (только для Windows)
 Надстройки Office требуют HTTPS даже в режиме локальной разработки.
 Выполните в командной строке: 
 ```bash
 npm install -g office-addin-dev-certs
 office-addin-dev-certs install
 ```
-### 4. Настройте переменные окружения
+#### 4. Настройте переменные окружения
 Скопируйте .env.example в .env:
 ```bash
 cp .env.example .env
 ```
-### 5. Запустите локальный сервер
+#### 5. Запустите локальный сервер
 В первом окне терминала:
 ```bash
 node server.js
 ```
 Сервер запустится на http://localhost:3001 и автоматически просканирует папку assets/, сгенерирует превью и обновит catalog.json.
-### 6. Запустите надстройку
+#### 6. Запустите надстройку
 Во втором окне терминала:
 ```bash
 npm start
