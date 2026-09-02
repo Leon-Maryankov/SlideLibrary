@@ -3,7 +3,6 @@ require('dotenv').config();
 const fs = require('fs');
 const { execSync } = require('child_process');
 
-// ========== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ==========
 function findExecutable(name, defaultPaths = []) {
   const envKey = name.toUpperCase() + '_PATH';
   if (process.env[envKey] && fs.existsSync(process.env[envKey])) {
@@ -24,7 +23,6 @@ function findExecutable(name, defaultPaths = []) {
   return null;
 }
 
-// ========== ПОИСК ИСПОЛНЯЕМЫХ ФАЙЛОВ ==========
 const SOFFICE_PATH = findExecutable('soffice', [
   'C:\\Program Files\\LibreOffice\\program\\soffice.exe',
   'C:\\Program Files (x86)\\LibreOffice\\program\\soffice.exe',
@@ -128,7 +126,6 @@ function generatePreviewsForPptx(pptxPath) {
 async function syncCatalog() {
   console.log('Синхронизация каталога...');
 
-  // Если папка slides не существует – просто выходим (ничего синхронизировать)
   if (!fs.existsSync(slidesDir)) {
     console.log('⚠️ Папка slides отсутствует, синхронизация пропущена.');
     return;
