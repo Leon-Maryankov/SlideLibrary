@@ -51,7 +51,7 @@ const app = express();
 app.use(cors());
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 app.use(express.static(__dirname)); 
-app.use(express.static(path.join(__dirname, 'taskpane')));
+app.use(express.static(path.join(__dirname, 'src/taskpane')));
 
 const upload = multer({ storage: multer.memoryStorage() });
 
