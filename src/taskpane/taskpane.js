@@ -103,9 +103,6 @@ Object.assign(FOLDER_LABEL_TO_KIND, {
   illustrations: 'illustrations', icons: 'icons', logos: 'logos', templates: 'templates',
 });
 
-// slides и tiles уже объявлены в начале, поэтому удаляем старые дублирующие строки
-// let slides = ... и let tiles = ... удалены
-
 let activeSection = 'presentations';
 let activeScope = 'public';
 let searchQuery = '';
