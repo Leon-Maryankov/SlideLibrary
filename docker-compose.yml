@@ -5,6 +5,7 @@ services:
       - "3001:3001"
     volumes:
       - ./assets:/app/assets
+      - ./src/taskpane:/app/src/taskpane
     environment:
       - SOFFICE_PATH=/usr/bin/soffice
       - PDFTOPPM_PATH=/usr/bin/pdftoppm
