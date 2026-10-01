@@ -3,6 +3,7 @@ require('dotenv').config();
 const fs = require('fs');
 const { execSync } = require('child_process');
 
+// ========== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ==========
 function findExecutable(name, defaultPaths = []) {
   const envKey = name.toUpperCase() + '_PATH';
   if (process.env[envKey] && fs.existsSync(process.env[envKey])) {
@@ -23,6 +24,7 @@ function findExecutable(name, defaultPaths = []) {
   return null;
 }
 
+// ========== ПОИСК ИСПОЛНЯЕМЫХ ФАЙЛОВ ==========
 const SOFFICE_PATH = findExecutable('soffice', [
   'C:\\Program Files\\LibreOffice\\program\\soffice.exe',
   'C:\\Program Files (x86)\\LibreOffice\\program\\soffice.exe',
@@ -41,43 +43,33 @@ const PDFTOPPM_PATH = findExecutable('pdftoppm', [
 if (!SOFFICE_PATH) console.error('❌ LibreOffice не найден. Установите его или укажите SOFFICE_PATH в .env');
 if (!PDFTOPPM_PATH) console.error('❌ Poppler не найден. Установите его или укажите PDFTOPPM_PATH в .env');
 
+// ========== ИМПОРТЫ ==========
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const { exec } = require('child_process');
 const multer = require('multer');
+const usersModule = require('./users');
 
-const app = express();
-app.use(cors());
+// ========== ИНИЦИАЛИЗАЦИЯ БД ПОЛЬЗОВАТЕЛЕЙ ==========
+usersModule.initUsersDb();
 
-app.get('/taskpane.css', (req, res) => {
-  res.type('text/css');
-  res.sendFile(path.join(__dirname, 'src/taskpane', 'taskpane.css'));
-});
+// ========== НАСТРОЙКА ПУТЕЙ ==========
+const ASSETS_DIR = process.env.ASSETS_DIR || path.join(__dirname, 'assets');
 
-app.get('/taskpane.js', (req, res) => {
-  res.type('application/javascript');
-  res.sendFile(path.join(__dirname, 'src/taskpane', 'taskpane.js'));
-});
-
-app.use('/assets', express.static(path.join(__dirname, 'assets')));
-app.use(express.static(__dirname)); 
-app.use(express.static(path.join(__dirname, 'src/taskpane')));
-
-const upload = multer({ storage: multer.memoryStorage() });
-
-const slidesDir = path.join(__dirname, 'assets', 'slides');
-const previewsDir = path.join(__dirname, 'assets', 'previews');
-const catalogPath = path.join(__dirname, 'assets', 'catalog.json');
+const slidesDir = path.join(ASSETS_DIR, 'slides');
+const previewsDir = path.join(ASSETS_DIR, 'previews');
+const catalogPath = path.join(ASSETS_DIR, 'catalog.json');
 const tileFolders = {
-  photos: path.join(__dirname, 'assets', 'photos'),
-  illustrations: path.join(__dirname, 'assets', 'illustrations'),
-  icons: path.join(__dirname, 'assets', 'icons'),
-  logos: path.join(__dirname, 'assets', 'logos')
+  photos: path.join(ASSETS_DIR, 'photos'),
+  illustrations: path.join(ASSETS_DIR, 'illustrations'),
+  icons: path.join(ASSETS_DIR, 'icons'),
+  logos: path.join(ASSETS_DIR, 'logos')
 };
 
+// ========== СОЗДАНИЕ ПАПОК ==========
 function ensureDirectories() {
-  const dirs = [slidesDir, previewsDir, ...Object.values(tileFolders)];
+  const dirs = [ASSETS_DIR, slidesDir, previewsDir, ...Object.values(tileFolders)];
   dirs.forEach(dir => {
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir, { recursive: true });
@@ -87,6 +79,7 @@ function ensureDirectories() {
 }
 ensureDirectories();
 
+// ========== СОЗДАНИЕ ПУСТОГО КАТАЛОГА ==========
 if (!fs.existsSync(catalogPath)) {
   const emptyCatalog = {
     version: new Date().toISOString().slice(0, 7),
@@ -98,9 +91,10 @@ if (!fs.existsSync(catalogPath)) {
   console.log('📄 Создан пустой catalog.json');
 }
 
-if (!fs.existsSync(SOFFICE_PATH)) console.error('❌ LibreOffice не найден по пути:', SOFFICE_PATH);
-if (!fs.existsSync(PDFTOPPM_PATH)) console.error('❌ Poppler не найден по пути:', PDFTOPPM_PATH);
+if (SOFFICE_PATH && !fs.existsSync(SOFFICE_PATH)) console.error('❌ LibreOffice не найден по пути:', SOFFICE_PATH);
+if (PDFTOPPM_PATH && !fs.existsSync(PDFTOPPM_PATH)) console.error('❌ Poppler не найден по пути:', PDFTOPPM_PATH);
 
+// ========== ГЕНЕРАЦИЯ ПРЕВЬЮ ==========
 function generatePreviewsForPptx(pptxPath) {
   const baseName = path.parse(pptxPath).name;
   const outPdf = path.join(previewsDir, `${baseName}.pdf`);
@@ -134,6 +128,7 @@ function generatePreviewsForPptx(pptxPath) {
   });
 }
 
+// ========== СИНХРОНИЗАЦИЯ КАТАЛОГА ==========
 async function syncCatalog() {
   console.log('Синхронизация каталога...');
 
@@ -173,7 +168,9 @@ async function syncCatalog() {
         lastUpdated: new Date().toISOString().slice(0, 7),
         approved: false,
         approvedBy: '-',
-        color: '#2688EB'
+        color: '#2688EB',
+        scope: 'public',
+        kind: 'presentations'
       };
       catalog.slides.push(newSlide);
       changed = true;
@@ -223,7 +220,150 @@ async function syncCatalog() {
   }
 }
 
-app.post('/api/upload', upload.single('file'), (req, res) => {
+// ========== EXPRESS APP ==========
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+// ========== СТАТИКА ==========
+app.get('/taskpane.css', (req, res) => {
+  res.type('text/css');
+  res.sendFile(path.join(__dirname, 'src/taskpane', 'taskpane.css'));
+});
+
+app.get('/taskpane.js', (req, res) => {
+  res.type('application/javascript');
+  res.sendFile(path.join(__dirname, 'src/taskpane', 'taskpane.js'));
+});
+
+app.use('/assets', express.static(ASSETS_DIR));
+app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, 'src/taskpane')));
+
+// Заглушка для favicon (убирает 404 в консоли)
+app.get('/favicon.ico', (req, res) => res.status(204).end());
+
+// ========== MULTER ==========
+const upload = multer({ storage: multer.memoryStorage() });
+
+// ========== АВТОРИЗАЦИЯ ==========
+
+// Вход по email
+app.post('/api/auth/login', async (req, res) => {
+  const { email } = req.body || {};
+  if (!email || typeof email !== 'string') {
+    return res.status(400).json({ error: 'Email обязателен' });
+  }
+  try {
+    const user = await usersModule.findUser(email);
+    if (!user) {
+      return res.status(403).json({ error: 'Email не найден в базе сотрудников' });
+    }
+    await usersModule.updateLastLogin(user.email);
+    res.json({
+      success: true,
+      user: { email: user.email, name: user.name, role: user.role }
+    });
+  } catch (err) {
+    console.error('Ошибка входа:', err);
+    res.status(500).json({ error: 'Ошибка сервера' });
+  }
+});
+
+// Проверка авторизации (для авто-входа)
+app.get('/api/auth/check', async (req, res) => {
+  const email = (req.headers['x-user-email'] || '').toString();
+  if (!email) return res.status(401).json({ error: 'Не авторизован' });
+  try {
+    const user = await usersModule.findUser(email);
+    if (!user) return res.status(401).json({ error: 'Не авторизован' });
+    res.json({ success: true, user: { email: user.email, name: user.name, role: user.role } });
+  } catch (err) {
+    res.status(500).json({ error: 'Ошибка сервера' });
+  }
+});
+
+// Мидлвар для защиты API
+async function requireAuth(req, res, next) {
+  const email = (req.headers['x-user-email'] || '').toString();
+  if (!email) return res.status(401).json({ error: 'Требуется авторизация' });
+  try {
+    const user = await usersModule.findUser(email);
+    if (!user) return res.status(401).json({ error: 'Не авторизован' });
+    req.user = user;
+    next();
+  } catch (err) {
+    res.status(500).json({ error: 'Ошибка сервера' });
+  }
+}
+
+// Мидлвар для роутов, доступных только администратору
+function requireAdmin(req, res, next) {
+  if (!req.user || req.user.role !== 'admin') {
+    return res.status(403).json({ error: 'Требуются права администратора' });
+  }
+  next();
+}
+
+// ========== АДМИНИСТРИРОВАНИЕ СОТРУДНИКОВ ==========
+// Список сотрудников (только для admin)
+app.get('/api/admin/users', requireAuth, requireAdmin, async (req, res) => {
+  try {
+    const users = await usersModule.getAllUsers();
+    res.json({ users });
+  } catch (err) {
+    console.error('Ошибка получения списка пользователей:', err);
+    res.status(500).json({ error: 'Ошибка сервера' });
+  }
+});
+
+// Добавить или обновить сотрудника (только для admin)
+app.post('/api/admin/users', requireAuth, requireAdmin, async (req, res) => {
+  const { email, name, role } = req.body || {};
+  if (!email || typeof email !== 'string') {
+    return res.status(400).json({ error: 'Email обязателен' });
+  }
+  try {
+    await usersModule.addUser(email, name || '', role === 'admin' ? 'admin' : 'user');
+    res.json({ success: true });
+  } catch (err) {
+    console.error('Ошибка добавления пользователя:', err);
+    res.status(500).json({ error: 'Ошибка сервера' });
+  }
+});
+
+// Деактивировать сотрудника (только для admin)
+app.delete('/api/admin/users/:email', requireAuth, requireAdmin, async (req, res) => {
+  try {
+    const result = await usersModule.removeUser(req.params.email);
+    res.json(result);
+  } catch (err) {
+    console.error('Ошибка удаления пользователя:', err);
+    res.status(500).json({ error: 'Ошибка сервера' });
+  }
+});
+
+// ========== КАТАЛОГ ==========
+app.get('/api/catalog', requireAuth, async (req, res) => {
+  try {
+    if (!fs.existsSync(catalogPath)) {
+      return res.json({ slides: [], tiles: [] });
+    }
+    const catalog = JSON.parse(fs.readFileSync(catalogPath, 'utf8'));
+    const scope = req.query.scope || 'public';
+
+    const slides = (catalog.slides || []).filter(s => (s.scope || 'public') === scope);
+    const tiles = (catalog.tiles || []).filter(t => (t.scope || 'public') === scope);
+
+    res.json({ slides, tiles });
+  } catch (err) {
+    console.error('Ошибка чтения каталога:', err);
+    res.status(500).json({ error: 'Ошибка чтения каталога' });
+  }
+});
+
+// ========== ЗАГРУЗКА ФАЙЛА ==========
+app.post('/api/upload', requireAuth, upload.single('file'), (req, res) => {
   const { name, tags, category } = req.body;
   const fileBuffer = req.file?.buffer;
 
@@ -275,8 +415,10 @@ app.post('/api/upload', upload.single('file'), (req, res) => {
         previews: previews,
         lastUpdated: new Date().toISOString().slice(0, 7),
         approved: false,
-        approvedBy: '-',
-        color: '#2688EB'
+        approvedBy: req.user.email,
+        color: '#2688EB',
+        scope: 'public',
+        kind: 'presentations'
       };
 
       catalog.slides.push(newSlide);
@@ -287,7 +429,8 @@ app.post('/api/upload', upload.single('file'), (req, res) => {
   });
 });
 
-app.get('/api/sync', async (req, res) => {
+// ========== СИНХРОНИЗАЦИЯ ==========
+app.get('/api/sync', requireAuth, async (req, res) => {
   try {
     await syncCatalog();
     res.json({ success: true, message: 'Каталог синхронизирован' });
@@ -296,12 +439,15 @@ app.get('/api/sync', async (req, res) => {
   }
 });
 
+// ========== ЗАПУСК СЕРВЕРА ==========
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`✅ Сервер запущен на http://0.0.0.0:${PORT}`);
+  console.log(`📁 Папка assets: ${ASSETS_DIR}`);
   syncCatalog().catch(e => console.error('Ошибка синхронизации:', e));
 });
 
+// ========== СЛЕЖЕНИЕ ЗА ИЗМЕНЕНИЯМИ ==========
 const debounce = (fn, delay) => {
   let timer;
   return (...args) => {

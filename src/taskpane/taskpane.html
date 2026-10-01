@@ -12,7 +12,32 @@
 <body>
     <div id="app">
 
-        <div id="mainView" class="view">
+        <!-- ============ ЭКРАН ВХОДА ============ -->
+        <div id="loginView" class="view">
+            <div class="top-shell">
+                <div class="topbar">
+                    <h2 class="topbar__title">Slidebrary</h2>
+                </div>
+            </div>
+
+            <div class="filters-body" id="loginBody" style="justify-content:center; flex:1;">
+                <p class="section__label" style="margin-bottom:0;">Войдите по рабочей почте, чтобы открыть библиотеку
+                </p>
+                <div class="filter-field">
+                    <label class="filter-field__label" for="loginEmailInput">Рабочая почта</label>
+                    <input type="email" id="loginEmailInput" class="upload-name-input" placeholder="you@company.com"
+                        autocomplete="email" />
+                </div>
+                <p id="loginError" class="status status--error" style="display:none;"></p>
+            </div>
+
+            <div class="footer-actions">
+                <button id="loginSubmitBtn" class="btn btn--primary is-active" style="flex:1;">Войти</button>
+            </div>
+        </div>
+
+        <!-- ============ ОСНОВНОЙ ЭКРАН ============ -->
+        <div id="mainView" class="view" style="display:none;">
 
             <div class="top-shell">
                 <div class="topbar">
@@ -128,7 +153,12 @@
             <div class="cabinet-body">
                 <div class="cabinet-field">
                     <label>Почта</label>
-                    <p id="cabinetEmail" class="cabinet-value">maryankof@mail.ru</p>
+                    <p id="cabinetEmail" class="cabinet-value">—</p>
+                </div>
+
+                <div class="cabinet-field">
+                    <label>Роль</label>
+                    <p id="cabinetRole" class="cabinet-value cabinet-value--muted">—</p>
                 </div>
 
                 <div class="cabinet-field">
@@ -185,17 +215,13 @@
 
                 <div class="cabinet-field">
                     <label>Последний вход</label>
-                    <p id="cabinetLastLogin" class="cabinet-value cabinet-value--muted">2 апреля 2025 г. 23:14:06</p>
-                </div>
-
-                <div class="cabinet-field">
-                    <label>Файл индексации данных. Обновлён</label>
-                    <p id="cabinetIndexUpdated" class="cabinet-value cabinet-value--muted">2 ноября 2025 г. 23:16:06</p>
+                    <p id="cabinetLastLogin" class="cabinet-value cabinet-value--muted">—</p>
                 </div>
             </div>
 
             <div class="cabinet-footer">
                 <button id="cabinetCancelBtn" class="btn btn--secondary">Отменить</button>
+                <button id="cabinetLogoutBtn" class="btn btn--secondary">Выйти</button>
                 <button id="cabinetSaveBtn" class="btn btn--primary is-active">Сохранить</button>
             </div>
         </div>

@@ -3,6 +3,8 @@ FROM node:18-slim
 RUN apt-get update && apt-get install -y \
     libreoffice \
     poppler-utils \
+    build-essential \
+    python3 \
     && apt-get clean
 
 WORKDIR /app

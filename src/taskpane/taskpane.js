@@ -1,17 +1,8 @@
 let slides = [];
 let tiles = [];
 
-async function loadCatalog() {
-  try {
-    const response = await fetch('/assets/catalog.json');
-    const catalogData = await response.json();
-    slides = catalogData.slides || catalogData || [];
-    tiles = (catalogData.tiles && Array.isArray(catalogData.tiles)) ? [...catalogData.tiles] : [];
-    renderAll();
-  } catch (e) {
-    console.error('Ошибка загрузки каталога:', e);
-  }
-}
+// Примечание: функция loadCatalog() определена ниже, рядом с refreshCatalogData —
+// обе используют авторизованный роут /api/catalog, а не статику /assets/catalog.json напрямую.
 
 const ICONS = {
   back1: '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.47 4.217a.75.75 0 0 0 0 1.06L12.185 10 7.469 14.72a.75.75 0 1 0 1.062 1.06l5.245-5.25a.75.75 0 0 0 0-1.061L8.531 4.218a.75.75 0 0 0-1.061-.001z" fill="currentColor"/></svg>',
@@ -185,11 +176,18 @@ const $cabinetBackBtn = document.getElementById('cabinetBackBtn');
 const $closeCabinetBtn = document.getElementById('closeCabinetBtn');
 const $cabinetCancelBtn = document.getElementById('cabinetCancelBtn');
 const $cabinetSaveBtn = document.getElementById('cabinetSaveBtn');
+const $cabinetLogoutBtn = document.getElementById('cabinetLogoutBtn');
 const $cabinetFolderBtn = document.getElementById('cabinetFolderBtn');
 const $cabinetFolderLabel = document.getElementById('cabinetFolderLabel');
 const $downloadLibraryBtn = document.getElementById('downloadLibraryBtn');
 const $downloadSuggestionsBtn = document.getElementById('downloadSuggestionsBtn');
 const $folderImportInput = document.getElementById('folderImportInput');
+
+// ===== ЭКРАН ВХОДА =====
+const $loginView = document.getElementById('loginView');
+const $loginEmailInput = document.getElementById('loginEmailInput');
+const $loginSubmitBtn = document.getElementById('loginSubmitBtn');
+const $loginError = document.getElementById('loginError');
 
 const storageImpl = (typeof OfficeRuntime !== 'undefined' && OfficeRuntime.storage) 
     ? {
@@ -206,6 +204,105 @@ const storageImpl = (typeof OfficeRuntime !== 'undefined' && OfficeRuntime.stora
     : null;
 
 const hasStorage = !!storageImpl;
+
+// ===== АВТОРИЗАЦИЯ: состояние и функции =====
+// Адрес сервера. При необходимости замените на реальный домен/IP при деплое.
+const API_BASE = 'http://localhost:3001';
+
+let currentUser = null; // { email, name, role }
+
+function authHeaders() {
+  return currentUser ? { 'x-user-email': currentUser.email } : {};
+}
+
+function showLoginView() {
+  $loginView.style.display = 'flex';
+  $mainView.style.display = 'none';
+}
+
+function showMainView() {
+  $loginView.style.display = 'none';
+  $mainView.style.display = 'flex';
+  updateCabinetUserInfo();
+  bootstrapAppData();
+}
+
+function updateCabinetUserInfo() {
+  const emailEl = document.getElementById('cabinetEmail');
+  const roleEl = document.getElementById('cabinetRole');
+  const lastLoginEl = document.getElementById('cabinetLastLogin');
+  if (!currentUser) return;
+  if (emailEl) emailEl.textContent = currentUser.email;
+  if (roleEl) roleEl.textContent = currentUser.role === 'admin' ? 'Администратор' : 'Сотрудник';
+  if (lastLoginEl) lastLoginEl.textContent = new Date().toLocaleString('ru-RU');
+}
+
+async function tryAutoLogin() {
+  if (!hasStorage) return false;
+  try {
+    const savedEmail = await storageImpl.getItem('sl_user_email');
+    if (!savedEmail) return false;
+    const res = await fetch(`${API_BASE}/api/auth/check`, {
+      headers: { 'x-user-email': savedEmail }
+    });
+    if (!res.ok) return false;
+    const data = await res.json();
+    currentUser = data.user;
+    return true;
+  } catch (e) {
+    console.warn('[Slidebrary] Автовход не удался:', e);
+    return false;
+  }
+}
+
+async function doLogin(email) {
+  $loginError.style.display = 'none';
+  $loginSubmitBtn.disabled = true;
+  $loginSubmitBtn.textContent = 'Входим…';
+  try {
+    const res = await fetch(`${API_BASE}/api/auth/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email })
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(data.error || 'Ошибка входа');
+    currentUser = data.user;
+    if (hasStorage) await storageImpl.setItem('sl_user_email', currentUser.email);
+    showMainView();
+  } catch (err) {
+    $loginError.textContent = '❌ ' + err.message;
+    $loginError.style.display = 'block';
+  } finally {
+    $loginSubmitBtn.disabled = false;
+    $loginSubmitBtn.textContent = 'Войти';
+  }
+}
+
+async function doLogout() {
+  currentUser = null;
+  if (hasStorage) await storageImpl.removeItem('sl_user_email');
+  stopAutoSync();
+  closeCabinetView();
+  $loginEmailInput.value = '';
+  showLoginView();
+}
+
+if ($loginSubmitBtn) {
+  $loginSubmitBtn.addEventListener('click', () => {
+    const email = $loginEmailInput.value.trim();
+    if (!email) return;
+    doLogin(email);
+  });
+}
+if ($loginEmailInput) {
+  $loginEmailInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter') $loginSubmitBtn.click();
+  });
+}
+if ($cabinetLogoutBtn) {
+  $cabinetLogoutBtn.addEventListener('click', () => doLogout());
+}
 
 async function loadFromStorage() {
   if (!hasStorage) return;
@@ -1086,14 +1183,17 @@ function renderTemplatesPanel() {
     return;
   }
   const items = getDeckSlides('templates');
-  $grid.className = 'grid grid--list';
+  // ИСПРАВЛЕНО: раньше здесь всегда стоял класс 'grid grid--list' и mode: 'list',
+  // из-за чего кнопка переключения вида ничего не переключала.
+  const isList = viewMode === 'list';
+  $grid.className = 'grid' + (isList ? ' grid--list' : '');
   if (!items.length) {
     $grid.innerHTML = `<p class="empty">${activeScope === 'personal' ? 'В личном пока пусто — выберите папку в личном кабинете или загрузите свой шаблон' : 'Макеты появятся здесь'}</p>`;
     return;
   }
   $grid.innerHTML = '';
   items.forEach(item => $grid.appendChild(buildCard(item, {
-    mode: 'list',
+    mode: isList ? 'list' : 'grid',
     selected: selectedIds.has(item.id),
     dots: true,
   })));
@@ -1623,6 +1723,7 @@ $applyFiltersBtn.addEventListener('click', () => {
 });
 
 function openCabinetView() {
+  updateCabinetUserInfo();
   $mainView.style.display = 'none';
   $cabinetView.style.display = 'flex';
 }
@@ -1721,12 +1822,31 @@ function mapServerAssetPath(path) {
   if (!path) return path;
   if (typeof path !== 'string') return path;
   if (path.startsWith('http')) return path;
-  return 'http://localhost:3001/' + path;
+  return API_BASE + '/' + path;
+}
+
+// ===== Загрузка каталога (авторизованный роут /api/catalog) =====
+async function loadCatalog() {
+  try {
+    const [pubRes, persRes] = await Promise.all([
+      fetch(`${API_BASE}/api/catalog?scope=public`, { headers: authHeaders(), cache: 'no-store' }),
+      fetch(`${API_BASE}/api/catalog?scope=personal`, { headers: authHeaders(), cache: 'no-store' }),
+    ]);
+    const pubData = pubRes.ok ? await pubRes.json() : { slides: [], tiles: [] };
+    const persData = persRes.ok ? await persRes.json() : { slides: [], tiles: [] };
+    // Личные записи, которые лежат только локально (storageImpl), подмешиваем отдельно в loadLibraryDecksFromStorage()
+    slides = [...(pubData.slides || []), ...(persData.slides || [])];
+    tiles = [...(pubData.tiles || []), ...(persData.tiles || [])];
+    renderAll();
+  } catch (e) {
+    console.error('Ошибка загрузки каталога:', e);
+    setStatus('⚠️ Не удалось загрузить каталог с сервера (сервер запущен?)', 'error');
+  }
 }
 
 async function refreshCatalogData() {
   try {
-    const response = await fetch('http://localhost:3001/assets/catalog.json', { cache: 'no-store' });
+    const response = await fetch(`${API_BASE}/api/catalog?scope=public`, { headers: authHeaders(), cache: 'no-store' });
     if (response.ok) {
       const data = await response.json();
       const publicSlides = data.slides || [];
@@ -1749,16 +1869,20 @@ let catalogSyncInterval = null;
 function startAutoSync() {
   if (catalogSyncInterval) return;
   catalogSyncInterval = setInterval(async () => {
+    if (!currentUser) return;
     try {
-      const response = await fetch('http://localhost:3001/assets/catalog.json', { cache: 'no-store' });
+      const response = await fetch(`${API_BASE}/api/catalog?scope=public`, { headers: authHeaders(), cache: 'no-store' });
       if (response.ok) {
         const data = await response.json();
-        const newSlides = data.slides || data;
+        const newSlides = data.slides || [];
         const newTiles = data.tiles || [];
-        
-        const slidesChanged = JSON.stringify(slides) !== JSON.stringify(newSlides);
-        const tilesChanged = JSON.stringify(tiles) !== JSON.stringify(newTiles);
-        
+
+        const currentPublicSlides = slides.filter(s => (s.scope || 'public') === 'public');
+        const currentPublicTiles = tiles.filter(t => (t.scope || 'public') === 'public');
+
+        const slidesChanged = JSON.stringify(currentPublicSlides) !== JSON.stringify(newSlides);
+        const tilesChanged = JSON.stringify(currentPublicTiles) !== JSON.stringify(newTiles);
+
         if (slidesChanged || tilesChanged) {
           await refreshCatalogData();
         }
@@ -1767,7 +1891,12 @@ function startAutoSync() {
   }, 5000);
 }
 
-startAutoSync();
+function stopAutoSync() {
+  if (catalogSyncInterval) {
+    clearInterval(catalogSyncInterval);
+    catalogSyncInterval = null;
+  }
+}
 
 async function movePersonalToPublic(itemId) {
   const item = slides.find(s => s.id === itemId) || tiles.find(t => t.id === itemId);
@@ -1800,8 +1929,9 @@ async function movePersonalToPublic(itemId) {
     formData.append('tags', JSON.stringify(item.tags || []));
     formData.append('category', item.category || 'Без категории');
 
-    const response = await fetch('http://localhost:3001/api/upload', {
+    const response = await fetch(`${API_BASE}/api/upload`, {
       method: 'POST',
+      headers: authHeaders(),
       body: formData
     });
 
@@ -2367,10 +2497,22 @@ document.addEventListener('keydown', e => {
 
 if ($closeBtn) $closeBtn.addEventListener('click', () => setStatus('Закрыть панель можно из ленты PowerPoint', ''));
 
-async function init() {
+// ===== Инициализация после успешного входа =====
+async function bootstrapAppData() {
   await loadFromStorage();
   await loadLibraryDecksFromStorage();
-  await loadCatalog(); 
+  await loadCatalog();
+  startAutoSync();
+}
+
+// ===== Точка входа приложения =====
+async function init() {
+  const isLoggedIn = await tryAutoLogin();
+  if (isLoggedIn) {
+    showMainView();
+  } else {
+    showLoginView();
+  }
 }
 
 Office.onReady(() => {

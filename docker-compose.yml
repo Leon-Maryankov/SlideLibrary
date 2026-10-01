@@ -4,9 +4,13 @@ services:
     ports:
       - "3001:3001"
     volumes:
-      - ./assets:/app/assets
+      - C:/Users/nskra/Google Drive/SlideLibraryAssets:/app/assets
       - ./src/taskpane:/app/src/taskpane
+      - ./data:/app/data
     environment:
       - SOFFICE_PATH=/usr/bin/soffice
       - PDFTOPPM_PATH=/usr/bin/pdftoppm
+      - ASSETS_DIR=/app/assets
+      - ADMIN_EMAIL=maryankof@gmail.com
+      - ADMIN_NAME=Leonid
     restart: unless-stopped

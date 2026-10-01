@@ -27,6 +27,7 @@
     "start-server": "node server.js"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.117.2",
     "@vkontakte/icons": "^3.64.1",
     "core-js": "^3.36.0",
     "cors": "^2.8.5",
